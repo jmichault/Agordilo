@@ -19,6 +19,7 @@
 #include <qsqldatabase.h> 
 #include <qvbox.h>
 #include <qworkspace.h>
+#include <qtextcodec.h>
 #include "form1.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,7 +33,16 @@ int main( int argc, char ** argv )
 {
  QApplication a( argc, argv );
  int ret;
+        // translation file for Qt
+        QTranslator qt( 0 );
+        qt.load( QString( "qt_" ) + QTextCodec::locale(), "." );
+        a.installTranslator( &qt );
 
+        // translation file for application strings
+        QTranslator myapp( 0 );
+        if (!myapp.load( QString( "accordeur_" ) + QTextCodec::locale(), "/usr/share/accordeur" ))
+        myapp.load( QString( "accordeur_" ) + QTextCodec::locale(), "." );
+        a.installTranslator( &myapp );
  Form1 w;
   wMain = &w;
   w.show();
