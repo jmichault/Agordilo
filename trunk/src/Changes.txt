@@ -1,8 +1,11 @@
+version 0.3.0 :
+- add guitar support
+
 version 0.2.0 :
 - add english support
 - add install
 
 version 0.1.0 :
-- affichage du spectre analysé
-- affichage de la note reconnue
-- affichage de la note reconnue dans la zone autour de la note en cours d'accord.
+- display spectrum
+- display pitch of highest peak in the spectruml
+- display pitch of highest peak near of desired pitch.
