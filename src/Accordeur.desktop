@@ -1,11 +1,12 @@
-[Accordeur Entry]
-Name=Apollon
-Comment=Tuner
-GenericName=Accordeur - Tuner
-Exec=accordeur
+[Desktop Entry]
+Name=Accordeur
+Comment=Tuner for music instruments
+Exec=/usr/bin/accordeur
+Terminal=false
 Type=Application
-Terminal=0
-Icon=accordeur.png
+Name[fr_FR]=Accordeur
+Name[fr]=Accordeur
+Comment[fr_FR]=Outil pour accorder des instruments de musique
+Comment[fr]=Outil pour accorder des instruments de musique
 Categories=Qt;KDE;Sound
-Comment[fr]=Accordeur
-Comment[fr_FR]=Accordeur
+Icon=accordeur.png
