@@ -8,165 +8,13 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>990</width>
-            <height>551</height>
+            <width>960</width>
+            <height>622</height>
         </rect>
     </property>
     <property name="caption">
         <string>Accordeur</string>
     </property>
-    <widget class="QSlider">
-        <property name="name">
-            <cstring>SNote</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>40</x>
-                <y>460</y>
-                <width>170</width>
-                <height>16</height>
-            </rect>
-        </property>
-        <property name="maxValue">
-            <number>11</number>
-        </property>
-        <property name="orientation">
-            <enum>Horizontal</enum>
-        </property>
-    </widget>
-    <widget class="QSpinBox">
-        <property name="name">
-            <cstring>SPOctave</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>170</x>
-                <y>420</y>
-                <width>40</width>
-                <height>30</height>
-            </rect>
-        </property>
-        <property name="maxValue">
-            <number>6</number>
-        </property>
-        <property name="minValue">
-            <number>0</number>
-        </property>
-        <property name="value">
-            <number>4</number>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel6</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>170</x>
-                <y>390</y>
-                <width>90</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>Octave :</string>
-        </property>
-    </widget>
-    <widget class="QComboBox">
-        <item>
-            <property name="text">
-                <string>A</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>A#</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>B</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>C</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>C#</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>D</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>D#</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>E</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>F</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>F#</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>G</string>
-            </property>
-        </item>
-        <item>
-            <property name="text">
-                <string>G#</string>
-            </property>
-        </item>
-        <property name="name">
-            <cstring>CBNote</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>40</x>
-                <y>420</y>
-                <width>101</width>
-                <height>30</height>
-            </rect>
-        </property>
-        <property name="sizeLimit">
-            <number>12</number>
-        </property>
-    </widget>
-    <widget class="QPushButton">
-        <property name="name">
-            <cstring>PBBruit</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>30</x>
-                <y>490</y>
-                <width>240</width>
-                <height>31</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>Calibrate background sound</string>
-        </property>
-        <property name="toolTip" stdset="0">
-            <string>Push this to evaluate background's spectrum !</string>
-        </property>
-    </widget>
     <widget class="QFrame">
         <property name="name">
             <cstring>frameGraph</cstring>
@@ -188,37 +36,37 @@
     </widget>
     <widget class="QLabel">
         <property name="name">
-            <cstring>TLNote</cstring>
+            <cstring>TLFreqId</cstring>
         </property>
         <property name="geometry">
             <rect>
-                <x>130</x>
+                <x>400</x>
                 <y>320</y>
-                <width>40</width>
+                <width>70</width>
                 <height>21</height>
             </rect>
         </property>
         <property name="text">
-            <string>XXX</string>
+            <string>00000.00</string>
         </property>
     </widget>
-    <widget class="QLabel">
+    <widget class="QPushButton">
         <property name="name">
-            <cstring>textLabel4</cstring>
+            <cstring>PBBruit</cstring>
         </property>
         <property name="geometry">
             <rect>
-                <x>182</x>
-                <y>319</y>
-                <width>90</width>
-                <height>21</height>
+                <x>22</x>
+                <y>359</y>
+                <width>240</width>
+                <height>31</height>
             </rect>
         </property>
         <property name="text">
-            <string>Frequence :</string>
+            <string>Calibrate background sound</string>
         </property>
-        <property name="alignment">
-            <set>AlignVCenter|AlignRight</set>
+        <property name="toolTip" stdset="0">
+            <string>Push this to evaluate background's spectrum !</string>
         </property>
     </widget>
     <widget class="QLabel">
@@ -227,7 +75,7 @@
         </property>
         <property name="geometry">
             <rect>
-                <x>3</x>
+                <x>23</x>
                 <y>320</y>
                 <width>110</width>
                 <height>21</height>
@@ -246,41 +94,9 @@
         </property>
         <property name="geometry">
             <rect>
-                <x>290</x>
+                <x>310</x>
                 <y>370</y>
                 <width>73</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>00000.00</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>TLFreq2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>290</x>
-                <y>350</y>
-                <width>73</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>00000.00</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>TLFreqId</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>380</x>
-                <y>320</y>
-                <width>70</width>
                 <height>21</height>
             </rect>
         </property>
@@ -294,7 +110,7 @@
         </property>
         <property name="geometry">
             <rect>
-                <x>290</x>
+                <x>310</x>
                 <y>320</y>
                 <width>72</width>
                 <height>21</height>
@@ -304,21 +120,391 @@
             <string>00000.00</string>
         </property>
     </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel4</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>202</x>
+                <y>319</y>
+                <width>90</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Frequence :</string>
+        </property>
+        <property name="alignment">
+            <set>AlignVCenter|AlignRight</set>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TLFreq2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>310</x>
+                <y>350</y>
+                <width>73</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>00000.00</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TLNote</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>150</x>
+                <y>320</y>
+                <width>40</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>XXX</string>
+        </property>
+    </widget>
+    <widget class="QTabWidget">
+        <property name="name">
+            <cstring>tabWidget2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>400</y>
+                <width>650</width>
+                <height>190</height>
+            </rect>
+        </property>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>tab</cstring>
+            </property>
+            <attribute name="title">
+                <string>Piano</string>
+            </attribute>
+            <widget class="QLabel">
+                <property name="name">
+                    <cstring>textLabel6</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>180</x>
+                        <y>10</y>
+                        <width>90</width>
+                        <height>21</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Octave :</string>
+                </property>
+            </widget>
+            <widget class="QComboBox">
+                <item>
+                    <property name="text">
+                        <string>C</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>C#</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>D</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>D#</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>E</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>F</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>F#</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>G</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>G#</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>A</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>A#</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>B</string>
+                    </property>
+                </item>
+                <property name="name">
+                    <cstring>CBNote</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>50</x>
+                        <y>50</y>
+                        <width>101</width>
+                        <height>30</height>
+                    </rect>
+                </property>
+                <property name="currentItem">
+                    <number>9</number>
+                </property>
+                <property name="sizeLimit">
+                    <number>12</number>
+                </property>
+            </widget>
+            <widget class="QSpinBox">
+                <property name="name">
+                    <cstring>SPOctave</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>180</x>
+                        <y>50</y>
+                        <width>40</width>
+                        <height>30</height>
+                    </rect>
+                </property>
+                <property name="maxValue">
+                    <number>8</number>
+                </property>
+                <property name="minValue">
+                    <number>0</number>
+                </property>
+                <property name="value">
+                    <number>4</number>
+                </property>
+            </widget>
+            <widget class="QSlider">
+                <property name="name">
+                    <cstring>SNote</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>50</x>
+                        <y>90</y>
+                        <width>170</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property name="maxValue">
+                    <number>11</number>
+                </property>
+                <property name="value">
+                    <number>9</number>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+            </widget>
+        </widget>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>tab</cstring>
+            </property>
+            <attribute name="title">
+                <string>Others</string>
+            </attribute>
+            <widget class="QButtonGroup">
+                <property name="name">
+                    <cstring>BGStrings</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>40</x>
+                        <y>0</y>
+                        <width>280</width>
+                        <height>150</height>
+                    </rect>
+                </property>
+                <property name="title">
+                    <string>Strings</string>
+                </property>
+                <widget class="QRadioButton">
+                    <property name="name">
+                        <cstring>RBString1</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>20</y>
+                            <width>171</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>E3</string>
+                    </property>
+                    <property name="checked">
+                        <bool>true</bool>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>0</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton">
+                    <property name="name">
+                        <cstring>RBString2</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>40</y>
+                            <width>171</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>A3</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton">
+                    <property name="name">
+                        <cstring>RBString3</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>60</y>
+                            <width>171</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>D4</string>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>2</number>
+                    </property>
+                </widget>
+                <widget class="QRadioButton">
+                    <property name="name">
+                        <cstring>RBString4</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>80</y>
+                            <width>171</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>G4</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton">
+                    <property name="name">
+                        <cstring>RBString5</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>100</y>
+                            <width>171</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>B4</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton">
+                    <property name="name">
+                        <cstring>RBString6</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>120</y>
+                            <width>171</width>
+                            <height>20</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>E5</string>
+                    </property>
+                    <property name="checked">
+                        <bool>false</bool>
+                    </property>
+                    <property name="buttonGroupId">
+                        <number>5</number>
+                    </property>
+                </widget>
+            </widget>
+            <widget class="QComboBox">
+                <item>
+                    <property name="text">
+                        <string>Guitar 6 strings</string>
+                    </property>
+                </item>
+                <property name="name">
+                    <cstring>CBInstrument</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>369</x>
+                        <y>12</y>
+                        <width>181</width>
+                        <height>31</height>
+                    </rect>
+                </property>
+            </widget>
+        </widget>
+    </widget>
 </widget>
 <toolbars>
 </toolbars>
 <connections>
     <connection>
-        <sender>SPOctave</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>Form1</receiver>
-        <slot>SPOctave_valueChanged(int)</slot>
-    </connection>
-    <connection>
         <sender>CBNote</sender>
         <signal>activated(int)</signal>
         <receiver>Form1</receiver>
         <slot>CBNote_activated(int)</slot>
+    </connection>
+    <connection>
+        <sender>PBBruit</sender>
+        <signal>clicked()</signal>
+        <receiver>Form1</receiver>
+        <slot>PBBruit_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>SPOctave</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>SPOctave_valueChanged(int)</slot>
     </connection>
     <connection>
         <sender>SNote</sender>
@@ -327,10 +513,16 @@
         <slot>SNote_valueChanged(int)</slot>
     </connection>
     <connection>
-        <sender>PBBruit</sender>
-        <signal>clicked()</signal>
+        <sender>BGStrings</sender>
+        <signal>pressed(int)</signal>
         <receiver>Form1</receiver>
-        <slot>PBBruit_clicked()</slot>
+        <slot>BGStrings_pressed(int)</slot>
+    </connection>
+    <connection>
+        <sender>tabWidget2</sender>
+        <signal>currentChanged(QWidget*)</signal>
+        <receiver>Form1</receiver>
+        <slot>tabWidget2_currentChanged(QWidget*)</slot>
     </connection>
 </connections>
 <includes>
@@ -342,6 +534,8 @@
     <slot>CBNote_activated( int note )</slot>
     <slot>SNote_valueChanged( int note )</slot>
     <slot>PBBruit_clicked()</slot>
+    <slot>BGStrings_pressed( int id )</slot>
+    <slot>tabWidget2_currentChanged( QWidget * )</slot>
 </slots>
 <functions>
     <function access="private" specifier="non virtual">init()</function>
