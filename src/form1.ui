@@ -13,38 +13,25 @@
         </rect>
     </property>
     <property name="caption">
-        <string>Form1</string>
+        <string>Accordeur</string>
     </property>
-    <widget class="QLabel">
+    <widget class="QSlider">
         <property name="name">
-            <cstring>textLabel3</cstring>
+            <cstring>SNote</cstring>
         </property>
         <property name="geometry">
             <rect>
-                <x>10</x>
-                <y>329</y>
-                <width>43</width>
-                <height>21</height>
+                <x>40</x>
+                <y>460</y>
+                <width>170</width>
+                <height>16</height>
             </rect>
         </property>
-        <property name="text">
-            <string>Note :</string>
+        <property name="maxValue">
+            <number>11</number>
         </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel4</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>160</x>
-                <y>329</y>
-                <width>72</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>Fréquence :</string>
+        <property name="orientation">
+            <enum>Horizontal</enum>
         </property>
     </widget>
     <widget class="QSpinBox">
@@ -53,8 +40,8 @@
         </property>
         <property name="geometry">
             <rect>
-                <x>140</x>
-                <y>380</y>
+                <x>170</x>
+                <y>420</y>
                 <width>40</width>
                 <height>30</height>
             </rect>
@@ -75,49 +62,14 @@
         </property>
         <property name="geometry">
             <rect>
-                <x>20</x>
-                <y>380</y>
-                <width>100</width>
+                <x>170</x>
+                <y>390</y>
+                <width>90</width>
                 <height>21</height>
             </rect>
         </property>
         <property name="text">
-            <string>Octave cible :</string>
-        </property>
-    </widget>
-    <widget class="QFrame">
-        <property name="name">
-            <cstring>frameGraph</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>970</width>
-                <height>310</height>
-            </rect>
-        </property>
-        <property name="frameShape">
-            <enum>StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-            <enum>Raised</enum>
-        </property>
-    </widget>
-    <widget class="QPushButton">
-        <property name="name">
-            <cstring>PBBruit</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>60</x>
-                <y>469</y>
-                <width>240</width>
-                <height>31</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>Calibrer le bruit</string>
+            <string>Octave :</string>
         </property>
     </widget>
     <widget class="QComboBox">
@@ -186,8 +138,8 @@
         </property>
         <property name="geometry">
             <rect>
-                <x>260</x>
-                <y>430</y>
+                <x>40</x>
+                <y>420</y>
                 <width>101</width>
                 <height>30</height>
             </rect>
@@ -196,23 +148,42 @@
             <number>12</number>
         </property>
     </widget>
-    <widget class="QSlider">
+    <widget class="QPushButton">
         <property name="name">
-            <cstring>SNote</cstring>
+            <cstring>PBBruit</cstring>
         </property>
         <property name="geometry">
             <rect>
-                <x>240</x>
-                <y>400</y>
-                <width>170</width>
-                <height>16</height>
+                <x>30</x>
+                <y>490</y>
+                <width>240</width>
+                <height>31</height>
             </rect>
         </property>
-        <property name="maxValue">
-            <number>11</number>
+        <property name="text">
+            <string>Calibrate background sound</string>
         </property>
-        <property name="orientation">
-            <enum>Horizontal</enum>
+        <property name="toolTip" stdset="0">
+            <string>Push this to evaluate background's spectrum !</string>
+        </property>
+    </widget>
+    <widget class="QFrame">
+        <property name="name">
+            <cstring>frameGraph</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>970</width>
+                <height>310</height>
+            </rect>
+        </property>
+        <property name="frameShape">
+            <enum>StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+            <enum>Raised</enum>
         </property>
     </widget>
     <widget class="QLabel">
@@ -221,8 +192,8 @@
         </property>
         <property name="geometry">
             <rect>
-                <x>60</x>
-                <y>330</y>
+                <x>130</x>
+                <y>320</y>
                 <width>40</width>
                 <height>21</height>
             </rect>
@@ -233,12 +204,82 @@
     </widget>
     <widget class="QLabel">
         <property name="name">
+            <cstring>textLabel4</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>182</x>
+                <y>319</y>
+                <width>90</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Frequence :</string>
+        </property>
+        <property name="alignment">
+            <set>AlignVCenter|AlignRight</set>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel3</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>3</x>
+                <y>320</y>
+                <width>110</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Found Pitch :</string>
+        </property>
+        <property name="alignment">
+            <set>AlignVCenter|AlignRight</set>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TLFreq3</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>290</x>
+                <y>370</y>
+                <width>73</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>00000.00</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TLFreq2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>290</x>
+                <y>350</y>
+                <width>73</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>00000.00</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
             <cstring>TLFreqId</cstring>
         </property>
         <property name="geometry">
             <rect>
-                <x>340</x>
-                <y>330</y>
+                <x>380</x>
+                <y>320</y>
                 <width>70</width>
                 <height>21</height>
             </rect>
@@ -253,41 +294,9 @@
         </property>
         <property name="geometry">
             <rect>
-                <x>250</x>
-                <y>330</y>
+                <x>290</x>
+                <y>320</y>
                 <width>72</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>00000.00</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>TLFreq2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>250</x>
-                <y>349</y>
-                <width>73</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>00000.00</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>TLFreq3</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>250</x>
-                <y>370</y>
-                <width>73</width>
                 <height>21</height>
             </rect>
         </property>
