@@ -24,7 +24,6 @@ LIBFILES:= ./pa_common/pa_lib.c ./pa_unix_oss/pa_unix_oss.c
 
 .c.o:
 	-gcc -c -I./pa_common $< -o $*.o
-	-gcc $*.o -o $* -Lpa_unix_oss $(LIBS) -lportaudio
 
 #all: sharedlib staticlib tests
 all: staticlib
@@ -46,5 +45,6 @@ clean:
 	-@rm -f $(TESTS:.c=)
 	-@rm -f $(LIBFILES:.c=.o)
 	-@rm -f ./pa_unix_oss/libportaudio.so
+	-@rm -f ./pa_unix_oss/libportaudio.a
 
 
