@@ -1,0 +1,11 @@
+[Accordeur Entry]
+Name=Apollon
+Comment=Tuner
+GenericName=Accordeur - Tuner
+Exec=accordeur
+Type=Application
+Terminal=0
+Icon=accordeur.png
+Categories=Qt;KDE;Sound
+Comment[fr]=Accordeur
+Comment[fr_FR]=Accordeur
