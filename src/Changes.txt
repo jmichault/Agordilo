@@ -1,3 +1,9 @@
+version 0.4.0 :
+ - add help
+ - add about
+ - add visual bar.
+ - correct bug in parabole compute.
+
 version 0.3.0 :
 - add guitar support
 

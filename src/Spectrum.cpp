@@ -222,7 +222,8 @@ char *PitchName(int pitch, bool flats)
       break;
    }
 
-   sprintf(p, "%d", ((pitch + 3) / 12) - 2);
+//   sprintf(p, "%d", ((pitch + 3) / 12) - 2);
+   sprintf(p, "%d", ((pitch ) / 12) - 1);
 
    return gPitchName;
 }
@@ -297,20 +298,11 @@ float bestPeak(float *mProcessed,  // IN
                                            mProcessed[leftbin + 3],
                                            &thispeak_y);
 
-//       float max = leftbin + Parabole(&mProcessed[leftbin],4);
-       // printf("Max is %.2f\n", max);
-
-       //       float thispeak_x = max / mRate;
        float thispeak_x = max;
-
-       //printf("thispeak_x is %.2f\n", thispeak_x);
 
        if (thispeak_y > highestpeak_y) {
          highestpeak_x = thispeak_x;
          highestpeak_y = thispeak_y;
-
-         //printf("New highest peak: x %.2f y %.2f\n",
-         //       highestpeak_x, highestpeak_y);
        }
      }
      up = nowUp;
@@ -346,13 +338,12 @@ float Parabole(float *y, int nb, float *maxyVal)
   mxy /= nb;
   mx2y /= nb;
   mx3y /= nb;
-  a=  ((mx2y+mx2*my)*(mx2-mx*mx)-(mxy-mx*my)*(mx3-mx*mx2))
+  a=  ((mx2y-mx2*my)*(mx2-mx*mx)-(mxy-mx*my)*(mx3-mx2*mx))
      /((mx4-mx2*mx2)*(mx2-mx*mx)-(mx3-mx*mx2)*(mx3-mx*mx2));
   b=  (mxy-mx*my-a*(mx3-mx*mx2))/(mx2-mx*mx);
   c = my-a*mx2-b*mx;
   highX = (-b/(2*a));
   *maxyVal = a*highX*highX+b*highX+c;
-//  printf("a=%f,b=%f,c=%f,x=%f,y=%f,y[4]=%f\n",a,b,c,highX,*maxyVal,y[4]);
   return (-b/(2*a));
 }
 
@@ -362,47 +353,29 @@ float bestPeak2(float *mProcessed,  // IN
                ) {
    float highestpeak_y = 0;
    float highestpeak_x = 0;
+   int iMaxX=0;
+   int bin;
 
    bool up = (mProcessed[1] > mProcessed[0]);
-   for (int bin = 2; bin < mProcessedSize; bin++) {
+   for ( bin = 2; bin < mProcessedSize; bin++) {
      bool nowUp = mProcessed[bin] > mProcessed[bin - 1];
      if (!nowUp && up) {
-       // Local maximum.  Find actual value by cubic interpolation
-       //printf("Local peak at bin %d\n", bin);
-       int leftbin = bin-1;
-       while (leftbin>1 && mProcessed[leftbin-1]>mProcessed[bin-1]/3)
-	       leftbin--;
-       int nb = (bin-leftbin)*2-1;
-/*
-       int leftbin = bin - 4;
-       if (leftbin < 0)
-         leftbin = 0;
-*/
-       float thispeak_y;
-//       float max = leftbin + Parabole(&mProcessed[leftbin],7,&thispeak_y);
-       float max = leftbin + Parabole(&mProcessed[leftbin],nb,&thispeak_y);
-//       printf("leftbin is %d Max is %.2f y is %f\n",leftbin, max,thispeak_y);
-
-       //       float thispeak_x = max / mRate;
-       float thispeak_x = max;
-
-       //printf("thispeak_x is %.2f\n", thispeak_x);
-
-//       if (thispeak_y > highestpeak_y) {
        if (mProcessed[bin-1] > highestpeak_y) {
-         highestpeak_x = thispeak_x;
-//         highestpeak_y = thispeak_y;
          highestpeak_y = mProcessed[bin-1];
-
-//         printf("New highest peak: x %.2f y %.2f\n",
-//                highestpeak_x, highestpeak_y);
-//for(int i=leftbin ; i<leftbin+7 ; i++)
-//	printf(" x[%d]=%f ",i,mProcessed[i]);
-//printf("\n\tmax=%f,%f,%f\n",max-leftbin,max,mRate/max);
+	 iMaxX = bin-1;
        }
      }
      up = nowUp;
    }
-
-   return highestpeak_x;
+   // cherche le pic par recherche de la parabole la plus proche.
+   int leftbin = iMaxX-1;
+   while (    leftbin>1
+	   && leftbin >(iMaxX-20)
+	   && mProcessed[leftbin-1]>mProcessed[iMaxX]/2
+	   )
+      leftbin--;
+   int nb = (iMaxX-leftbin)*2+1;
+   float thispeak_y;
+   float max = leftbin + Parabole(&mProcessed[leftbin],nb,&thispeak_y);
+   return max;
 }

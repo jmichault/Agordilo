@@ -245,7 +245,7 @@ analyzeAudio(paRecData& data, int numSamples,
                          WindowSize /* window size in samples */,
                          &autocorr, autocorrLen)) {
       /* Find the tallest peak, and print its frequency and pitch */
-      float bestpeak_x = bestPeak(autocorr, autocorrLen, sample_rate);
+      float bestpeak_x = bestPeak2(autocorr, autocorrLen, sample_rate);
       if (bestpeak_x > 0) {
         bestpeak_freq = sample_rate / bestpeak_x;
 

@@ -2,3 +2,5 @@ cp -p accordeur /usr/bin
 cp -p Accordeur.desktop /usr/share/applnk-mdk/Multimedia/Sound/
 mkdir /usr/share/accordeur
 cp -p accordeur_*.qm /usr/share/accordeur
+mkdir /usr/share/doc/accordeur
+cp -Rp doc/* /usr/share/doc/accordeur
