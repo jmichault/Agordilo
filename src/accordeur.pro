@@ -8,7 +8,9 @@ unix {
   OBJECTS_DIR = .obj
 }
 TRANSLATIONS = accordeur_fr.ts
-FORMS	= form1.ui
+FORMS	= form1.ui \
+	fabout.ui \
+	fhelp.ui
 TEMPLATE	=app
 CONFIG	+= qt warn_on release thread
 INCLUDEPATH	+= lib/portaudio/pa_common
