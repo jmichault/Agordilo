@@ -1,0 +1,343 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>Form1</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>Form1</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>990</width>
+            <height>551</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel3</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>329</y>
+                <width>43</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Note :</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel4</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>160</x>
+                <y>329</y>
+                <width>72</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Fréquence :</string>
+        </property>
+    </widget>
+    <widget class="QSpinBox">
+        <property name="name">
+            <cstring>SPOctave</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>140</x>
+                <y>380</y>
+                <width>40</width>
+                <height>30</height>
+            </rect>
+        </property>
+        <property name="maxValue">
+            <number>6</number>
+        </property>
+        <property name="minValue">
+            <number>0</number>
+        </property>
+        <property name="value">
+            <number>4</number>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel6</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>20</x>
+                <y>380</y>
+                <width>100</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Octave cible :</string>
+        </property>
+    </widget>
+    <widget class="QFrame">
+        <property name="name">
+            <cstring>frameGraph</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>970</width>
+                <height>310</height>
+            </rect>
+        </property>
+        <property name="frameShape">
+            <enum>StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+            <enum>Raised</enum>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>PBBruit</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>60</x>
+                <y>469</y>
+                <width>240</width>
+                <height>31</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Calibrer le bruit</string>
+        </property>
+    </widget>
+    <widget class="QComboBox">
+        <item>
+            <property name="text">
+                <string>A</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>A#</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>B</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>C</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>C#</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>D</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>D#</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>E</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>F</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>F#</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>G</string>
+            </property>
+        </item>
+        <item>
+            <property name="text">
+                <string>G#</string>
+            </property>
+        </item>
+        <property name="name">
+            <cstring>CBNote</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>260</x>
+                <y>430</y>
+                <width>101</width>
+                <height>30</height>
+            </rect>
+        </property>
+        <property name="sizeLimit">
+            <number>12</number>
+        </property>
+    </widget>
+    <widget class="QSlider">
+        <property name="name">
+            <cstring>SNote</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>240</x>
+                <y>400</y>
+                <width>170</width>
+                <height>16</height>
+            </rect>
+        </property>
+        <property name="maxValue">
+            <number>11</number>
+        </property>
+        <property name="orientation">
+            <enum>Horizontal</enum>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TLNote</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>60</x>
+                <y>330</y>
+                <width>40</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>XXX</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TLFreqId</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>340</x>
+                <y>330</y>
+                <width>70</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>00000.00</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TLFreq</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>250</x>
+                <y>330</y>
+                <width>72</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>00000.00</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TLFreq2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>250</x>
+                <y>349</y>
+                <width>73</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>00000.00</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TLFreq3</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>250</x>
+                <y>370</y>
+                <width>73</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>00000.00</string>
+        </property>
+    </widget>
+</widget>
+<toolbars>
+</toolbars>
+<connections>
+    <connection>
+        <sender>SPOctave</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>SPOctave_valueChanged(int)</slot>
+    </connection>
+    <connection>
+        <sender>CBNote</sender>
+        <signal>activated(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>CBNote_activated(int)</slot>
+    </connection>
+    <connection>
+        <sender>SNote</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>SNote_valueChanged(int)</slot>
+    </connection>
+    <connection>
+        <sender>PBBruit</sender>
+        <signal>clicked()</signal>
+        <receiver>Form1</receiver>
+        <slot>PBBruit_clicked()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">form1.ui.h</include>
+</includes>
+<slots>
+    <slot>timerEvent( QTimerEvent * e )</slot>
+    <slot>SPOctave_valueChanged( int newval )</slot>
+    <slot>CBNote_activated( int note )</slot>
+    <slot>SNote_valueChanged( int note )</slot>
+    <slot>PBBruit_clicked()</slot>
+</slots>
+<functions>
+    <function access="private" specifier="non virtual">init()</function>
+    <function access="private" specifier="non virtual">destroy()</function>
+</functions>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
