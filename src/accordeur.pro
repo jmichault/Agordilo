@@ -7,7 +7,7 @@ unix {
   MOC_DIR = .moc
   OBJECTS_DIR = .obj
 }
-TRANSLATIONS = accordeur_fr.ts
+TRANSLATIONS = accordeur_fr.ts accordeur_ge.ts
 FORMS	= form1.ui \
 	fabout.ui \
 	fhelp.ui
