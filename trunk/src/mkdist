@@ -5,6 +5,7 @@ cd tmp
 mkdir accordeur
 mkdir accordeur/.ui accordeur/.obj accordeur/.moc
 cp -Rp ../lib accordeur
+cp -Rp ../doc accordeur
 cd accordeur/lib/portaudio
 make clean
 cd ../../../..
@@ -16,7 +17,7 @@ rm -rf accordeur
 
 mkdir accordeur
 cd ..
-cp -p Accordeur.desktop *.qm *.txt accordeur install tmp/accordeur
+cp -Rp Accordeur.desktop *.qm *.txt doc accordeur install tmp/accordeur
 cd tmp
 strip accordeur/accordeur
 tar zcf ../accordeur-${VERSION}.tar.gz accordeur
