@@ -1,0 +1,25 @@
+VERSION=0.2.0
+
+mkdir tmp
+cd tmp
+mkdir accordeur
+mkdir accordeur/.ui accordeur/.obj accordeur/.moc
+cp -Rp ../lib accordeur
+cd accordeur/lib/portaudio
+make clean
+cd ../../../..
+cp -p *.cpp *.h *.txt *.pro *.ui  *.qm *.ts *.desktop Makefile install tmp/accordeur
+cd tmp
+tar zcf ../accordeur-${VERSION}.src.tar.gz accordeur
+
+rm -rf accordeur
+
+mkdir accordeur
+cd ..
+cp -p Accordeur.desktop *.qm *.txt accordeur install tmp/accordeur
+cd tmp
+strip accordeur/accordeur
+tar zcf ../accordeur-${VERSION}.tar.gz accordeur
+cd ..
+
+rm -rf tmp
