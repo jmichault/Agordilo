@@ -1,0 +1,105 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>FAbout</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>FAbout</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>299</width>
+            <height>301</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>About...</string>
+    </property>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>pushButton4</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>80</x>
+                <y>250</y>
+                <width>131</width>
+                <height>41</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>OK</string>
+        </property>
+        <property name="default">
+            <bool>true</bool>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>30</y>
+                <width>300</width>
+                <height>171</height>
+            </rect>
+        </property>
+        <property name="sizePolicy">
+            <sizepolicy>
+                <hsizetype>4</hsizetype>
+                <vsizetype>7</vsizetype>
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+            </sizepolicy>
+        </property>
+        <property name="text">
+            <string>&lt;p align="center"&gt;- Accordeur -&lt;/p&gt;
+&lt;p align="center"&gt;Instrument tuner&lt;/p&gt;
+&lt;p align="center"&gt;Version 0.4.0&lt;/p&gt;
+&lt;p align="center"&gt;License : GPL&lt;/p&gt;
+&lt;p align="center"&gt;http://accordeur.sourceforge.net&lt;/p&gt;
+</string>
+        </property>
+    </widget>
+    <widget class="Line">
+        <property name="name">
+            <cstring>line1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>220</y>
+                <width>280</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="frameShape">
+            <enum>HLine</enum>
+        </property>
+        <property name="frameShadow">
+            <enum>Sunken</enum>
+        </property>
+        <property name="orientation">
+            <enum>Horizontal</enum>
+        </property>
+    </widget>
+</widget>
+<connections>
+    <connection>
+        <sender>pushButton4</sender>
+        <signal>clicked()</signal>
+        <receiver>FAbout</receiver>
+        <slot>pushButton4_clicked()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">fabout.ui.h</include>
+</includes>
+<slots>
+    <slot>pushButton4_clicked()</slot>
+</slots>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
