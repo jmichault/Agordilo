@@ -1,0 +1,22 @@
+pour compiler accordeur sous windows :
+
+Installer qt pour mingw : suivre les instructions à :
+	http://kde-cygwin.sourceforge.net/qt3-win32/compile-mingw.php
+		installer mingw
+			http://prdownloads.sourceforge.net/mingw/MinGW-3.2.0-rc-3.exe?download
+		télécharger les sources de qt :
+			http://webdev.cegit.de/snapshots/kde-cygwin/qt/qt-win-free-3.3.3-2005-04-16-src.tar.bz2
+		compiler qt :
+			set QTDIR=c:\qt-3
+			set MINGW=c:\mingw
+			set PATH=%QTDIR%\bin;%MINGW%\bin;%PATH%
+			set QMAKESPEC=win32-g++
+			cd \qt-3
+			configure.bat -fast
+
+pour compiler accordeur :
+	cd lib\portaudio
+	mingw32-make -f Makefile.cygwin
+	copy pa_win_wmme\portaudio.dll ..\..
+	cd ..\..
+	mingw32-make -f Makefile.win
