@@ -38,7 +38,7 @@
     </message>
     <message>
         <source>Calibrate background sound</source>
-        <translation type="unfinished">Calibrer le bruit de fond</translation>
+        <translation type="obsolete">Calibrer le bruit de fond</translation>
     </message>
     <message>
         <source>A</source>
@@ -118,7 +118,7 @@
     </message>
     <message>
         <source>near perfect :</source>
-        <translation type="unfinished">près du parfait :</translation>
+        <translation type="obsolete">près du parfait :</translation>
     </message>
     <message>
         <source>Perfect :</source>
@@ -138,26 +138,6 @@
     </message>
     <message>
         <source>E4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>A4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>D5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>G5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>B5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>E6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -207,6 +187,42 @@
     <message>
         <source>&amp;About</source>
         <translation type="unfinished">&amp;A propos</translation>
+    </message>
+    <message>
+        <source>E2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>D3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>G3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>B3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>diff. :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>near desired pitch :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calibrate background noise</source>
+        <translation type="unfinished">Calibrer le bruit de fond</translation>
     </message>
 </context>
 </TS>

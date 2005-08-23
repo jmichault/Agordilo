@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>Form1</class>
 <widget class="QMainWindow">
     <property name="name">
@@ -153,6 +153,79 @@
         </property>
         <property name="frameShadow">
             <enum>Raised</enum>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>TLCent</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>660</x>
+                <y>360</y>
+                <width>73</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>0000.00</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel1_2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>580</x>
+                <y>360</y>
+                <width>73</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>diff. :</string>
+        </property>
+        <property name="alignment">
+            <set>AlignVCenter|AlignRight</set>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel1_2_2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>750</x>
+                <y>360</y>
+                <width>73</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>cent</string>
+        </property>
+        <property name="alignment">
+            <set>AlignVCenter|AlignLeft</set>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>361</x>
+                <y>360</y>
+                <width>120</width>
+                <height>21</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>near desired pitch :</string>
+        </property>
+        <property name="alignment">
+            <set>AlignVCenter|AlignRight</set>
         </property>
     </widget>
     <widget class="QTabWidget">
@@ -468,79 +541,6 @@
             </widget>
         </widget>
     </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>TLCent</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>660</x>
-                <y>360</y>
-                <width>73</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>0000.00</string>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel1_2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>580</x>
-                <y>360</y>
-                <width>73</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>diff. :</string>
-        </property>
-        <property name="alignment">
-            <set>AlignVCenter|AlignRight</set>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel1_2_2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>750</x>
-                <y>360</y>
-                <width>73</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>cent</string>
-        </property>
-        <property name="alignment">
-            <set>AlignVCenter|AlignLeft</set>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel2</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>301</x>
-                <y>360</y>
-                <width>180</width>
-                <height>21</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>near desired pitch :</string>
-        </property>
-        <property name="alignment">
-            <set>AlignVCenter|AlignRight</set>
-        </property>
-    </widget>
     <widget class="QPushButton">
         <property name="name">
             <cstring>PBBruit</cstring>
@@ -549,7 +549,7 @@
             <rect>
                 <x>22</x>
                 <y>359</y>
-                <width>240</width>
+                <width>170</width>
                 <height>31</height>
             </rect>
         </property>
@@ -558,6 +558,22 @@
         </property>
         <property name="toolTip" stdset="0">
             <string>Push this to evaluate background's spectrum !</string>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>pBA4</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>210</x>
+                <y>360</y>
+                <width>130</width>
+                <height>30</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Calibrate A4</string>
         </property>
     </widget>
 </widget>
@@ -698,6 +714,12 @@
         <receiver>Form1</receiver>
         <slot>helpIndexAction_activated()</slot>
     </connection>
+    <connection>
+        <sender>pBA4</sender>
+        <signal>clicked()</signal>
+        <receiver>Form1</receiver>
+        <slot>pBA4_clicked()</slot>
+    </connection>
 </connections>
 <includes>
     <include location="local" impldecl="in implementation">form1.ui.h</include>
@@ -715,6 +737,7 @@
     <slot>helpAboutAction_activated()</slot>
     <slot>helpContentsAction_activated()</slot>
     <slot>helpIndexAction_activated()</slot>
+    <slot>pBA4_clicked()</slot>
 </slots>
 <functions>
     <function access="private" specifier="non virtual">init()</function>
