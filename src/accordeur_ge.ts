@@ -134,11 +134,11 @@
     </message>
     <message>
         <source>near desired pitch :</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">nahe Ziel :</translation>
     </message>
     <message>
         <source>Calibrate background noise</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">kalibrieren Sie Nebengeräusch</translation>
     </message>
     <message>
         <source>Push this to evaluate background&apos;s spectrum !</source>
@@ -150,7 +150,7 @@
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Hilfe</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -162,11 +162,11 @@
     </message>
     <message>
         <source>Contents</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Inhalt</translation>
     </message>
     <message>
         <source>&amp;Contents...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Inhalt...</translation>
     </message>
     <message>
         <source>Index</source>
@@ -178,15 +178,15 @@
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Über</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Über</translation>
     </message>
     <message>
         <source>Calibrate A4</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">anpassen A4</translation>
     </message>
 </context>
 </TS>
