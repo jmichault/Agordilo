@@ -16,9 +16,22 @@
 &lt;p align=&quot;center&quot;&gt;License : GPL&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;http://accordeur.sourceforge.net&lt;/p&gt;
 </source>
-        <translation type="unfinished">&lt;p align=&quot;center&quot;&gt;- Accordeur -&lt;/p&gt;
+        <translation type="obsolete">&lt;p align=&quot;center&quot;&gt;- Accordeur -&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;pour accorder les instruments de musique&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;Version 0.4.0&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;License : GPL&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;http://accordeur.sourceforge.net&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p align=&quot;center&quot;&gt;- Accordeur -&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;Instrument tuner&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;Version 0.5.0&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;License : GPL&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;http://accordeur.sourceforge.net&lt;/p&gt;
+</source>
+        <translation type="unfinished">&lt;p align=&quot;center&quot;&gt;- Accordeur -&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;pour accorder les instruments de musique&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;Version 0.5.0&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;License : GPL&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;http://accordeur.sourceforge.net&lt;/p&gt;</translation>
     </message>
@@ -122,7 +135,7 @@
     </message>
     <message>
         <source>Perfect :</source>
-        <translation type="unfinished">Parfaite :</translation>
+        <translation type="unfinished">But :</translation>
     </message>
     <message>
         <source>Piano</source>
@@ -135,10 +148,6 @@
     <message>
         <source>Strings</source>
         <translation type="unfinished">Cordes</translation>
-    </message>
-    <message>
-        <source>E4</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Guitar 6 strings</source>
@@ -189,26 +198,6 @@
         <translation type="unfinished">&amp;A propos</translation>
     </message>
     <message>
-        <source>E2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>A2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>D3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>G3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>B3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>diff. :</source>
         <translation type="unfinished"></translation>
     </message>
@@ -218,11 +207,15 @@
     </message>
     <message>
         <source>near desired pitch :</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">près de la note :</translation>
     </message>
     <message>
         <source>Calibrate background noise</source>
         <translation type="unfinished">Calibrer le bruit de fond</translation>
+    </message>
+    <message>
+        <source>Calibrate A4</source>
+        <translation type="unfinished">calibrer le La 440</translation>
     </message>
 </context>
 </TS>

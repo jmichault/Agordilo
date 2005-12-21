@@ -228,6 +228,41 @@
             <set>AlignVCenter|AlignRight</set>
         </property>
     </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>PBBruit</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>22</x>
+                <y>359</y>
+                <width>170</width>
+                <height>31</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Calibrate background noise</string>
+        </property>
+        <property name="toolTip" stdset="0">
+            <string>Push this to evaluate background's spectrum !</string>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>pBA4</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>210</x>
+                <y>360</y>
+                <width>130</width>
+                <height>30</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Calibrate A4</string>
+        </property>
+    </widget>
     <widget class="QTabWidget">
         <property name="name">
             <cstring>tabWidget2</cstring>
@@ -394,133 +429,6 @@
             <attribute name="title">
                 <string>Others</string>
             </attribute>
-            <widget class="QButtonGroup">
-                <property name="name">
-                    <cstring>BGStrings</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>40</x>
-                        <y>0</y>
-                        <width>280</width>
-                        <height>150</height>
-                    </rect>
-                </property>
-                <property name="title">
-                    <string>Strings</string>
-                </property>
-                <widget class="QRadioButton">
-                    <property name="name">
-                        <cstring>RBString1</cstring>
-                    </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>10</x>
-                            <y>20</y>
-                            <width>171</width>
-                            <height>20</height>
-                        </rect>
-                    </property>
-                    <property name="text">
-                        <string>E2</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                    <property name="buttonGroupId">
-                        <number>0</number>
-                    </property>
-                </widget>
-                <widget class="QRadioButton">
-                    <property name="name">
-                        <cstring>RBString2</cstring>
-                    </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>10</x>
-                            <y>40</y>
-                            <width>171</width>
-                            <height>20</height>
-                        </rect>
-                    </property>
-                    <property name="text">
-                        <string>A2</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton">
-                    <property name="name">
-                        <cstring>RBString3</cstring>
-                    </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>10</x>
-                            <y>60</y>
-                            <width>171</width>
-                            <height>20</height>
-                        </rect>
-                    </property>
-                    <property name="text">
-                        <string>D3</string>
-                    </property>
-                    <property name="buttonGroupId">
-                        <number>2</number>
-                    </property>
-                </widget>
-                <widget class="QRadioButton">
-                    <property name="name">
-                        <cstring>RBString4</cstring>
-                    </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>10</x>
-                            <y>80</y>
-                            <width>171</width>
-                            <height>20</height>
-                        </rect>
-                    </property>
-                    <property name="text">
-                        <string>G3</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton">
-                    <property name="name">
-                        <cstring>RBString5</cstring>
-                    </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>10</x>
-                            <y>100</y>
-                            <width>171</width>
-                            <height>20</height>
-                        </rect>
-                    </property>
-                    <property name="text">
-                        <string>B3</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton">
-                    <property name="name">
-                        <cstring>RBString6</cstring>
-                    </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>10</x>
-                            <y>120</y>
-                            <width>171</width>
-                            <height>20</height>
-                        </rect>
-                    </property>
-                    <property name="text">
-                        <string>E4</string>
-                    </property>
-                    <property name="checked">
-                        <bool>false</bool>
-                    </property>
-                    <property name="buttonGroupId">
-                        <number>5</number>
-                    </property>
-                </widget>
-            </widget>
             <widget class="QComboBox">
                 <item>
                     <property name="text">
@@ -539,42 +447,23 @@
                     </rect>
                 </property>
             </widget>
+            <widget class="QButtonGroup">
+                <property name="name">
+                    <cstring>BGStrings</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>40</x>
+                        <y>0</y>
+                        <width>280</width>
+                        <height>150</height>
+                    </rect>
+                </property>
+                <property name="title">
+                    <string>Strings</string>
+                </property>
+            </widget>
         </widget>
-    </widget>
-    <widget class="QPushButton">
-        <property name="name">
-            <cstring>PBBruit</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>22</x>
-                <y>359</y>
-                <width>170</width>
-                <height>31</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>Calibrate background noise</string>
-        </property>
-        <property name="toolTip" stdset="0">
-            <string>Push this to evaluate background's spectrum !</string>
-        </property>
-    </widget>
-    <widget class="QPushButton">
-        <property name="name">
-            <cstring>pBA4</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>210</x>
-                <y>360</y>
-                <width>130</width>
-                <height>30</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>Calibrate A4</string>
-        </property>
     </widget>
 </widget>
 <menubar>
@@ -720,6 +609,12 @@
         <receiver>Form1</receiver>
         <slot>pBA4_clicked()</slot>
     </connection>
+    <connection>
+        <sender>CBInstrument</sender>
+        <signal>activated(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>CBInstrument_activated(int)</slot>
+    </connection>
 </connections>
 <includes>
     <include location="local" impldecl="in implementation">form1.ui.h</include>
@@ -738,6 +633,7 @@
     <slot>helpContentsAction_activated()</slot>
     <slot>helpIndexAction_activated()</slot>
     <slot>pBA4_clicked()</slot>
+    <slot>CBInstrument_activated( int numInstr )</slot>
 </slots>
 <functions>
     <function access="private" specifier="non virtual">init()</function>
