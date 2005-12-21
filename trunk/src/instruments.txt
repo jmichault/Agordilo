@@ -1,0 +1,149 @@
+## a line beginnig by "I " start a new instrument
+I Guitare 6 strings standard
+## then each line beginning by "S " describe a string for this instrument.
+S E2
+S A2
+S D3
+S G3
+S B3
+S E4
+I Balalaika Prima
+S E4
+S E4
+S A4
+I Balalaika Secunda
+S E3
+S E3
+S D4
+I Balalaika Alto
+S E3
+S E3
+S A3
+I Balalaika Bass
+S E2
+S A2
+S D3
+I Balalaika ContraBass
+S E1
+S A1
+S D2 
+I Banjo 4-String Tenor
+S C3
+S G3
+S D4
+S A4
+I Banjo 4-String Irish Tenor
+S G2
+S D3
+S A3
+S E4
+I Banjo 4-String Plectrum
+S C3
+S G3
+S B3
+S D4
+I Banjo 4-String Guitar
+S D3
+S G3
+S B3
+S E4
+I Banjo 4-String Open G
+S D3
+S G3
+S B3
+S D4
+I Banjo G
+S G4
+S D3
+S G3
+S B3
+S D4
+I Banjo C
+S G4
+S C3
+S G3
+S B3
+S D4
+I Banjo D
+S F#4
+S D3
+S F#3
+S A3
+S D4
+I Banjo Double C
+S G4
+S C3
+S G3
+S C4
+S D4
+I Bass Guitar 4 strings Standard
+S E1
+S A1
+S D2
+S G2
+I Bass Guitar 5-String Standard
+S B0
+S E1
+S A1
+S D2
+S G2
+I Bass Guitar 6-String Standard
+S B0
+S E1
+S A1
+S D2
+S G2
+S C3
+I Bass Guitar 7-String Standard
+S B0
+S E1
+S A1
+S D2
+S G2
+S C3
+S F3
+I Bass Guitar 8-String Standard
+S F#0
+S B0
+S E1
+S A1
+S D2
+S G2
+S C3
+S F3
+I Bouzouki Greek
+S C3
+S F3
+S A3
+S D4
+I Bouzouki Irish
+S G2
+S D3
+S A3
+S D4
+I Charango
+S G4
+S C5
+S E4
+S A4
+S E5
+I Mandolin
+S G3
+S D4
+S A4
+S E5
+I Violin
+S G3
+S D4
+S A4
+S E5
+I Viola
+S C3
+S G3
+S D4
+S A4
+I Cello
+S C2
+S G2
+S D3
+S A3

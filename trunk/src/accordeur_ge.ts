@@ -12,7 +12,7 @@
     <message>
         <source>&lt;p align=&quot;center&quot;&gt;- Accordeur -&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;Instrument tuner&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;Version 0.4.0&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;Version 0.5.0&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;License : GPL&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;http://accordeur.sourceforge.net&lt;/p&gt;
 </source>
@@ -117,30 +117,6 @@
         <translation>Seile</translation>
     </message>
     <message>
-        <source>E2</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>A2</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>D3</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>G3</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>B3</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>E4</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Guitar 6 strings</source>
         <translation>Gitarre 6 Seile</translation>
     </message>
@@ -206,6 +182,10 @@
     </message>
     <message>
         <source>&amp;About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Calibrate A4</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
