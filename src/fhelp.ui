@@ -148,9 +148,6 @@
         <slot>toolButton2_3_clicked()</slot>
     </connection>
 </connections>
-<includes>
-    <include location="local" impldecl="in implementation">fhelp.ui.h</include>
-</includes>
 <slots>
     <slot>toolButton2_clicked()</slot>
     <slot>toolButton2_2_clicked()</slot>

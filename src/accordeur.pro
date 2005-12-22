@@ -7,10 +7,7 @@ unix:LIBS	+= lib/portaudio/pa_unix_oss/libportaudio.a
 
 INCLUDEPATH	+= lib/portaudio/pa_common
 
-SOURCES	+= FFT.cpp \
-	Spectrum.cpp \
-	audiostreams.cpp \
-	main.cpp
+SOURCES	+= FFT.cpp Spectrum.cpp audiostreams.cpp main.cpp
 
 FORMS	= form1.ui \
 	fabout.ui \
