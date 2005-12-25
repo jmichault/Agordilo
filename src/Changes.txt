@@ -1,6 +1,7 @@
 version 0.5.0 :
  - add A4 calibration.
  - add german support.
+ - add configurable instruments (instruments.txt).
 version 0.4.0 :
  - add help
  - add about
@@ -16,5 +17,5 @@ version 0.2.0 :
 
 version 0.1.0 :
 - display spectrum
-- display pitch of highest peak in the spectruml
+- display pitch of highest peak in the spectrum
 - display pitch of highest peak near of desired pitch.
