@@ -1,3 +1,5 @@
+version 0.6.0 :
+ - ajout des tempéraments.
 version 0.5.0 :
  - ajout de la calibration du LA 440.
  - ajout de la langue allemande.
