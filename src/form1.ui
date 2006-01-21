@@ -429,6 +429,22 @@
             <attribute name="title">
                 <string>Others</string>
             </attribute>
+            <widget class="QButtonGroup">
+                <property name="name">
+                    <cstring>BGStrings</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>40</x>
+                        <y>0</y>
+                        <width>280</width>
+                        <height>150</height>
+                    </rect>
+                </property>
+                <property name="title">
+                    <string>Strings</string>
+                </property>
+            </widget>
             <widget class="QComboBox">
                 <item>
                     <property name="text">
@@ -447,20 +463,30 @@
                     </rect>
                 </property>
             </widget>
-            <widget class="QButtonGroup">
+        </widget>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>TabPage</cstring>
+            </property>
+            <attribute name="title">
+                <string>Temperaments</string>
+            </attribute>
+            <widget class="QComboBox">
+                <item>
+                    <property name="text">
+                        <string>None</string>
+                    </property>
+                </item>
                 <property name="name">
-                    <cstring>BGStrings</cstring>
+                    <cstring>CBTemperament</cstring>
                 </property>
                 <property name="geometry">
                     <rect>
-                        <x>40</x>
-                        <y>0</y>
-                        <width>280</width>
-                        <height>150</height>
+                        <x>20</x>
+                        <y>20</y>
+                        <width>181</width>
+                        <height>31</height>
                     </rect>
-                </property>
-                <property name="title">
-                    <string>Strings</string>
                 </property>
             </widget>
         </widget>
@@ -615,6 +641,12 @@
         <receiver>Form1</receiver>
         <slot>CBInstrument_activated(int)</slot>
     </connection>
+    <connection>
+        <sender>CBTemperament</sender>
+        <signal>activated(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>CBTemperament_activated(int)</slot>
+    </connection>
 </connections>
 <includes>
     <include location="local" impldecl="in implementation">form1.ui.h</include>
@@ -634,6 +666,7 @@
     <slot>helpIndexAction_activated()</slot>
     <slot>pBA4_clicked()</slot>
     <slot>CBInstrument_activated( int numInstr )</slot>
+    <slot>CBTemperament_activated( int numTemp )</slot>
 </slots>
 <functions>
     <function access="private" specifier="non virtual">init()</function>
