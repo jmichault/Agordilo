@@ -1,3 +1,5 @@
+version 0.6.0 :
+ - add temperaments.
 version 0.5.0 :
  - add A4 calibration.
  - add german support.
