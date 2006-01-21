@@ -216,22 +216,6 @@
                     <string>00000.00</string>
                 </property>
             </widget>
-            <widget class="QPushButton">
-                <property name="name">
-                    <cstring>pBA4</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>208</x>
-                        <y>41</y>
-                        <width>130</width>
-                        <height>30</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>Calibrate A4</string>
-                </property>
-            </widget>
             <widget class="QLabel">
                 <property name="name">
                     <cstring>textLabel1_2</cstring>
@@ -249,6 +233,25 @@
                 </property>
                 <property name="alignment">
                     <set>AlignVCenter|AlignRight</set>
+                </property>
+            </widget>
+            <widget class="QLabel">
+                <property name="name">
+                    <cstring>textLabel1_2_2</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>740</x>
+                        <y>40</y>
+                        <width>73</width>
+                        <height>21</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>cent</string>
+                </property>
+                <property name="alignment">
+                    <set>AlignVCenter|AlignLeft</set>
                 </property>
             </widget>
             <widget class="QPushButton">
@@ -270,23 +273,20 @@
                     <string>Push this to evaluate background's spectrum !</string>
                 </property>
             </widget>
-            <widget class="QLabel">
+            <widget class="QPushButton">
                 <property name="name">
-                    <cstring>textLabel1_2_2</cstring>
+                    <cstring>pBA4</cstring>
                 </property>
                 <property name="geometry">
                     <rect>
-                        <x>740</x>
-                        <y>40</y>
-                        <width>73</width>
-                        <height>21</height>
+                        <x>208</x>
+                        <y>41</y>
+                        <width>130</width>
+                        <height>30</height>
                     </rect>
                 </property>
                 <property name="text">
-                    <string>cent</string>
-                </property>
-                <property name="alignment">
-                    <set>AlignVCenter|AlignLeft</set>
+                    <string>Calibrate A4</string>
                 </property>
             </widget>
         </widget>
@@ -645,6 +645,60 @@
         <signal>activated()</signal>
         <receiver>Form1</receiver>
         <slot>helpIndexAction_activated()</slot>
+    </connection>
+    <connection>
+        <sender>PBBruit</sender>
+        <signal>clicked()</signal>
+        <receiver>Form1</receiver>
+        <slot>PBBruit_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>pBA4</sender>
+        <signal>clicked()</signal>
+        <receiver>Form1</receiver>
+        <slot>pBA4_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>CBNote</sender>
+        <signal>activated(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>CBNote_activated(int)</slot>
+    </connection>
+    <connection>
+        <sender>BGStrings</sender>
+        <signal>pressed(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>BGStrings_pressed(int)</slot>
+    </connection>
+    <connection>
+        <sender>CBInstrument</sender>
+        <signal>activated(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>CBInstrument_activated(int)</slot>
+    </connection>
+    <connection>
+        <sender>CBTemperament</sender>
+        <signal>activated(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>CBTemperament_activated(int)</slot>
+    </connection>
+    <connection>
+        <sender>SPOctave</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>SPOctave_valueChanged(int)</slot>
+    </connection>
+    <connection>
+        <sender>SNote</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>Form1</receiver>
+        <slot>SNote_valueChanged(int)</slot>
+    </connection>
+    <connection>
+        <sender>tabWidget2</sender>
+        <signal>currentChanged(QWidget*)</signal>
+        <receiver>Form1</receiver>
+        <slot>tabWidget2_currentChanged(QWidget*)</slot>
     </connection>
 </connections>
 <includes>
