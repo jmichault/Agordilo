@@ -188,5 +188,17 @@
         <source>Calibrate A4</source>
         <translation type="unfinished">anpassen A4</translation>
     </message>
+    <message>
+        <source>Auto Select String</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temperaments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

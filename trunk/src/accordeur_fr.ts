@@ -217,5 +217,21 @@
         <source>Calibrate A4</source>
         <translation type="unfinished">calibrer le La 440</translation>
     </message>
+    <message>
+        <source>Auto Select String</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temperaments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Guitare 6 strings standard</source>
+        <translation type="unfinished">Guitare 6 cordes standard</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
