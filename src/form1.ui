@@ -490,6 +490,22 @@
                             </rect>
                         </property>
                     </widget>
+                    <widget class="QButtonGroup">
+                        <property name="name">
+                            <cstring>BGStrings</cstring>
+                        </property>
+                        <property name="geometry">
+                            <rect>
+                                <x>40</x>
+                                <y>0</y>
+                                <width>280</width>
+                                <height>150</height>
+                            </rect>
+                        </property>
+                        <property name="title">
+                            <string>Strings</string>
+                        </property>
+                    </widget>
                     <widget class="QCheckBox">
                         <property name="name">
                             <cstring>CBAuto</cstring>
@@ -505,21 +521,8 @@
                         <property name="text">
                             <string>Auto Select String</string>
                         </property>
-                    </widget>
-                    <widget class="QButtonGroup">
-                        <property name="name">
-                            <cstring>BGStrings</cstring>
-                        </property>
-                        <property name="geometry">
-                            <rect>
-                                <x>40</x>
-                                <y>0</y>
-                                <width>280</width>
-                                <height>150</height>
-                            </rect>
-                        </property>
-                        <property name="title">
-                            <string>Strings</string>
+                        <property name="checked">
+                            <bool>true</bool>
                         </property>
                     </widget>
                 </widget>
