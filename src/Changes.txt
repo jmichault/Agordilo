@@ -1,3 +1,5 @@
+version 0.7.0 :
+ - add string auto-selection
 version 0.6.0 :
  - add temperaments.
 version 0.5.0 :

@@ -27,12 +27,15 @@
 
 #include "audiostreams.h"
 
+QApplication *pApp;
+
 
 Form1 *wMain;
 int main( int argc, char ** argv )
 {
  QApplication a( argc, argv );
  int ret;
+   pApp=&a;
         // translation file for Qt
         QTranslator qt( 0 );
         qt.load( QString( "qt_" ) + QTextCodec::locale(), "." );
