@@ -353,4 +353,19 @@
         <translation>Violoncelle</translation>
     </message>
 </context>
+<context>
+    <name>Temperaments</name>
+    <message>
+        <source>pythagore A4=440</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Bach 1722 with A4=440</source>
+        <translation>Bach 1722 avec A4=440</translation>
+    </message>
+    <message>
+        <source>equal temperament with perfect fifths (Serge Cordier) with A4=440</source>
+        <translation>Temperament Egal à Quintes Justes (Serge Cordier) avec A4=440</translation>
+    </message>
+</context>
 </TS>

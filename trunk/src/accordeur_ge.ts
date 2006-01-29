@@ -230,4 +230,19 @@
     <message> <source>Viola</source> <translation type="unfinished"></translation> </message>
     <message> <source>Cello</source> <translation type="unfinished"></translation> </message>
 </context>
+<context>
+    <name>Temperaments</name>
+    <message>
+        <source>pythagore A4=440</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+	<source>Bach 1722 with A4=440</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+	<source>equal temperament with perfect fifths (Serge Cordier) with A4=440</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>
