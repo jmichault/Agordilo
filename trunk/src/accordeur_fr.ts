@@ -248,5 +248,109 @@
         <source>Guitare 6 strings standard</source>
         <translation>Guitare 6 cordes standard</translation>
     </message>
+    <message>
+        <source>Balalaika Prima</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Balalaika Secunda</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Balalaika Alto</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Balalaika Bass</source>
+        <translation>Balalaika Basse</translation>
+    </message>
+    <message>
+        <source>Balalaika ContraBass</source>
+        <translation>Balalaika Contrebasse</translation>
+    </message>
+    <message>
+        <source>Banjo 4-String Tenor</source>
+        <translation>Banjo 4 cordes ténor</translation>
+    </message>
+    <message>
+        <source>Banjo 4-String Irish Tenor</source>
+        <translation>Banjo 4 cordes ténor irlandais</translation>
+    </message>
+    <message>
+        <source>Banjo 4-String Plectrum</source>
+        <translation>Banjo 4 cordes plectrum</translation>
+    </message>
+    <message>
+        <source>Banjo 4-String Guitar</source>
+        <translation>Banjo 4 cordes Guitare</translation>
+    </message>
+    <message>
+        <source>Banjo 4-String Open G</source>
+        <translation>Banjo 4 cordes Open G</translation>
+    </message>
+    <message>
+        <source>Banjo G</source>
+        <translation>Banjo G</translation>
+    </message>
+    <message>
+        <source>Banjo C</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Banjo D</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Banjo Double C</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Bass Guitar 4 strings Standard</source>
+        <translation>Guitare Basse 4 cordes Standard</translation>
+    </message>
+    <message>
+        <source>Bass Guitar 5-String Standard</source>
+        <translation>Guitare Basse 5 cordes standard</translation>
+    </message>
+    <message>
+        <source>Bass Guitar 6-String Standard</source>
+        <translation>Guitare basse 6 cordes standard</translation>
+    </message>
+    <message>
+        <source>Bass Guitar 7-String Standard</source>
+        <translation>Guitare Basse 7 cordes standard</translation>
+    </message>
+    <message>
+        <source>Bass Guitar 8-String Standard</source>
+        <translation>Guitare Basse 8 cordes standard</translation>
+    </message>
+    <message>
+        <source>Bouzouki Greek</source>
+        <translation>Bouzouki grec</translation>
+    </message>
+    <message>
+        <source>Bouzouki Irish</source>
+        <translation>Bouzouki irlandais</translation>
+    </message>
+    <message>
+        <source>Charango</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Mandolin</source>
+        <translation>Mandoline</translation>
+    </message>
+    <message>
+        <source>Violin</source>
+        <translation>Violon</translation>
+    </message>
+    <message>
+        <source>Viola</source>
+        <translation>Alto</translation>
+    </message>
+    <message>
+        <source>Cello</source>
+        <translation>Violoncelle</translation>
+    </message>
 </context>
 </TS>
