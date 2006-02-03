@@ -12,7 +12,7 @@
     <message>
         <source>&lt;p align=&quot;center&quot;&gt;- Accordeur -&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;Instrument tuner&lt;/p&gt;
-&lt;p align=&quot;center&quot;&gt;Version 0.7.0&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;Version x.y.z&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;License : GPL&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;http://accordeur.sourceforge.net&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
