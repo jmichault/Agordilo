@@ -442,6 +442,25 @@
                             <enum>Horizontal</enum>
                         </property>
                     </widget>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>CBAuto_2</cstring>
+                        </property>
+                        <property name="geometry">
+                            <rect>
+                                <x>300</x>
+                                <y>60</y>
+                                <width>320</width>
+                                <height>21</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>Auto Select String</string>
+                        </property>
+                        <property name="checked">
+                            <bool>true</bool>
+                        </property>
+                    </widget>
                     <widget class="QSpinBox">
                         <property name="name">
                             <cstring>SPOctave</cstring>
@@ -455,7 +474,7 @@
                             </rect>
                         </property>
                         <property name="maxValue">
-                            <number>8</number>
+                            <number>9</number>
                         </property>
                         <property name="minValue">
                             <number>0</number>
