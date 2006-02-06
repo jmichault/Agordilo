@@ -118,7 +118,7 @@
         <translation></translation>
     </message>
     <message>
-        <source>Frequence :</source>
+        <source>Frequency :</source>
         <translation>Fréquence :</translation>
     </message>
     <message>

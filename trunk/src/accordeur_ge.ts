@@ -36,7 +36,7 @@
         <translation></translation>
     </message>
     <message>
-        <source>Frequence :</source>
+        <source>Frequency :</source>
         <translation>Frequenz :</translation>
     </message>
     <message>

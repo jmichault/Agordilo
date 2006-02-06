@@ -1,3 +1,8 @@
+version 0.9.0 :
+ - add string auto-selection limited to neighbor pitch
+ - port to Qt 4
+version 0.8.0 :
+ - add string auto-selection for piano
 version 0.7.0 :
  - add string auto-selection
 version 0.6.0 :

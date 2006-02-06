@@ -16,10 +16,11 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 #include <qapplication.h>
-#include <qsqldatabase.h> 
-#include <qvbox.h>
+#include <q3vbox.h>
 #include <qworkspace.h>
 #include <qtextcodec.h>
+//Added by qt3to4:
+#include <QTranslator>
 #include "form1.h"
 #include <stdio.h>
 #include <stdlib.h>
