@@ -11,7 +11,7 @@ rm -rf accordeur/doc/CVS accordeur/lib/CVS accordeur/lib/cvs
 cd accordeur/lib/portaudio
 make clean
 cd ../../../..
-cp -p *.cmd *.cpp *.h *.txt *.pro *.ui  *.qm *.ts *.desktop Makefile Makefile.win install mkdist tmp/accordeur
+cp -p *.cmd *.cpp *.h *.txt *.pro *.ui  *.qm *.ts *.desktop install mkdist tmp/accordeur
 cd tmp
 tar zcf ../accordeur-${VERSION}.src.tar.gz accordeur
 
