@@ -1,822 +1,648 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>Form1</class>
-<widget class="QMainWindow">
-    <property name="name">
-        <cstring>Form1</cstring>
+<ui version="4.0" >
+ <author></author>
+ <comment></comment>
+ <exportmacro></exportmacro>
+ <class>Form1</class>
+ <widget class="QMainWindow" name="Form1" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>978</width>
+    <height>677</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Accordeur</string>
+  </property>
+  <widget class="QWidget" name="widget" >
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>10</number>
     </property>
-    <property name="geometry">
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="0" column="0" >
+     <widget class="QFrame" name="frameGraph" >
+      <property name="frameShape" >
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow" >
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" >
+     <widget class="QFrame" name="frame4" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize" >
+       <size>
+        <width>0</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="maximumSize" >
+       <size>
+        <width>32767</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="frameShape" >
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow" >
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="TLFreqId" >
+       <property name="geometry" >
         <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>978</width>
-            <height>677</height>
+         <x>487</x>
+         <y>10</y>
+         <width>73</width>
+         <height>21</height>
         </rect>
-    </property>
-    <property name="caption">
-        <string>Accordeur</string>
-    </property>
-    <grid>
-        <property name="name">
-            <cstring>unnamed</cstring>
-        </property>
-        <widget class="QFrame" row="0" column="0">
-            <property name="name">
-                <cstring>frameGraph</cstring>
-            </property>
-            <property name="frameShape">
-                <enum>StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-                <enum>Raised</enum>
-            </property>
-        </widget>
-        <widget class="QFrame" row="1" column="0">
-            <property name="name">
-                <cstring>frame4</cstring>
-            </property>
-            <property name="sizePolicy">
-                <sizepolicy>
-                    <hsizetype>5</hsizetype>
-                    <vsizetype>5</vsizetype>
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                </sizepolicy>
-            </property>
-            <property name="minimumSize">
-                <size>
-                    <width>0</width>
-                    <height>80</height>
-                </size>
-            </property>
-            <property name="maximumSize">
-                <size>
-                    <width>32767</width>
-                    <height>80</height>
-                </size>
-            </property>
-            <property name="frameShape">
-                <enum>StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-                <enum>Raised</enum>
-            </property>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>TLFreqId</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>487</x>
-                        <y>10</y>
-                        <width>73</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>00000.00</string>
-                </property>
-            </widget>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>textLabel1</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>407</x>
-                        <y>11</y>
-                        <width>73</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>Perfect :</string>
-                </property>
-                <property name="alignment">
-                    <set>Qt::AlignVCenter|Qt::AlignRight</set>
-                </property>
-            </widget>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>TLNote</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>147</x>
-                        <y>10</y>
-                        <width>40</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>XXX</string>
-                </property>
-            </widget>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>textLabel4</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>199</x>
-                        <y>9</y>
-                        <width>90</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>Frequency :</string>
-                </property>
-                <property name="alignment">
-                    <set>Qt::AlignVCenter|Qt::AlignRight</set>
-                </property>
-            </widget>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>TLFreq</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>307</x>
-                        <y>10</y>
-                        <width>72</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>00000.00</string>
-                </property>
-            </widget>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>textLabel3</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>20</x>
-                        <y>10</y>
-                        <width>110</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>Found Pitch :</string>
-                </property>
-                <property name="alignment">
-                    <set>Qt::AlignVCenter|Qt::AlignRight</set>
-                </property>
-            </widget>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>textLabel2</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>359</x>
-                        <y>41</y>
-                        <width>120</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>near desired pitch :</string>
-                </property>
-                <property name="alignment">
-                    <set>Qt::AlignVCenter|Qt::AlignRight</set>
-                </property>
-            </widget>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>TLCent</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>662</x>
-                        <y>41</y>
-                        <width>73</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>0000.00</string>
-                </property>
-            </widget>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>TLFreq3</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>488</x>
-                        <y>41</y>
-                        <width>73</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>00000.00</string>
-                </property>
-            </widget>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>textLabel1_2</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>575</x>
-                        <y>41</y>
-                        <width>73</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>diff. :</string>
-                </property>
-                <property name="alignment">
-                    <set>Qt::AlignVCenter|Qt::AlignRight</set>
-                </property>
-            </widget>
-            <widget class="QLabel">
-                <property name="name">
-                    <cstring>textLabel1_2_2</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>740</x>
-                        <y>40</y>
-                        <width>73</width>
-                        <height>21</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>cent</string>
-                </property>
-                <property name="alignment">
-                    <set>Qt::AlignVCenter|Qt::AlignLeft</set>
-                </property>
-            </widget>
-            <widget class="QPushButton">
-                <property name="name">
-                    <cstring>PBBruit</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>20</x>
-                        <y>40</y>
-                        <width>170</width>
-                        <height>31</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>Calibrate background noise</string>
-                </property>
-                <property name="toolTip" stdset="0">
-                    <string>Push this to evaluate background's spectrum !</string>
-                </property>
-            </widget>
-            <widget class="QPushButton">
-                <property name="name">
-                    <cstring>pBA4</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>208</x>
-                        <y>41</y>
-                        <width>130</width>
-                        <height>30</height>
-                    </rect>
-                </property>
-                <property name="text">
-                    <string>Calibrate A4</string>
-                </property>
-            </widget>
-        </widget>
-        <widget class="QFrame" row="2" column="0">
-            <property name="name">
-                <cstring>frame5</cstring>
-            </property>
-            <property name="maximumSize">
-                <size>
-                    <width>32767</width>
-                    <height>200</height>
-                </size>
-            </property>
-            <property name="frameShape">
-                <enum>StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-                <enum>Raised</enum>
-            </property>
-            <widget class="QTabWidget">
-                <property name="name">
-                    <cstring>tabWidget2</cstring>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>10</x>
-                        <y>10</y>
-                        <width>940</width>
-                        <height>180</height>
-                    </rect>
-                </property>
-                <widget class="QWidget">
-                    <property name="name">
-                        <cstring>tab</cstring>
-                    </property>
-                    <attribute name="title">
-                        <string>Piano</string>
-                    </attribute>
-                    <widget class="QLabel">
-                        <property name="name">
-                            <cstring>textLabel6</cstring>
-                        </property>
-                        <property name="geometry">
-                            <rect>
-                                <x>180</x>
-                                <y>10</y>
-                                <width>90</width>
-                                <height>21</height>
-                            </rect>
-                        </property>
-                        <property name="text">
-                            <string>Octave :</string>
-                        </property>
-                    </widget>
-                    <widget class="QComboBox">
-                        <item>
-                            <property name="text">
-                                <string>C</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>C#</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>D</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>D#</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>E</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>F</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>F#</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>G</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>G#</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>A</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>A#</string>
-                            </property>
-                        </item>
-                        <item>
-                            <property name="text">
-                                <string>B</string>
-                            </property>
-                        </item>
-                        <property name="name">
-                            <cstring>CBNote</cstring>
-                        </property>
-                        <property name="geometry">
-                            <rect>
-                                <x>50</x>
-                                <y>50</y>
-                                <width>101</width>
-                                <height>30</height>
-                            </rect>
-                        </property>
-                        <property name="currentItem">
-                            <number>9</number>
-                        </property>
-                        <property name="sizeLimit">
-                            <number>12</number>
-                        </property>
-                    </widget>
-                    <widget class="QSlider">
-                        <property name="name">
-                            <cstring>SNote</cstring>
-                        </property>
-                        <property name="geometry">
-                            <rect>
-                                <x>50</x>
-                                <y>90</y>
-                                <width>170</width>
-                                <height>16</height>
-                            </rect>
-                        </property>
-                        <property name="maxValue">
-                            <number>11</number>
-                        </property>
-                        <property name="value">
-                            <number>9</number>
-                        </property>
-                        <property name="orientation">
-                            <enum>Qt::Horizontal</enum>
-                        </property>
-                    </widget>
-                    <widget class="QSpinBox">
-                        <property name="name">
-                            <cstring>SPOctave</cstring>
-                        </property>
-                        <property name="geometry">
-                            <rect>
-                                <x>180</x>
-                                <y>50</y>
-                                <width>40</width>
-                                <height>30</height>
-                            </rect>
-                        </property>
-                        <property name="maxValue">
-                            <number>9</number>
-                        </property>
-                        <property name="minValue">
-                            <number>0</number>
-                        </property>
-                        <property name="value">
-                            <number>4</number>
-                        </property>
-                    </widget>
-                    <widget class="QButtonGroup">
-                        <property name="name">
-                            <cstring>buttonGroup2</cstring>
-                        </property>
-                        <property name="geometry">
-                            <rect>
-                                <x>280</x>
-                                <y>10</y>
-                                <width>311</width>
-                                <height>120</height>
-                            </rect>
-                        </property>
-                        <property name="title">
-                            <string>Auto-Select</string>
-                        </property>
-                        <property name="exclusive">
-                            <bool>true</bool>
-                        </property>
-                        <widget class="QCheckBox">
-                            <property name="name">
-                                <cstring>checkBox4</cstring>
-                            </property>
-                            <property name="geometry">
-                                <rect>
-                                    <x>10</x>
-                                    <y>19</y>
-                                    <width>121</width>
-                                    <height>20</height>
-                                </rect>
-                            </property>
-                            <property name="text">
-                                <string>No</string>
-                            </property>
-                        </widget>
-                        <widget class="QCheckBox">
-                            <property name="name">
-                                <cstring>CBAuto_2</cstring>
-                            </property>
-                            <property name="geometry">
-                                <rect>
-                                    <x>10</x>
-                                    <y>50</y>
-                                    <width>270</width>
-                                    <height>21</height>
-                                </rect>
-                            </property>
-                            <property name="text">
-                                <string>Auto Select String</string>
-                            </property>
-                            <property name="checked">
-                                <bool>false</bool>
-                            </property>
-                        </widget>
-                        <widget class="QCheckBox">
-                            <property name="name">
-                                <cstring>CBAuto_3</cstring>
-                            </property>
-                            <property name="geometry">
-                                <rect>
-                                    <x>10</x>
-                                    <y>80</y>
-                                    <width>280</width>
-                                    <height>21</height>
-                                </rect>
-                            </property>
-                            <property name="text">
-                                <string>Auto-Select String if adjacent</string>
-                            </property>
-                            <property name="checked">
-                                <bool>true</bool>
-                            </property>
-                        </widget>
-                    </widget>
-                </widget>
-                <widget class="QWidget">
-                    <property name="name">
-                        <cstring>tab</cstring>
-                    </property>
-                    <attribute name="title">
-                        <string>Others</string>
-                    </attribute>
-                    <widget class="QComboBox">
-                        <item>
-                            <property name="text">
-                                <string>Guitar 6 strings</string>
-                            </property>
-                        </item>
-                        <property name="name">
-                            <cstring>CBInstrument</cstring>
-                        </property>
-                        <property name="geometry">
-                            <rect>
-                                <x>369</x>
-                                <y>12</y>
-                                <width>181</width>
-                                <height>31</height>
-                            </rect>
-                        </property>
-                    </widget>
-                    <widget class="QButtonGroup">
-                        <property name="name">
-                            <cstring>BGStrings</cstring>
-                        </property>
-                        <property name="geometry">
-                            <rect>
-                                <x>40</x>
-                                <y>0</y>
-                                <width>280</width>
-                                <height>150</height>
-                            </rect>
-                        </property>
-                        <property name="title">
-                            <string>Strings</string>
-                        </property>
-                    </widget>
-                    <widget class="QCheckBox">
-                        <property name="name">
-                            <cstring>CBAuto</cstring>
-                        </property>
-                        <property name="geometry">
-                            <rect>
-                                <x>370</x>
-                                <y>70</y>
-                                <width>320</width>
-                                <height>21</height>
-                            </rect>
-                        </property>
-                        <property name="text">
-                            <string>Auto Select String</string>
-                        </property>
-                        <property name="checked">
-                            <bool>true</bool>
-                        </property>
-                    </widget>
-                </widget>
-                <widget class="QWidget">
-                    <property name="name">
-                        <cstring>TabPage</cstring>
-                    </property>
-                    <attribute name="title">
-                        <string>Temperaments</string>
-                    </attribute>
-                    <widget class="QComboBox">
-                        <item>
-                            <property name="text">
-                                <string>None</string>
-                            </property>
-                        </item>
-                        <property name="name">
-                            <cstring>CBTemperament</cstring>
-                        </property>
-                        <property name="geometry">
-                            <rect>
-                                <x>20</x>
-                                <y>20</y>
-                                <width>400</width>
-                                <height>31</height>
-                            </rect>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>7</hsizetype>
-                                <vsizetype>0</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                    </widget>
-                </widget>
-            </widget>
-        </widget>
-    </grid>
-</widget>
-<menubar>
-    <property name="name">
-        <cstring>menubar</cstring>
-    </property>
-    <item text="&amp;File" name="fileMenu">
-        <separator/>
-        <separator/>
-        <action name="fileExitAction"/>
+       </property>
+       <property name="text" >
+        <string>00000.00</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="textLabel1" >
+       <property name="geometry" >
+        <rect>
+         <x>407</x>
+         <y>11</y>
+         <width>73</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>Perfect :</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="TLNote" >
+       <property name="geometry" >
+        <rect>
+         <x>147</x>
+         <y>10</y>
+         <width>40</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>XXX</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="textLabel4" >
+       <property name="geometry" >
+        <rect>
+         <x>199</x>
+         <y>9</y>
+         <width>90</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>Frequency :</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="TLFreq" >
+       <property name="geometry" >
+        <rect>
+         <x>307</x>
+         <y>10</y>
+         <width>72</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>00000.00</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="textLabel3" >
+       <property name="geometry" >
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>110</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>Found Pitch :</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="textLabel2" >
+       <property name="geometry" >
+        <rect>
+         <x>359</x>
+         <y>41</y>
+         <width>120</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>near desired pitch :</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="TLCent" >
+       <property name="geometry" >
+        <rect>
+         <x>662</x>
+         <y>41</y>
+         <width>73</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>0000.00</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="TLFreq3" >
+       <property name="geometry" >
+        <rect>
+         <x>488</x>
+         <y>41</y>
+         <width>73</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>00000.00</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="textLabel1_2" >
+       <property name="geometry" >
+        <rect>
+         <x>575</x>
+         <y>41</y>
+         <width>73</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>diff. :</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="textLabel1_2_2" >
+       <property name="geometry" >
+        <rect>
+         <x>740</x>
+         <y>40</y>
+         <width>73</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>cent</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="PBBruit" >
+       <property name="geometry" >
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>170</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="toolTip" >
+        <string>Push this to evaluate background's spectrum !</string>
+       </property>
+       <property name="text" >
+        <string>Calibrate background noise</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pBA4" >
+       <property name="geometry" >
+        <rect>
+         <x>208</x>
+         <y>41</y>
+         <width>130</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>Calibrate A4</string>
+       </property>
+      </widget>
+     </widget>
     </item>
-    <item text="&amp;Help" name="helpMenu">
-        <action name="helpContentsAction"/>
-        <action name="helpIndexAction"/>
-        <separator/>
-        <action name="helpAboutAction"/>
+    <item row="2" column="0" >
+     <widget class="QFrame" name="frame5" >
+      <property name="maximumSize" >
+       <size>
+        <width>32767</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="frameShape" >
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow" >
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QTabWidget" name="tabWidget2" >
+       <property name="geometry" >
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>940</width>
+         <height>180</height>
+        </rect>
+       </property>
+       <widget class="QWidget" name="tab" >
+        <attribute name="title" >
+         <string>Piano</string>
+        </attribute>
+        <widget class="QLabel" name="textLabel6" >
+         <property name="geometry" >
+          <rect>
+           <x>180</x>
+           <y>10</y>
+           <width>90</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text" >
+          <string>Octave :</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="CBNote" >
+         <property name="geometry" >
+          <rect>
+           <x>50</x>
+           <y>50</y>
+           <width>101</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="currentIndex" >
+          <number>0</number>
+         </property>
+         <item>
+          <property name="text" >
+           <string>C</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>C#</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>D</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>D#</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>E</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>F</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>F#</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>G</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>G#</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>A</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>A#</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>B</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QSlider" name="SNote" >
+         <property name="geometry" >
+          <rect>
+           <x>50</x>
+           <y>90</y>
+           <width>170</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="maximum" >
+          <number>11</number>
+         </property>
+         <property name="value" >
+          <number>9</number>
+         </property>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="SPOctave" >
+         <property name="geometry" >
+          <rect>
+           <x>180</x>
+           <y>50</y>
+           <width>40</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="maximum" >
+          <number>9</number>
+         </property>
+         <property name="minimum" >
+          <number>0</number>
+         </property>
+         <property name="value" >
+          <number>4</number>
+         </property>
+        </widget>
+        <widget class="QGroupBox" name="groupBox" >
+         <property name="geometry" >
+          <rect>
+           <x>260</x>
+           <y>10</y>
+           <width>421</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <property name="title" >
+          <string>Auto-select</string>
+         </property>
+         <widget class="QRadioButton" name="CBAuto_3" >
+          <property name="geometry" >
+           <rect>
+            <x>20</x>
+            <y>90</y>
+            <width>280</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text" >
+           <string>Auto-Select String if adjacent</string>
+          </property>
+          <property name="checked" >
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="CBAuto_2" >
+          <property name="geometry" >
+           <rect>
+            <x>20</x>
+            <y>60</y>
+            <width>270</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text" >
+           <string>Auto Select String</string>
+          </property>
+          <property name="checked" >
+           <bool>false</bool>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="checkBox4" >
+          <property name="geometry" >
+           <rect>
+            <x>20</x>
+            <y>29</y>
+            <width>121</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text" >
+           <string>No</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab" >
+        <attribute name="title" >
+         <string>Others</string>
+        </attribute>
+        <widget class="QComboBox" name="CBInstrument" >
+         <property name="geometry" >
+          <rect>
+           <x>369</x>
+           <y>12</y>
+           <width>181</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text" >
+           <string>Guitar 6 strings</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QCheckBox" name="CBAuto" >
+         <property name="geometry" >
+          <rect>
+           <x>370</x>
+           <y>70</y>
+           <width>320</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text" >
+          <string>Auto Select String</string>
+         </property>
+         <property name="checked" >
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="Q3ButtonGroup" name="BGStrings" >
+         <property name="geometry" >
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>331</width>
+           <height>141</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="TabPage" >
+        <attribute name="title" >
+         <string>Temperaments</string>
+        </attribute>
+        <widget class="QComboBox" name="CBTemperament" >
+         <property name="geometry" >
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>400</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="sizePolicy" >
+          <sizepolicy>
+           <hsizetype>7</hsizetype>
+           <vsizetype>0</vsizetype>
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <item>
+          <property name="text" >
+           <string>None</string>
+          </property>
+         </item>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
     </item>
-</menubar>
-<toolbars>
-</toolbars>
-<actions>
-    <action>
-        <property name="name">
-            <cstring>fileExitAction</cstring>
-        </property>
-        <property name="text">
-            <string>Exit</string>
-        </property>
-        <property name="menuText">
-            <string>E&amp;xit</string>
-        </property>
-        <property name="accel">
-            <string></string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>helpContentsAction</cstring>
-        </property>
-        <property name="text">
-            <string>Contents</string>
-        </property>
-        <property name="menuText">
-            <string>&amp;Contents...</string>
-        </property>
-        <property name="accel">
-            <string></string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>helpIndexAction</cstring>
-        </property>
-        <property name="text">
-            <string>Index</string>
-        </property>
-        <property name="menuText">
-            <string>&amp;Index...</string>
-        </property>
-        <property name="accel">
-            <string></string>
-        </property>
-    </action>
-    <action>
-        <property name="name">
-            <cstring>helpAboutAction</cstring>
-        </property>
-        <property name="text">
-            <string>About</string>
-        </property>
-        <property name="menuText">
-            <string>&amp;About</string>
-        </property>
-        <property name="accel">
-            <string></string>
-        </property>
-    </action>
-</actions>
-<connections>
-    <connection>
-        <sender>fileExitAction</sender>
-        <signal>activated()</signal>
-        <receiver>Form1</receiver>
-        <slot>fileExitAction_activated()</slot>
-    </connection>
-    <connection>
-        <sender>helpAboutAction</sender>
-        <signal>activated()</signal>
-        <receiver>Form1</receiver>
-        <slot>helpAboutAction_activated()</slot>
-    </connection>
-    <connection>
-        <sender>helpContentsAction</sender>
-        <signal>activated()</signal>
-        <receiver>Form1</receiver>
-        <slot>helpContentsAction_activated()</slot>
-    </connection>
-    <connection>
-        <sender>helpIndexAction</sender>
-        <signal>activated()</signal>
-        <receiver>Form1</receiver>
-        <slot>helpIndexAction_activated()</slot>
-    </connection>
-    <connection>
-        <sender>PBBruit</sender>
-        <signal>clicked()</signal>
-        <receiver>Form1</receiver>
-        <slot>PBBruit_clicked()</slot>
-    </connection>
-    <connection>
-        <sender>pBA4</sender>
-        <signal>clicked()</signal>
-        <receiver>Form1</receiver>
-        <slot>pBA4_clicked()</slot>
-    </connection>
-    <connection>
-        <sender>CBNote</sender>
-        <signal>activated(int)</signal>
-        <receiver>Form1</receiver>
-        <slot>CBNote_activated(int)</slot>
-    </connection>
-    <connection>
-        <sender>BGStrings</sender>
-        <signal>pressed(int)</signal>
-        <receiver>Form1</receiver>
-        <slot>BGStrings_pressed(int)</slot>
-    </connection>
-    <connection>
-        <sender>CBInstrument</sender>
-        <signal>activated(int)</signal>
-        <receiver>Form1</receiver>
-        <slot>CBInstrument_activated(int)</slot>
-    </connection>
-    <connection>
-        <sender>CBTemperament</sender>
-        <signal>activated(int)</signal>
-        <receiver>Form1</receiver>
-        <slot>CBTemperament_activated(int)</slot>
-    </connection>
-    <connection>
-        <sender>SPOctave</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>Form1</receiver>
-        <slot>SPOctave_valueChanged(int)</slot>
-    </connection>
-    <connection>
-        <sender>SNote</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>Form1</receiver>
-        <slot>SNote_valueChanged(int)</slot>
-    </connection>
-    <connection>
-        <sender>tabWidget2</sender>
-        <signal>currentChanged(QWidget*)</signal>
-        <receiver>Form1</receiver>
-        <slot>tabWidget2_currentChanged(QWidget*)</slot>
-    </connection>
-</connections>
-<includes>
-    <include location="local" impldecl="in implementation">form1.ui.h</include>
-</includes>
-<slots>
-    <slot>timerEvent( QTimerEvent * e )</slot>
-    <slot>adjWindow( int newPitch )</slot>
-    <slot>SPOctave_valueChanged( int newval )</slot>
-    <slot>CBNote_activated( int note )</slot>
-    <slot>SNote_valueChanged( int note )</slot>
-    <slot>PBBruit_clicked()</slot>
-    <slot>BGStrings_pressed( int id )</slot>
-    <slot>tabWidget2_currentChanged( QWidget * )</slot>
-    <slot>fileExitAction_activated()</slot>
-    <slot>helpAboutAction_activated()</slot>
-    <slot>helpContentsAction_activated()</slot>
-    <slot>helpIndexAction_activated()</slot>
-    <slot>pBA4_clicked()</slot>
-    <slot>CBInstrument_activated( int numInstr )</slot>
-    <slot>CBTemperament_activated( int numTemp )</slot>
-</slots>
-<functions>
-    <function access="private" specifier="non virtual">init()</function>
-    <function access="private" specifier="non virtual">destroy()</function>
-</functions>
-<pixmapinproject/>
-<layoutdefaults spacing="6" margin="11"/>
-</UI>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>978</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="fileMenu" >
+    <property name="geometry" >
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>512</width>
+      <height>307</height>
+     </rect>
+    </property>
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <addaction name="separator" />
+    <addaction name="separator" />
+    <addaction name="fileExitAction" />
+   </widget>
+   <widget class="QMenu" name="helpMenu" >
+    <property name="geometry" >
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>512</width>
+      <height>307</height>
+     </rect>
+    </property>
+    <property name="title" >
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="helpContentsAction" />
+    <addaction name="helpIndexAction" />
+    <addaction name="separator" />
+    <addaction name="helpAboutAction" />
+   </widget>
+   <addaction name="fileMenu" />
+   <addaction name="helpMenu" />
+  </widget>
+  <action name="fileExitAction" >
+   <property name="text" >
+    <string>E&amp;xit</string>
+   </property>
+   <property name="iconText" >
+    <string>Exit</string>
+   </property>
+   <property name="shortcut" >
+    <string/>
+   </property>
+  </action>
+  <action name="helpContentsAction" >
+   <property name="text" >
+    <string>&amp;Contents...</string>
+   </property>
+   <property name="iconText" >
+    <string>Contents</string>
+   </property>
+   <property name="shortcut" >
+    <string/>
+   </property>
+  </action>
+  <action name="helpIndexAction" >
+   <property name="text" >
+    <string>&amp;Index...</string>
+   </property>
+   <property name="iconText" >
+    <string>Index</string>
+   </property>
+   <property name="shortcut" >
+    <string/>
+   </property>
+  </action>
+  <action name="helpAboutAction" >
+   <property name="text" >
+    <string>&amp;About</string>
+   </property>
+   <property name="iconText" >
+    <string>About</string>
+   </property>
+   <property name="shortcut" >
+    <string/>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>Q3ButtonGroup</class>
+   <extends></extends>
+   <header>Qt3Support/Q3ButtonGroup</header>
+   <container>1</container>
+   <pixmap></pixmap>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

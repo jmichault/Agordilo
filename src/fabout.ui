@@ -1,104 +1,83 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>FAbout</class>
-<widget class="QDialog">
-    <property name="name">
-        <cstring>FAbout</cstring>
-    </property>
-    <property name="geometry">
-        <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>299</width>
-            <height>301</height>
-        </rect>
-    </property>
-    <property name="caption">
-        <string>About...</string>
-    </property>
-    <widget class="QPushButton">
-        <property name="name">
-            <cstring>pushButton4</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>80</x>
-                <y>250</y>
-                <width>131</width>
-                <height>41</height>
-            </rect>
-        </property>
-        <property name="text">
-            <string>OK</string>
-        </property>
-        <property name="default">
-            <bool>true</bool>
-        </property>
-    </widget>
-    <widget class="Line">
-        <property name="name">
-            <cstring>line1</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>10</x>
-                <y>220</y>
-                <width>280</width>
-                <height>20</height>
-            </rect>
-        </property>
-        <property name="frameShape">
-            <enum>HLine</enum>
-        </property>
-        <property name="frameShadow">
-            <enum>Sunken</enum>
-        </property>
-        <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-        </property>
-    </widget>
-    <widget class="QLabel">
-        <property name="name">
-            <cstring>textLabel1</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>0</x>
-                <y>30</y>
-                <width>300</width>
-                <height>171</height>
-            </rect>
-        </property>
-        <property name="sizePolicy">
-            <sizepolicy>
-                <hsizetype>4</hsizetype>
-                <vsizetype>7</vsizetype>
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-            </sizepolicy>
-        </property>
-        <property name="text">
-            <string>&lt;p align="center"&gt;- Accordeur -&lt;/p&gt;
-&lt;p align="center"&gt;Instrument tuner&lt;/p&gt;
-&lt;p align="center"&gt;Version x.y.z&lt;/p&gt;
-&lt;p align="center"&gt;License : GPL&lt;/p&gt;
-&lt;p align="center"&gt;http://accordeur.sourceforge.net&lt;/p&gt;</string>
-        </property>
-    </widget>
-</widget>
-<connections>
-    <connection>
-        <sender>pushButton4</sender>
-        <signal>clicked()</signal>
-        <receiver>FAbout</receiver>
-        <slot>pushButton4_clicked()</slot>
-    </connection>
-</connections>
-<includes>
-    <include location="local" impldecl="in implementation">fabout.ui.h</include>
-</includes>
-<slots>
-    <slot>pushButton4_clicked()</slot>
-</slots>
-<pixmapinproject/>
-<layoutdefaults spacing="6" margin="11"/>
-</UI>
+<ui version="4.0" >
+ <author></author>
+ <comment></comment>
+ <exportmacro></exportmacro>
+ <class>FAbout</class>
+ <widget class="QDialog" name="FAbout" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>299</width>
+    <height>301</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>About...</string>
+  </property>
+  <widget class="QPushButton" name="pushButton4" >
+   <property name="geometry" >
+    <rect>
+     <x>80</x>
+     <y>250</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>OK</string>
+   </property>
+   <property name="default" >
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="Line" name="line1" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>280</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="frameShape" >
+    <enum>QFrame::HLine</enum>
+   </property>
+   <property name="frameShadow" >
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="orientation" >
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="textLabel1" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>30</y>
+     <width>300</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="sizePolicy" >
+    <sizepolicy>
+     <hsizetype>4</hsizetype>
+     <vsizetype>7</vsizetype>
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="text" >
+    <string>&lt;p align=&quot;center&quot;>- Accordeur -&lt;/p>
+&lt;p align=&quot;center&quot;>Instrument tuner&lt;/p>
+&lt;p align=&quot;center&quot;>Version x.y.z&lt;/p>
+&lt;p align=&quot;center&quot;>License : GPL&lt;/p>
+&lt;p align=&quot;center&quot;>http://accordeur.sourceforge.net&lt;/p></string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <resources/>
+ <connections/>
+</ui>

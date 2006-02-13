@@ -15,21 +15,18 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-#include <qapplication.h>
-#include <q3vbox.h>
-#include <qworkspace.h>
-#include <qtextcodec.h>
-//Added by qt3to4:
-#include <QTranslator>
-#include "form1.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "portaudio.h"
+//#include "portaudio.h"
+//#include "audiostreams.h"
 
-#include "audiostreams.h"
+#include <QApplication>
+#include <QMainWindow>
+#include <QtGui>
+#include "form1.h"
+
 
 QApplication *pApp;
-
 
 Form1 *wMain;
 int main( int argc, char ** argv )
@@ -37,6 +34,7 @@ int main( int argc, char ** argv )
  QApplication a( argc, argv );
  int ret;
    pApp=&a;
+   /*
         // translation file for Qt
         QTranslator qt( 0 );
         qt.load( QString( "qt_" ) + QTextCodec::locale(), "." );
@@ -47,6 +45,7 @@ int main( int argc, char ** argv )
         if (!myapp.load( QString( "accordeur_" ) + QTextCodec::locale(), "/usr/share/accordeur" ))
         myapp.load( QString( "accordeur_" ) + QTextCodec::locale(), "." );
         a.installTranslator( &myapp );
+	*/
  Form1 w;
   wMain = &w;
   w.show();
