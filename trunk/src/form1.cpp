@@ -96,6 +96,7 @@ struct instrument
   int nbStrings;
   char names[20][4];
 } *PInstr;
+QRadioButton *qbuts[20];
 
 struct instrument Instr0[]=
 {
@@ -111,6 +112,9 @@ float PitchToFreq(float pitch)
 long Timer=0;
 void Form1::init()
 {
+ int i;
+  for(i=0 ; i<20 ; i++)
+    qbuts[i]=0;
   c= new Q3Canvas(1050,560);
   cv = new Q3CanvasView(c,ui.frameGraph);  
   cv->setFixedSize(1050,570);
@@ -406,7 +410,7 @@ void Form1::timerEvent( QTimerEvent * )
     if(ui.CBAuto_3->isChecked() && ui.tabWidget2->currentPageIndex() == 0
 		    && db > BACKGROUND_DB+6)
     { 
-     int pitch=lround(Freq2Pitch(bestpeak_freq2)); // note found this time 
+     int pitch=int(Freq2Pitch(bestpeak_freq2)+0.5); // note found this time 
      int note = pitch%12; 
      int oct = pitch/12 -1; 
      static int last_pitch=-1; // to check if same note found 
@@ -768,13 +772,13 @@ void Form1::on_CBInstrument_activated( int numInstr)
 // new instrument :
  QRadioButton *qbut;
  int i;
-  for(i=20 ; i>=0 ; i--)
+  for(i=0 ; i<20 ; i++)
   {
-  if( (qbut=(QRadioButton *)ui.BGStrings->find(i)) )
-  {
-    ui.BGStrings->remove(qbut);
-    delete qbut;
-  }
+    if(qbuts[i])
+    {
+      delete qbuts[i];
+      qbuts[i]=NULL;
+    }
   }
   for(i=0;i<PInstr[numInstr].nbStrings ; i++)
   {
@@ -783,7 +787,7 @@ void Form1::on_CBInstrument_activated( int numInstr)
 	  
 	  ui.BGStrings->insert(qbut,i);
 	  qbut->show();
-
+	  qbuts[i]=qbut;
   }
 
   
