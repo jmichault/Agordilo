@@ -15,7 +15,7 @@
 #include "form1.h"
 #include "fhelp.h"
 
-#define VERSION "0.9.0"
+#define VERSION "0.9.1"
 
 Form1::Form1()
 	    : QMainWindow()

@@ -1,3 +1,6 @@
+version 0.9.1 :
+ - port vers Qt4 plus complet.
+ - essai de meilleure detection de la note.
 version 0.9.0 :
  - ajout de l'auto-sélection de la corde limitée à la note voisine.
  - port vers Qt4.
