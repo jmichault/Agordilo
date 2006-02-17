@@ -34,7 +34,6 @@ int main( int argc, char ** argv )
  QApplication a( argc, argv );
  int ret;
    pApp=&a;
-   /*
         // translation file for Qt
         QTranslator qt( 0 );
         qt.load( QString( "qt_" ) + QTextCodec::locale(), "." );
@@ -45,7 +44,6 @@ int main( int argc, char ** argv )
         if (!myapp.load( QString( "accordeur_" ) + QTextCodec::locale(), "/usr/share/accordeur" ))
         myapp.load( QString( "accordeur_" ) + QTextCodec::locale(), "." );
         a.installTranslator( &myapp );
-	*/
  Form1 w;
   wMain = &w;
   w.show();
