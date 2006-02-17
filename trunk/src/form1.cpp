@@ -340,15 +340,17 @@ void Form1::timerEvent( QTimerEvent * )
     double bestpeak_x = min1+1+bestPeak2(&autocorr2[min1+1], 850, rstream.m_sample_rate);
     int candidat_x=lround(bestpeak_x);
     float candidat_y =autocorr2[candidat_x];
-    // y a t'il une harmonique 3/5 et 3 ?
+    // y a t'il une harmonique 3/5 et 3 et pas 2/3?
     if (  autocorr2[candidat_x*5/3]>candidat_y/4
-	&&autocorr2[candidat_x/3]>candidat_y/4)
+	&&autocorr2[candidat_x/3]>candidat_y/4
+	&&autocorr2[candidat_x*3/2]<candidat_y/4
+	)
     {// si oui, alors la bonne fréquence est *3 :
       printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
       bestpeak_x=candidat_x*8/30+bestPeak2(&autocorr2[candidat_x*8/30],candidat_x*4/30, rstream.m_sample_rate);
       printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
     }
-    printf("mesure %lf\n",rstream.m_sample_rate/bestpeak_x);
+    //printf("mesure %lf\n",rstream.m_sample_rate/bestpeak_x);
     double bestpeak_freq2 = rstream.m_sample_rate / bestpeak_x;
     bestpeak_freq2 /= cor_A4;
     ui.TLFreq->setText(QString("%1").arg(bestpeak_freq2,6,'f',2));
@@ -435,7 +437,7 @@ void Form1::timerEvent( QTimerEvent * )
     max = rstream.m_sample_rate / PitchToFreq(Pitch-2);
     bestpeak_x = i+bestPeak2(&autocorr2[i], max-i+1, rstream.m_sample_rate);
     bestpeak_freq2 = rstream.m_sample_rate / bestpeak_x;
-    printf("mesure;%lf",bestpeak_freq2);
+    //printf("mesure;%lf",bestpeak_freq2);
     // recherche dans le spectre amorti du meilleur pic près de l'harmonique 1/3 de la note recherchée :
     i = lround(rstream.m_sample_rate*3 / PitchToFreq(Pitch+3));
     max = rstream.m_sample_rate*3 / PitchToFreq(Pitch-3);
@@ -446,7 +448,7 @@ void Form1::timerEvent( QTimerEvent * )
     max = rstream.m_sample_rate*5 / PitchToFreq(Pitch-4);
     double bestpeak_x5 = i+bestPeak2(&autocorr2[i], max-i+1, rstream.m_sample_rate);
     double bestpeak_freq5 = rstream.m_sample_rate / bestpeak_x5;
-    printf(";%lf;%lf;%lf\n",bestpeak_freq3*3,bestpeak_freq5*5,(bestpeak_freq3*3+bestpeak_freq2)/2);
+    //printf(";%lf;%lf;%lf\n",bestpeak_freq3*3,bestpeak_freq5*5,(bestpeak_freq3*3+bestpeak_freq2)/2);
 
     if(calib_A4 >0)
     {
