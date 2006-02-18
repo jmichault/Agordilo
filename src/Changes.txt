@@ -1,6 +1,6 @@
 release 0.9.1 :
  - full port to Qt4.
- - try to better detect pitch.
+ - try to better detect pitch with harmonics.
 version 0.9.0 :
  - add string auto-selection limited to neighbor pitch
  - port to Qt 4
