@@ -316,7 +316,7 @@ void Form1::timerEvent( QTimerEvent * )
                  pitchname);
 
   // calcul du spectre "amorti" :
-#define PARTDERNIER 0.20
+#define PARTDERNIER 0.25
   for (i=0; i < WindowSize ; i++)
   {
     autocorr2[i] = (autocorr[i]-bruit[i])*PARTDERNIER
@@ -344,15 +344,35 @@ void Form1::timerEvent( QTimerEvent * )
     double bestpeak_x = min1+1+bestPeak2(&autocorr2[min1+1], 850, rstream.m_sample_rate);
     int candidat_x=lround(bestpeak_x);
     float candidat_y =autocorr2[candidat_x];
+    // y a t'il une harmonique 1/2 et 1/3 et pas 2/3?
+    if (  autocorr2[candidat_x*2]>candidat_y/4
+	&&autocorr2[candidat_x*3]>candidat_y/4
+	&&autocorr2[candidat_x*3/2]<candidat_y/4
+	)
+    {// si oui, alors la bonne fréquence est 1/2 :
+      //printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
+      bestpeak_x=candidat_x*19/10+bestPeak2(&autocorr2[candidat_x*19/10],candidat_x*2/10, rstream.m_sample_rate);
+      //printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
+    }
     // y a t'il une harmonique 3/5 et 3 et pas 2/3?
     if (  autocorr2[candidat_x*5/3]>candidat_y/4
 	&&autocorr2[candidat_x/3]>candidat_y/4
 	&&autocorr2[candidat_x*3/2]<candidat_y/4
 	)
     {// si oui, alors la bonne fréquence est *3 :
-      printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
+      //printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
       bestpeak_x=candidat_x*8/30+bestPeak2(&autocorr2[candidat_x*8/30],candidat_x*4/30, rstream.m_sample_rate);
-      printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
+      //printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
+    }
+    // y a t'il une harmonique 5 et 5/3 et pas 2/3?
+    if (  autocorr2[candidat_x/5]>candidat_y/4
+	&&autocorr2[candidat_x*3/5]>candidat_y/4
+	&&autocorr2[candidat_x*3/2]<candidat_y/4
+	)
+    {// si oui, alors la bonne fréquence est *5 :
+      //printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
+      bestpeak_x=candidat_x*8/50+bestPeak2(&autocorr2[candidat_x*8/50],candidat_x*4/50, rstream.m_sample_rate);
+      //printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
     }
     //printf("mesure %lf\n",rstream.m_sample_rate/bestpeak_x);
     double bestpeak_freq2 = rstream.m_sample_rate / bestpeak_x;
@@ -383,7 +403,8 @@ void Form1::timerEvent( QTimerEvent * )
       }
       if((bestrap <3) && (bestString==lastString) && (bestString==lastString2))
       {
-        ui.BGStrings->setButton(bestString);
+        //ui.BGStrings->setButton(bestString);
+        qbuts[bestString]->setChecked(true);
         on_BGStrings_pressed(bestString);
       }
       lastString2=lastString;
@@ -395,14 +416,15 @@ void Form1::timerEvent( QTimerEvent * )
      int pitch;
      static int lastPitch=-1;
      static int lastPitch2=-2;
-      pitch=lround(Freq2Pitch(bestpeak_freq2));
+      //pitch=lround(Freq2Pitch(bestpeak_freq2));
+      pitch=int(Freq2Pitch(bestpeak_freq2)+0.5); // note found this time 
       if( (pitch==lastPitch) && (pitch==lastPitch2))
       {
 	ui.SPOctave->setValue(pitch/12-1);
 	ui.CBNote->setCurrentItem(pitch%12);
 	on_CBNote_activated(pitch%12);
 	adjWindow(Pitch);
-	//printf("note trouvee=%d,%s.\n",pitch,PitchName(pitch,1));
+	printf("note trouvee=%d,%s,%lf.\n",pitch,PitchName(pitch,1),Pitch2Freq(pitch));
       }
       lastPitch2=lastPitch;
       lastPitch=pitch;
@@ -435,18 +457,21 @@ void Form1::timerEvent( QTimerEvent * )
       } 
       last_pitch = pitch; 
     }
-//  float bestpeak_x = bestPeak2(autocorr2, 8192, rstream.m_sample_rate);
     // recherche dans le spectre amorti du meilleur pic près de la note recherchée :
     i = lround(rstream.m_sample_rate / PitchToFreq(Pitch+2));
     max = rstream.m_sample_rate / PitchToFreq(Pitch-2);
     bestpeak_x = i+bestPeak2(&autocorr2[i], max-i+1, rstream.m_sample_rate);
     bestpeak_freq2 = rstream.m_sample_rate / bestpeak_x;
     //printf("mesure;%lf",bestpeak_freq2);
+    candidat_x=lround(bestpeak_x);
+    candidat_y =autocorr2[candidat_x];
     // recherche dans le spectre amorti du meilleur pic près de l'harmonique 1/3 de la note recherchée :
-    i = lround(rstream.m_sample_rate*3 / PitchToFreq(Pitch+3));
-    max = rstream.m_sample_rate*3 / PitchToFreq(Pitch-3);
-    double bestpeak_x3 = i+bestPeak2(&autocorr2[i], max-i+1, rstream.m_sample_rate);
-    double bestpeak_freq3 = rstream.m_sample_rate / bestpeak_x3;
+    if ( candidat_x >0 && autocorr2[candidat_x/3]>candidat_y/4)
+    {
+      float bestpeak_x3=candidat_x*29/10+bestPeak2(&autocorr2[candidat_x*29/10],candidat_x*2/10, rstream.m_sample_rate);
+     double bestpeak_freq3 = rstream.m_sample_rate / bestpeak_x3;
+     bestpeak_freq2 = (bestpeak_freq2+bestpeak_freq3)/2;
+    }
     // recherche dans le spectre amorti du meilleur pic près de l'harmonique 1/5 de la note recherchée :
     i = lround(rstream.m_sample_rate*5 / PitchToFreq(Pitch+4));
     max = rstream.m_sample_rate*5 / PitchToFreq(Pitch-4);
