@@ -293,79 +293,6 @@
           <string>Octave :</string>
          </property>
         </widget>
-        <widget class="QComboBox" name="CBNote" >
-         <property name="geometry" >
-          <rect>
-           <x>50</x>
-           <y>50</y>
-           <width>101</width>
-           <height>30</height>
-          </rect>
-         </property>
-         <property name="currentIndex" >
-          <number>0</number>
-         </property>
-         <item>
-          <property name="text" >
-           <string>C</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>C#</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>D</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>D#</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>E</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>F</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>F#</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>G</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>G#</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>A</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>A#</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>B</string>
-          </property>
-         </item>
-        </widget>
         <widget class="QSlider" name="SNote" >
          <property name="geometry" >
           <rect>
@@ -462,6 +389,79 @@
           </property>
          </widget>
         </widget>
+        <widget class="QComboBox" name="CBNote" >
+         <property name="geometry" >
+          <rect>
+           <x>50</x>
+           <y>50</y>
+           <width>101</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="currentIndex" >
+          <number>9</number>
+         </property>
+         <item>
+          <property name="text" >
+           <string>C</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>C#</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>D</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>D#</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>E</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>F</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>F#</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>G</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>G#</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>A</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>A#</string>
+          </property>
+         </item>
+         <item>
+          <property name="text" >
+           <string>B</string>
+          </property>
+         </item>
+        </widget>
        </widget>
        <widget class="QWidget" name="tab" >
         <attribute name="title" >
@@ -548,7 +548,7 @@
      <x>0</x>
      <y>0</y>
      <width>978</width>
-     <height>27</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu" >
@@ -556,8 +556,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>512</width>
-      <height>307</height>
+      <width>115</width>
+      <height>78</height>
      </rect>
     </property>
     <property name="title" >
@@ -572,8 +572,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>512</width>
-      <height>307</height>
+      <width>115</width>
+      <height>105</height>
      </rect>
     </property>
     <property name="title" >
