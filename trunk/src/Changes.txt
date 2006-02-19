@@ -1,3 +1,6 @@
+
+ - fixed start value for the CBNote QComboBox currentIndex (was 0 ie C, should be 9 ie A)
+	 note: this reveals a weakness in the code - the frequency was set to A|440 even though the note was set to C. Really it should be set by taking the value from the QComboBox, or the currentIndex should be set programatically to the frequency value being set.
 release 0.9.1 :
  - full port to Qt4.
  - try to better detect pitch with harmonics.
