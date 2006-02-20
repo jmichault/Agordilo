@@ -1,4 +1,5 @@
-
+ - added a new tab for harpsichords and other large instruments, display switches when this is selected. Note this uses signals and slots generated from Qt Designer - these seem to be lacking in general in this code, which perhaps is why different bits can get out of step. (See comment below, and also note how the chromatic Auto Select in form1.cpp is dependent on the numbering of the tabs, rather than the signal generated when a tab is selected).
+ - renamed the Piano tab Chromatic and tidied up the names on this tab
  - fixed start value for the CBNote QComboBox currentIndex (was 0 ie C, should be 9 ie A)
 	 note: this reveals a weakness in the code - the frequency was set to A|440 even though the note was set to C. Really it should be set by taking the value from the QComboBox, or the currentIndex should be set programatically to the frequency value being set.
 release 0.9.1 :

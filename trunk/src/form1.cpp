@@ -429,7 +429,9 @@ void Form1::timerEvent( QTimerEvent * )
       lastPitch2=lastPitch;
       lastPitch=pitch;
     }
-    if(ui.CBAuto_3->isChecked() && ui.tabWidget2->currentPageIndex() == 0
+    if(ui.CBAuto_3->isChecked() && 
+       (ui.tabWidget2->currentPageIndex() == 0 || ui.tabWidget2->currentPageIndex() == 3)
+       // 0 and 3 are the Chromatic and Harpsichord tabs - this is fragile code!!
 		    && db > BACKGROUND_DB+6)
     { 
      int pitch=int(Freq2Pitch(bestpeak_freq2)+0.5); // note found this time 
@@ -496,6 +498,44 @@ void Form1::timerEvent( QTimerEvent * )
     ui.TLFreq3->setText(QString("%1").arg(bestpeak_freq2,6,'f',2));
     double cent = log10f(bestpeak_freq2 / PitchToFreq(Pitch))*1200/log10f(2);
     ui.TLCent->setText(QString("%1").arg(cent,5,'f',2));
+    
+    if(ui.tabWidget2->currentPageIndex() == 3) // large tuning bar needed
+    {
+      int iCent=lround((2*cent+100)*4);// value 400 is perfect, 410 = 5/2 cents sharp - I've made this a bit more sensitive
+      if (iCent < 0) iCent= 0;
+      if (iCent >  800) iCent=  800;
+    // this is the red/green/blue bar
+    if (iCent <360)// more than ten cents flat
+      {
+	rect  = new Q3CanvasRectangle(iCent+20,0,359-iCent,120,c);//x,y, width,height, canvas defined in the init() function above up to x=380
+	rect->setPen( QPen(QColor( 250, 20, 20), 1) );
+	tb->setColor(QColor( 250, 20, 20));
+      }
+    else if (iCent>440) // more than ten cents sharp
+      {
+	rect  = new Q3CanvasRectangle(481,0,iCent-420,120,c);//from x=460
+	rect->setPen( QPen(QColor( 20, 20, 250), 1) );
+	tb->setColor(QColor( 20, 20, 250)); // blue for sharp
+      }
+    else
+      {
+	rect  = new Q3CanvasRectangle(iCent+20,0,20,320,c);
+	int colour = 90+abs(iCent-400)*2;// make a color out of it
+	rect->setPen( QPen(QColor( 250, 20, 20), 1) );
+	if(iCent<380)
+	  tb->setColor(QColor( 20+colour, 255-colour,  20)); //green -ish
+	else
+	  if(iCent>420)
+	    tb->setColor(QColor( 20, 255-colour,  20+colour)); //green -ish
+	  else
+	    tb->setColor(QColor( 0, 255-colour,  0)); //green 	
+      }
+    rect->setBrush(*tb);
+    rect->show();
+    // this the centred outline rect for in tune position
+
+    rect  = new Q3CanvasRectangle(379,0,102,320,c);//380 to 440
+    }  else { // normal sized tuning bar needed
     int iCent=lround((cent+100)*4);
     if (iCent < 0) iCent= 0;
     if (iCent >  800) iCent=  800;
@@ -521,6 +561,9 @@ void Form1::timerEvent( QTimerEvent * )
     rect->setBrush(*tb);
     rect->show();
     rect  = new Q3CanvasRectangle(399,279,22,22,c);
+    }
+
+
     rect->setPen( QPen(QColor( 0, 0, 0), 1) );
     rect->show();
   /*
@@ -542,6 +585,7 @@ void Form1::timerEvent( QTimerEvent * )
     {
 	delete *it;
     }
+  if(ui.tabWidget2->currentPageIndex() != 3) {
   // trait rouge de la note :
   line  = new Q3CanvasLine(c);
   i = lround(rstream.m_sample_rate / PitchToFreq(Pitch));
@@ -605,6 +649,7 @@ float freq;
       line->setPoints(900-i+min1, 255,
                              900-i+min1, 250);
       line->show();
+  }
   }
   c->update();
 }
