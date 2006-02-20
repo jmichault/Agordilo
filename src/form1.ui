@@ -9,7 +9,7 @@
     <x>0</x>
     <y>0</y>
     <width>978</width>
-    <height>677</height>
+    <height>699</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -278,21 +278,8 @@
        </property>
        <widget class="QWidget" name="tab" >
         <attribute name="title" >
-         <string>Piano</string>
+         <string>Chromatic</string>
         </attribute>
-        <widget class="QLabel" name="textLabel6" >
-         <property name="geometry" >
-          <rect>
-           <x>180</x>
-           <y>10</y>
-           <width>90</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="text" >
-          <string>Octave :</string>
-         </property>
-        </widget>
         <widget class="QSlider" name="SNote" >
          <property name="geometry" >
           <rect>
@@ -330,64 +317,6 @@
          <property name="value" >
           <number>4</number>
          </property>
-        </widget>
-        <widget class="QGroupBox" name="groupBox" >
-         <property name="geometry" >
-          <rect>
-           <x>260</x>
-           <y>10</y>
-           <width>421</width>
-           <height>121</height>
-          </rect>
-         </property>
-         <property name="title" >
-          <string>Auto-select</string>
-         </property>
-         <widget class="QRadioButton" name="CBAuto_3" >
-          <property name="geometry" >
-           <rect>
-            <x>20</x>
-            <y>90</y>
-            <width>280</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="text" >
-           <string>Auto-Select String if adjacent</string>
-          </property>
-          <property name="checked" >
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="CBAuto_2" >
-          <property name="geometry" >
-           <rect>
-            <x>20</x>
-            <y>60</y>
-            <width>270</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="text" >
-           <string>Auto Select String</string>
-          </property>
-          <property name="checked" >
-           <bool>false</bool>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="checkBox4" >
-          <property name="geometry" >
-           <rect>
-            <x>20</x>
-            <y>29</y>
-            <width>121</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text" >
-           <string>No</string>
-          </property>
-         </widget>
         </widget>
         <widget class="QComboBox" name="CBNote" >
          <property name="geometry" >
@@ -461,6 +390,90 @@
            <string>B</string>
           </property>
          </item>
+        </widget>
+        <widget class="QLabel" name="textLabel6" >
+         <property name="geometry" >
+          <rect>
+           <x>180</x>
+           <y>20</y>
+           <width>61</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text" >
+          <string>Octave :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="textLabel6_2" >
+         <property name="geometry" >
+          <rect>
+           <x>50</x>
+           <y>20</y>
+           <width>71</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text" >
+          <string>Note to tune :</string>
+         </property>
+        </widget>
+        <widget class="QGroupBox" name="groupBox" >
+         <property name="geometry" >
+          <rect>
+           <x>260</x>
+           <y>10</y>
+           <width>421</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <property name="title" >
+          <string>Auto Select</string>
+         </property>
+         <widget class="QRadioButton" name="CBAuto_3" >
+          <property name="geometry" >
+           <rect>
+            <x>20</x>
+            <y>90</y>
+            <width>280</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text" >
+           <string>Auto Select (nearest semitone only)</string>
+          </property>
+          <property name="checked" >
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="checkBox4" >
+          <property name="geometry" >
+           <rect>
+            <x>20</x>
+            <y>29</y>
+            <width>181</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text" >
+           <string>Manual note change only</string>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="CBAuto_2" >
+          <property name="geometry" >
+           <rect>
+            <x>20</x>
+            <y>60</y>
+            <width>270</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text" >
+           <string>Auto Select notes</string>
+          </property>
+          <property name="checked" >
+           <bool>false</bool>
+          </property>
+         </widget>
         </widget>
        </widget>
        <widget class="QWidget" name="tab" >
@@ -537,6 +550,71 @@
          </item>
         </widget>
        </widget>
+       <widget class="QWidget" name="tab_4" >
+        <attribute name="title" >
+         <string>Harpsichord</string>
+        </attribute>
+        <widget class="QLabel" name="Octave" >
+         <property name="geometry" >
+          <rect>
+           <x>430</x>
+           <y>0</y>
+           <width>251</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <property name="font" >
+          <font>
+           <family>MS Shell Dlg</family>
+           <pointsize>144</pointsize>
+           <weight>75</weight>
+           <italic>false</italic>
+           <bold>true</bold>
+           <underline>false</underline>
+           <strikeout>false</strikeout>
+          </font>
+         </property>
+         <property name="toolTip" >
+          <string comment="Octave number" />
+         </property>
+         <property name="text" >
+          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-size:144pt; font-weight:600; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:400;">4&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="Note" >
+         <property name="geometry" >
+          <rect>
+           <x>90</x>
+           <y>0</y>
+           <width>331</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <property name="font" >
+          <font>
+           <family>MS Shell Dlg</family>
+           <pointsize>144</pointsize>
+           <weight>75</weight>
+           <italic>false</italic>
+           <bold>true</bold>
+           <underline>false</underline>
+           <strikeout>false</strikeout>
+          </font>
+         </property>
+         <property name="toolTip" >
+          <string comment="Seeking this note" />
+         </property>
+         <property name="layoutDirection" >
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="text" >
+          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-size:144pt; font-weight:600; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:400;">A&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+         </property>
+         <property name="alignment" >
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -551,27 +629,11 @@
      <height>19</height>
     </rect>
    </property>
-   <widget class="QMenu" name="fileMenu" >
-    <property name="geometry" >
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>115</width>
-      <height>78</height>
-     </rect>
-    </property>
-    <property name="title" >
-     <string>&amp;File</string>
-    </property>
-    <addaction name="separator" />
-    <addaction name="separator" />
-    <addaction name="fileExitAction" />
-   </widget>
    <widget class="QMenu" name="helpMenu" >
     <property name="geometry" >
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>37</x>
+      <y>116</y>
       <width>115</width>
       <height>105</height>
      </rect>
@@ -583,6 +645,22 @@
     <addaction name="helpIndexAction" />
     <addaction name="separator" />
     <addaction name="helpAboutAction" />
+   </widget>
+   <widget class="QMenu" name="fileMenu" >
+    <property name="geometry" >
+     <rect>
+      <x>29</x>
+      <y>53</y>
+      <width>115</width>
+      <height>78</height>
+     </rect>
+    </property>
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <addaction name="separator" />
+    <addaction name="separator" />
+    <addaction name="fileExitAction" />
    </widget>
    <addaction name="fileMenu" />
    <addaction name="helpMenu" />
@@ -644,5 +722,38 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>CBNote</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>Note</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>126</x>
+     <y>494</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>197</x>
+     <y>508</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SPOctave</sender>
+   <signal>valueChanged(QString)</signal>
+   <receiver>Octave</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>225</x>
+     <y>494</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>581</x>
+     <y>505</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
