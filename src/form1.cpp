@@ -338,229 +338,234 @@ void Form1::timerEvent( QTimerEvent * )
   ui.TLFreqId->setText(QString("%1").arg(PitchToFreq(Pitch),6,'f',2));
   ui.TLNote->setText (pitchname);
   if (gotPitch) 
-  {
-    // There is non-silence, so detect pitch
-    // recherche dans le spectre amorti du meilleur pic :
-    double bestpeak_x = min1+1+bestPeak2(&autocorr2[min1+1], 850, rstream.m_sample_rate);
-    int candidat_x=lround(bestpeak_x);
-    float candidat_y =autocorr2[candidat_x];
-    // y a t'il une harmonique 1/2 et 1/3 et pas 2/3?
-    if (  autocorr2[candidat_x*2]>candidat_y/4
-	&&autocorr2[candidat_x*3]>candidat_y/4
-	&&autocorr2[candidat_x*3/2]<candidat_y/4
-	)
-    {// si oui, alors la bonne fréquence est 1/2 :
-      //printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
-      bestpeak_x=candidat_x*19/10+bestPeak2(&autocorr2[candidat_x*19/10],candidat_x*2/10, rstream.m_sample_rate);
-      //printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
-    }
-    // y a t'il une harmonique 3/5 et 3 et pas 2/3?
-    if (  autocorr2[candidat_x*5/3]>candidat_y/4
-	&&autocorr2[candidat_x/3]>candidat_y/4
-	&&autocorr2[candidat_x*3/2]<candidat_y/4
-	)
-    {// si oui, alors la bonne fréquence est *3 :
-      //printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
-      bestpeak_x=candidat_x*8/30+bestPeak2(&autocorr2[candidat_x*8/30],candidat_x*4/30, rstream.m_sample_rate);
-      //printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
-    }
-    // y a t'il une harmonique 5 et 5/3 et pas 2/3?
-    if (  autocorr2[candidat_x/5]>candidat_y/4
-	&&autocorr2[candidat_x*3/5]>candidat_y/4
-	&&autocorr2[candidat_x*3/2]<candidat_y/4
-	)
-    {// si oui, alors la bonne fréquence est *5 :
-      //printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
-      bestpeak_x=candidat_x*8/50+bestPeak2(&autocorr2[candidat_x*8/50],candidat_x*4/50, rstream.m_sample_rate);
-      //printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
-    }
-    //printf("mesure %lf\n",rstream.m_sample_rate/bestpeak_x);
-    double bestpeak_freq2 = rstream.m_sample_rate / bestpeak_x;
-    bestpeak_freq2 /= cor_A4;
-    ui.TLFreq->setText(QString("%1").arg(bestpeak_freq2,6,'f',2));
-    // sélection de la meilleure corde :
-    if(ui.CBAuto->isChecked() && ui.tabWidget2->currentPageIndex() == 1
-		    && db > BACKGROUND_DB+6)
     {
-     float rap,bestrap=100;
-     int bestString=ui.BGStrings->selectedId();
-     int pitch;
-     float fr;
-     static int lastString=-1;
-     static int lastString2=-2;
-      for( i=0 ; i< ui.BGStrings->count() ; i++)
-      {
-        pitch =  Name2Pitch(PInstr[ui.CBInstrument->currentItem()].names[i]);
-        fr = PitchToFreq(pitch);
-	if (fr >bestpeak_freq2) rap = fr/bestpeak_freq2;
-	else if(fr>1) rap = bestpeak_freq2/fr;
-	else rap=200;
-	if(rap <bestrap)
+      // There is non-silence, so detect pitch
+      // recherche dans le spectre amorti du meilleur pic :
+      double bestpeak_x = min1+1+bestPeak2(&autocorr2[min1+1], 850, rstream.m_sample_rate);
+      if (ui.tabWidget2->currentPageIndex() != 3) // not helpful with harpsichord
 	{
-	  bestrap=rap;
-	  bestString=i;
+	  int candidat_x=lround(bestpeak_x);
+	  float candidat_y =autocorr2[candidat_x];
+	  // y a t'il une harmonique 1/2 et 1/3 et pas 2/3?
+	  if (  autocorr2[candidat_x*2]>candidat_y/4
+		&&autocorr2[candidat_x*3]>candidat_y/4
+		&&autocorr2[candidat_x*3/2]<candidat_y/4
+		)
+	    {// si oui, alors la bonne fréquence est 1/2 :
+	      //printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
+	      bestpeak_x=candidat_x*19/10+bestPeak2(&autocorr2[candidat_x*19/10],candidat_x*2/10, rstream.m_sample_rate);
+	      //printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
+	    }
+	  // y a t'il une harmonique 3/5 et 3 et pas 2/3?
+	  if (  autocorr2[candidat_x*5/3]>candidat_y/4
+		&&autocorr2[candidat_x/3]>candidat_y/4
+		&&autocorr2[candidat_x*3/2]<candidat_y/4
+		)
+	    {// si oui, alors la bonne fréquence est *3 :
+	      //printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
+	      bestpeak_x=candidat_x*8/30+bestPeak2(&autocorr2[candidat_x*8/30],candidat_x*4/30, rstream.m_sample_rate);
+	      //printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
+	    }
+	  // y a t'il une harmonique 5 et 5/3 et pas 2/3?
+	  if (  autocorr2[candidat_x/5]>candidat_y/4
+		&&autocorr2[candidat_x*3/5]>candidat_y/4
+		&&autocorr2[candidat_x*3/2]<candidat_y/4
+		)
+	    {// si oui, alors la bonne fréquence est *5 :
+	      //printf("correction %lf ",rstream.m_sample_rate/bestpeak_x);
+	      bestpeak_x=candidat_x*8/50+bestPeak2(&autocorr2[candidat_x*8/50],candidat_x*4/50, rstream.m_sample_rate);
+	      //printf("devient %lf\n",rstream.m_sample_rate/bestpeak_x);
+	    }
+	  //printf("mesure %lf\n",rstream.m_sample_rate/bestpeak_x);
+	} // not for harpsichord
+      double bestpeak_freq2 = rstream.m_sample_rate / bestpeak_x;
+      bestpeak_freq2 /= cor_A4;
+      ui.TLFreq->setText(QString("%1").arg(bestpeak_freq2,6,'f',2));
+  // sélection de la meilleure corde :
+  if(ui.CBAuto->isChecked() && ui.tabWidget2->currentPageIndex() == 1
+     && db > BACKGROUND_DB+6)
+    {
+      float rap,bestrap=100;
+      int bestString=ui.BGStrings->selectedId();
+      int pitch;
+      float fr;
+      static int lastString=-1;
+      static int lastString2=-2;
+      for( i=0 ; i< ui.BGStrings->count() ; i++)
+	{
+	  pitch =  Name2Pitch(PInstr[ui.CBInstrument->currentItem()].names[i]);
+	  fr = PitchToFreq(pitch);
+	  if (fr >bestpeak_freq2) rap = fr/bestpeak_freq2;
+	  else if(fr>1) rap = bestpeak_freq2/fr;
+	  else rap=200;
+	  if(rap <bestrap)
+	    {
+	      bestrap=rap;
+	      bestString=i;
+	    }
 	}
-      }
       if((bestrap <3) && (bestString==lastString) && (bestString==lastString2))
-      {
-        //ui.BGStrings->setButton(bestString);
-        qbuts[bestString]->setChecked(true);
-        on_BGStrings_pressed(bestString);
-      }
+	{
+	  //ui.BGStrings->setButton(bestString);
+	  qbuts[bestString]->setChecked(true);
+	  on_BGStrings_pressed(bestString);
+	}
       lastString2=lastString;
       lastString=bestString;
     }
-    if(ui.CBAuto_2->isChecked() && ui.tabWidget2->currentPageIndex() == 0
-		    && db > BACKGROUND_DB+6)
+  if(ui.CBAuto_2->isChecked() && ui.tabWidget2->currentPageIndex() == 0
+     && db > BACKGROUND_DB+6)
     {
-     int pitch;
-     static int lastPitch=-1;
-     static int lastPitch2=-2;
+      int pitch;
+      static int lastPitch=-1;
+      static int lastPitch2=-2;
       //pitch=lround(Freq2Pitch(bestpeak_freq2));
       pitch=int(Freq2Pitch(bestpeak_freq2)+0.5); // note found this time 
       if( (pitch==lastPitch) && (pitch==lastPitch2))
-      {
-	ui.SPOctave->setValue(pitch/12-1);
-	ui.CBNote->setCurrentItem(pitch%12);
-	on_CBNote_activated(pitch%12);
-	adjWindow(Pitch);
-	printf("note trouvee=%d,%s,%lf.\n",pitch,PitchName(pitch,1),Pitch2Freq(pitch));
-      }
+	{
+	  ui.SPOctave->setValue(pitch/12-1);
+	  ui.CBNote->setCurrentItem(pitch%12);
+	  on_CBNote_activated(pitch%12);
+	  adjWindow(Pitch);
+	  printf("note trouvee=%d,%s,%lf.\n",pitch,PitchName(pitch,1),Pitch2Freq(pitch));
+	}
       lastPitch2=lastPitch;
       lastPitch=pitch;
     }
-    if(ui.CBAuto_3->isChecked() && 
-       (ui.tabWidget2->currentPageIndex() == 0 || ui.tabWidget2->currentPageIndex() == 3)
-       // 0 and 3 are the Chromatic and Harpsichord tabs - this is fragile code!!
-		    && db > BACKGROUND_DB+6)
+  if(ui.CBAuto_3->isChecked() && 
+     (ui.tabWidget2->currentPageIndex() == 0 || ui.tabWidget2->currentPageIndex() == 3)
+     // 0 and 3 are the Chromatic and Harpsichord tabs - this is fragile code!!
+     && db > BACKGROUND_DB+6)
     { 
-     int pitch=int(Freq2Pitch(bestpeak_freq2)+0.5); // note found this time 
-     int note = pitch%12; 
-     int oct = pitch/12 -1; 
-     static int last_pitch=-1; // to check if same note found 
-     static int confidence; // repeated finding of same note builds confidence 
-     if(pitch == last_pitch)
-     { 
-       if( Pitch-pitch == 1 || Pitch-pitch == -1 ) 
-       { 
-          confidence++; 
-	  if(confidence>2)
-	  { 
+      int pitch=int(Freq2Pitch(bestpeak_freq2)+0.5); // note found this time 
+      int note = pitch%12; 
+      int oct = pitch/12 -1; 
+      static int last_pitch=-1; // to check if same note found 
+      static int confidence; // repeated finding of same note builds confidence 
+      if(pitch == last_pitch)
+	{ 
+	  if( Pitch-pitch == 1 || Pitch-pitch == -1 ) 
+	    { 
+	      confidence++; 
+	      if(confidence>2)
+		{ 
+		  confidence = 0; 
+		  Pitch = note+(oct+1)*12; 
+		  ui.CBNote->setCurrentItem(note);
+		  ui.SPOctave->setValue(oct);
+		  on_CBNote_activated(pitch%12);
+		  adjWindow(Pitch);
+		} 
+	    } 
+	  else 
 	    confidence = 0; 
-	    Pitch = note+(oct+1)*12; 
-	    ui.CBNote->setCurrentItem(note);
-	    ui.SPOctave->setValue(oct);
-	    on_CBNote_activated(pitch%12);
-	    adjWindow(Pitch);
-	  } 
 	} 
-	else 
-	  confidence = 0; 
-      } 
       last_pitch = pitch; 
     }
-    // recherche dans le spectre amorti du meilleur pic près de la note recherchée :
-    i = lround(rstream.m_sample_rate / PitchToFreq(Pitch+2));
-    max = rstream.m_sample_rate / PitchToFreq(Pitch-2);
-    bestpeak_x = i+bestPeak2(&autocorr2[i], max-i+1, rstream.m_sample_rate);
-    bestpeak_freq2 = rstream.m_sample_rate / bestpeak_x;
-    //printf("mesure;%lf",bestpeak_freq2);
-    candidat_x=lround(bestpeak_x);
-    candidat_y =autocorr2[candidat_x];
-    // recherche dans le spectre amorti du meilleur pic près de l'harmonique 1/3 de la note recherchée :
-    if ( candidat_x >0 && autocorr2[candidat_x/3]>candidat_y/4)
+  if (ui.tabWidget2->currentPageIndex() != 3) // not helpful with harpsichord
     {
-      float bestpeak_x3=candidat_x*29/10+bestPeak2(&autocorr2[candidat_x*29/10],candidat_x*2/10, rstream.m_sample_rate);
-     double bestpeak_freq3 = rstream.m_sample_rate / bestpeak_x3;
-     bestpeak_freq2 = (bestpeak_freq2+bestpeak_freq3)/2;
-    }
-    // recherche dans le spectre amorti du meilleur pic près de l'harmonique 1/5 de la note recherchée :
-    i = lround(rstream.m_sample_rate*5 / PitchToFreq(Pitch+4));
-    max = rstream.m_sample_rate*5 / PitchToFreq(Pitch-4);
-    double bestpeak_x5 = i+bestPeak2(&autocorr2[i], max-i+1, rstream.m_sample_rate);
-    double bestpeak_freq5 = rstream.m_sample_rate / bestpeak_x5;
-    //printf(";%lf;%lf;%lf\n",bestpeak_freq3*3,bestpeak_freq5*5,(bestpeak_freq3*3+bestpeak_freq2)/2);
-
-    if(calib_A4 >0)
+      // recherche dans le spectre amorti du meilleur pic près de la note recherchée :
+      i = lround(rstream.m_sample_rate / PitchToFreq(Pitch+2));
+      max = rstream.m_sample_rate / PitchToFreq(Pitch-2);
+      bestpeak_x = i+bestPeak2(&autocorr2[i], max-i+1, rstream.m_sample_rate);
+      bestpeak_freq2 = rstream.m_sample_rate / bestpeak_x;
+      //printf("mesure;%lf",bestpeak_freq2);
+      int candidat_x=lround(bestpeak_x);
+      float candidat_y =autocorr2[candidat_x];
+      // recherche dans le spectre amorti du meilleur pic près de l'harmonique 1/3 de la note recherchée :
+      if ( candidat_x >0 && autocorr2[candidat_x/3]>candidat_y/4)
+	{
+	  float bestpeak_x3=candidat_x*29/10+bestPeak2(&autocorr2[candidat_x*29/10],candidat_x*2/10, rstream.m_sample_rate);
+	  double bestpeak_freq3 = rstream.m_sample_rate / bestpeak_x3;
+	  bestpeak_freq2 = (bestpeak_freq2+bestpeak_freq3)/2;
+	}
+      // recherche dans le spectre amorti du meilleur pic près de l'harmonique 1/5 de la note recherchée :
+      i = lround(rstream.m_sample_rate*5 / PitchToFreq(Pitch+4));
+      max = rstream.m_sample_rate*5 / PitchToFreq(Pitch-4);
+      double bestpeak_x5 = i+bestPeak2(&autocorr2[i], max-i+1, rstream.m_sample_rate);
+      double bestpeak_freq5 = rstream.m_sample_rate / bestpeak_x5;
+      //printf(";%lf;%lf;%lf\n",bestpeak_freq3*3,bestpeak_freq5*5,(bestpeak_freq3*3+bestpeak_freq2)/2);
+    } // not harpsichord
+  if(calib_A4 >0)
     {
       calib_A4--;
       cor_A4_tmp[calib_A4]=bestpeak_freq2/440.0;
-	printf("cor_A4_tmp=%f\n",bestpeak_freq2);
+      printf("cor_A4_tmp=%f\n",bestpeak_freq2);
       if(!calib_A4)
-      {
-	cor_A4= (cor_A4_tmp[0]+cor_A4_tmp[1]+cor_A4_tmp[1]+cor_A4_tmp[1])/4.0;
-	printf("cor_A4=%f\n",cor_A4);
-      }
+	{
+	  cor_A4= (cor_A4_tmp[0]+cor_A4_tmp[1]+cor_A4_tmp[1]+cor_A4_tmp[1])/4.0;
+	  printf("cor_A4=%f\n",cor_A4);
+	}
     }
-    
-    bestpeak_freq2 /= cor_A4;
-    
-    ui.TLFreq3->setText(QString("%1").arg(bestpeak_freq2,6,'f',2));
-    double cent = log10f(bestpeak_freq2 / PitchToFreq(Pitch))*1200/log10f(2);
-    ui.TLCent->setText(QString("%1").arg(cent,5,'f',2));
-    
-    if(ui.tabWidget2->currentPageIndex() == 3) // large tuning bar needed
+  
+  bestpeak_freq2 /= cor_A4;
+  
+  ui.TLFreq3->setText(QString("%1").arg(bestpeak_freq2,6,'f',2));
+  double cent = log10f(bestpeak_freq2 / PitchToFreq(Pitch))*1200/log10f(2);
+  ui.TLCent->setText(QString("%1").arg(cent,5,'f',2));
+  
+  if(ui.tabWidget2->currentPageIndex() == 3) // large tuning bar needed
     {
       int iCent=lround((2*cent+100)*4);// value 400 is perfect, 410 = 5/2 cents sharp - I've made this a bit more sensitive
       if (iCent < 0) iCent= 0;
       if (iCent >  800) iCent=  800;
-    // this is the red/green/blue bar
-    if (iCent <360)// more than ten cents flat
-      {
-	rect  = new Q3CanvasRectangle(iCent+20,0,359-iCent,120,c);//x,y, width,height, canvas defined in the init() function above up to x=380
-	rect->setPen( QPen(QColor( 250, 20, 20), 1) );
-	tb->setColor(QColor( 250, 20, 20));
-      }
-    else if (iCent>440) // more than ten cents sharp
-      {
-	rect  = new Q3CanvasRectangle(481,0,iCent-420,120,c);//from x=460
-	rect->setPen( QPen(QColor( 20, 20, 250), 1) );
-	tb->setColor(QColor( 20, 20, 250)); // blue for sharp
-      }
-    else
-      {
-	rect  = new Q3CanvasRectangle(iCent+20,0,20,320,c);
-	int colour = 90+abs(iCent-400)*2;// make a color out of it
-	rect->setPen( QPen(QColor( 250, 20, 20), 1) );
-	if(iCent<380)
-	  tb->setColor(QColor( 20+colour, 255-colour,  20)); //green -ish
-	else
-	  if(iCent>420)
-	    tb->setColor(QColor( 20, 255-colour,  20+colour)); //green -ish
+      // this is the red/green/blue bar
+      if (iCent <360)// more than ten cents flat
+	{
+	  rect  = new Q3CanvasRectangle(iCent+20,0,359-iCent,120,c);//x,y, width,height, canvas defined in the init() function above up to x=380
+	  rect->setPen( QPen(QColor( 250, 20, 20), 1) );
+	  tb->setColor(QColor( 250, 20, 20));
+	}
+      else if (iCent>440) // more than ten cents sharp
+	{
+	  rect  = new Q3CanvasRectangle(481,0,iCent-420,120,c);//from x=460
+	  rect->setPen( QPen(QColor( 20, 20, 250), 1) );
+	  tb->setColor(QColor( 20, 20, 250)); // blue for sharp
+	}
+      else
+	{
+	  rect  = new Q3CanvasRectangle(iCent+20,0,20,320,c);
+	  int colour = 90+abs(iCent-400)*2;// make a color out of it
+	  rect->setPen( QPen(QColor( 250, 20, 20), 1) );
+	  if(iCent<380)
+	    tb->setColor(QColor( 20+colour, 255-colour,  20)); //green -ish
 	  else
-	    tb->setColor(QColor( 0, 255-colour,  0)); //green 	
-      }
-    rect->setBrush(*tb);
-    rect->show();
-    // this the centred outline rect for in tune position
-
-    rect  = new Q3CanvasRectangle(379,0,102,320,c);//380 to 440
+	    if(iCent>420)
+	      tb->setColor(QColor( 20, 255-colour,  20+colour)); //green -ish
+	    else
+	      tb->setColor(QColor( 0, 255-colour,  0)); //green 	
+	}
+      rect->setBrush(*tb);
+      rect->show();
+      // this the centred outline rect for in tune position
+      
+      rect  = new Q3CanvasRectangle(379,0,102,320,c);//380 to 440
     }  else { // normal sized tuning bar needed
-    int iCent=lround((cent+100)*4);
-    if (iCent < 0) iCent= 0;
-    if (iCent >  800) iCent=  800;
-    if (iCent <380)
-    {
-       rect  = new Q3CanvasRectangle(iCent,280,399-iCent,20,c);
-       rect->setPen( QPen(QColor( 250, 20, 20), 1) );
-       tb->setColor(QColor( 250, 20, 20));
-    }
-    else if (iCent>420)
-    {
-       rect  = new Q3CanvasRectangle(421,280,iCent-420,20,c);
-       rect->setPen( QPen(QColor( 250, 20, 20), 1) );
-       tb->setColor(QColor( 250, 20, 20));
-    }
-    else
-    {
-       rect  = new Q3CanvasRectangle(iCent,280,20,20,c);
-       iCent = 90+abs(iCent-400)*4;
-       rect->setPen( QPen(QColor( 250, 20, 20), 1) );
-       tb->setColor(QColor( 20, 255-iCent,  20));
-    }
-    rect->setBrush(*tb);
-    rect->show();
-    rect  = new Q3CanvasRectangle(399,279,22,22,c);
+      int iCent=lround((cent+100)*4);
+      if (iCent < 0) iCent= 0;
+      if (iCent >  800) iCent=  800;
+      if (iCent <380)
+	{
+	  rect  = new Q3CanvasRectangle(iCent,280,399-iCent,20,c);
+	  rect->setPen( QPen(QColor( 250, 20, 20), 1) );
+	  tb->setColor(QColor( 250, 20, 20));
+	}
+      else if (iCent>420)
+	{
+	  rect  = new Q3CanvasRectangle(421,280,iCent-420,20,c);
+	  rect->setPen( QPen(QColor( 250, 20, 20), 1) );
+	  tb->setColor(QColor( 250, 20, 20));
+	}
+      else
+	{
+	  rect  = new Q3CanvasRectangle(iCent,280,20,20,c);
+	  iCent = 90+abs(iCent-400)*4;
+	  rect->setPen( QPen(QColor( 250, 20, 20), 1) );
+	  tb->setColor(QColor( 20, 255-iCent,  20));
+	}
+      rect->setBrush(*tb);
+      rect->show();
+      rect  = new Q3CanvasRectangle(399,279,22,22,c);
     }
 
 
