@@ -1,4 +1,7 @@
- -  For hapsichord tab the sections of code entitled 
+release 1.0.0 :
+ - add "Save Preferences"
+ - some fixes
+ - For hapsichord tab the sections of code entitled 
  recherche dans le spectre amorti ...
  in form1.cpp is not executed, as they cause failures to detect the correct peak.
  - added a new tab for harpsichords and other large instruments, display switches when this is selected. Note this uses signals and slots generated from Qt Designer - these seem to be lacking in general in this code, which perhaps is why different bits can get out of step. (See comment below, and also note how the chromatic Auto Select in form1.cpp is dependent on the numbering of the tabs, rather than the signal generated when a tab is selected).

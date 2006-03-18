@@ -1,3 +1,7 @@
+version 1.0.0 :
+ - sauvegarde des préférences
+ - quelques bugs fixés.
+ - onglet clavecin ajouté (merci à R. Shann)
 version 0.9.1 :
  - port vers Qt4 plus complet.
  - essai de meilleure detection de la note avec une étude des harmoniques.

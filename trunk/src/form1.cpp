@@ -15,7 +15,7 @@
 #include "form1.h"
 #include "fhelp.h"
 
-#define VERSION "0.9.1"
+#define VERSION "1.0.0"
 
 Form1::Form1()
 	    : QMainWindow()
@@ -277,6 +277,97 @@ void Form1::init()
   }
   ui.CBInstrument->setCurrentItem( 0 );
   on_CBInstrument_activated( 0);
+ FILE *ficIni=fopen("accordeur.ini","r");
+  if(ficIni)
+  {
+   char line[MAX_LINE_LENGTH+1];
+   int nameLength;
+   int nbTemp=0;
+   int opt;
+    while(fgets(line,MAX_LINE_LENGTH,ficIni))
+    {
+      if(line[0]=='#') continue;
+      char *p0,*p1;
+      p0=line;
+      while(*p0==' ')	p0++;
+      p1=p0;
+      while(*p1 != '=' && *p1!=' ' && *p1!='\t' && *p1)
+	      p1++;
+      *p1=0;
+      p1++;
+      while(*p1==' ')	p1++;
+      if (!strcmp(p0,"ActiveTab"))
+      {
+	opt=atoi(p1);
+        ui.tabWidget2->setCurrentIndex(opt);
+	printf("ActiveTab = %d\n",opt);
+      }
+      else if (!strcmp(p0,"ChromaticSelect"))
+      {
+	opt=atoi(p1);
+	printf("ChromaticSelect = %d\n",opt);
+	if(opt) ui.CBAuto->setCheckState(Qt::Checked);
+	else    ui.CBAuto->setCheckState(Qt::Unchecked);
+      }
+      else if (!strcmp(p0,"ChromaticPitch"))
+      {
+	opt=atoi(p1);
+	printf("ChromaticPitch = %d\n",opt);
+	ui.CBNote->setCurrentItem(opt);
+      }
+      else if (!strcmp(p0,"ChromaticOctave"))
+      {
+	opt=atoi(p1);
+	printf("ChromaticOctave = %d\n",opt);
+        ui.SPOctave->setValue( opt );
+      }
+      else if (!strcmp(p0,"OtherSelect"))
+      {
+	opt=atoi(p1);
+	printf("OtherSelect = %d\n",opt);
+	switch(opt)
+	{
+	 case 1:
+	  ui.CBAuto_3->setChecked(TRUE);
+	  break;
+	 case 2:
+	  ui.CBAuto_2->setChecked(TRUE);
+	  break;
+	 default:
+	  ui.CBAuto_Manual->setChecked(TRUE);
+	  break;
+	}
+      }
+      else if (!strcmp(p0,"OtherInstrument"))
+      {
+	opt=atoi(p1);
+        ui.CBInstrument->setCurrentItem( opt );
+        on_CBInstrument_activated( opt );
+	printf("OtherInstrument = %d\n",opt);
+      }
+      else if (!strcmp(p0,"OtherString"))
+      {
+	opt=atoi(p1);
+	qbuts[opt]->setChecked(true);
+	on_qbut_clicked( );
+	printf("OtherString = %d\n",opt);
+      }
+      else if (!strcmp(p0,"Temperament"))
+      {
+	opt=atoi(p1);
+        ui.CBTemperament->setCurrentItem( opt );
+        on_CBTemperament_activated( opt );
+	printf("Temperament = %d\n",opt);
+      }
+      else if (!strcmp(p0,"A4Correction"))
+      {
+	sscanf(p1,"%f",&cor_A4);
+	printf("A4Correction = %f\n",cor_A4);
+      }
+    }
+    fclose(ficIni);
+  }
+  ui.tabWidget2->setCurrentIndex(ui.tabWidget2->currentIndex());
   Timer=startTimer(200);
 }
 
@@ -342,7 +433,7 @@ void Form1::timerEvent( QTimerEvent * )
       // There is non-silence, so detect pitch
       // recherche dans le spectre amorti du meilleur pic :
       double bestpeak_x = min1+1+bestPeak2(&autocorr2[min1+1], 850, rstream.m_sample_rate);
-      if (ui.tabWidget2->currentPageIndex() != 3) // not helpful with harpsichord
+      if (ui.tabWidget2->currentIndex() != 3) // not helpful with harpsichord
 	{
 	  int candidat_x=lround(bestpeak_x);
 	  float candidat_y =autocorr2[candidat_x];
@@ -382,15 +473,16 @@ void Form1::timerEvent( QTimerEvent * )
       bestpeak_freq2 /= cor_A4;
       ui.TLFreq->setText(QString("%1").arg(bestpeak_freq2,6,'f',2));
   // sélection de la meilleure corde :
-  if(ui.CBAuto->isChecked() && ui.tabWidget2->currentPageIndex() == 1
+  if(ui.CBAuto->isChecked() && ui.tabWidget2->currentIndex() == 1
      && db > BACKGROUND_DB+6)
     {
       float rap,bestrap=100;
-      int bestString=ui.BGStrings->selectedId();
+      int bestString;//TODO=ui.BGStrings->selectedId();
       int pitch;
       float fr;
       static int lastString=-1;
       static int lastString2=-2;
+      /*TODO
       for( i=0 ; i< ui.BGStrings->count() ; i++)
 	{
 	  pitch =  Name2Pitch(PInstr[ui.CBInstrument->currentItem()].names[i]);
@@ -404,16 +496,17 @@ void Form1::timerEvent( QTimerEvent * )
 	      bestString=i;
 	    }
 	}
+	*/
       if((bestrap <3) && (bestString==lastString) && (bestString==lastString2))
 	{
 	  //ui.BGStrings->setButton(bestString);
 	  qbuts[bestString]->setChecked(true);
-	  on_BGStrings_pressed(bestString);
+	  on_qbut_clicked();
 	}
       lastString2=lastString;
       lastString=bestString;
     }
-  if(ui.CBAuto_2->isChecked() && ui.tabWidget2->currentPageIndex() == 0
+  if(ui.CBAuto_2->isChecked() && ui.tabWidget2->currentIndex() == 0
      && db > BACKGROUND_DB+6)
     {
       int pitch;
@@ -427,13 +520,13 @@ void Form1::timerEvent( QTimerEvent * )
 	  ui.CBNote->setCurrentItem(pitch%12);
 	  on_CBNote_activated(pitch%12);
 	  adjWindow(Pitch);
-	  printf("note trouvee=%d,%s,%lf.\n",pitch,PitchName(pitch,1),Pitch2Freq(pitch));
+	  //printf("note trouvee=%d,%s,%lf.\n",pitch,PitchName(pitch,1),Pitch2Freq(pitch));
 	}
       lastPitch2=lastPitch;
       lastPitch=pitch;
     }
   if(ui.CBAuto_3->isChecked() && 
-     (ui.tabWidget2->currentPageIndex() == 0 || ui.tabWidget2->currentPageIndex() == 3)
+     (ui.tabWidget2->currentIndex() == 0 || ui.tabWidget2->currentIndex() == 3)
      // 0 and 3 are the Chromatic and Harpsichord tabs - this is fragile code!!
      && db > BACKGROUND_DB+6)
     { 
@@ -462,7 +555,7 @@ void Form1::timerEvent( QTimerEvent * )
 	} 
       last_pitch = pitch; 
     }
-  if (ui.tabWidget2->currentPageIndex() != 3) // not helpful with harpsichord
+  if (ui.tabWidget2->currentIndex() != 3) // not helpful with harpsichord
     {
       // recherche dans le spectre amorti du meilleur pic près de la note recherchée :
       i = lround(rstream.m_sample_rate / PitchToFreq(Pitch+2));
@@ -504,7 +597,7 @@ void Form1::timerEvent( QTimerEvent * )
   double cent = log10f(bestpeak_freq2 / PitchToFreq(Pitch))*1200/log10f(2);
   ui.TLCent->setText(QString("%1").arg(cent,5,'f',2));
   
-  if(ui.tabWidget2->currentPageIndex() == 3) // large tuning bar needed
+  if(ui.tabWidget2->currentIndex() == 3) // large tuning bar needed
     {
       int iCent=lround((2*cent+100)*4);// value 400 is perfect, 410 = 5/2 cents sharp - I've made this a bit more sensitive
       if (iCent < 0) iCent= 0;
@@ -590,7 +683,7 @@ void Form1::timerEvent( QTimerEvent * )
     {
 	delete *it;
     }
-  if(ui.tabWidget2->currentPageIndex() != 3) {
+  if(ui.tabWidget2->currentIndex() != 3) {
   // trait rouge de la note :
   line  = new Q3CanvasLine(c);
   i = lround(rstream.m_sample_rate / PitchToFreq(Pitch));
@@ -750,31 +843,54 @@ int Name2Pitch(char * name)
    return pitch;
 }
 
-void Form1::on_BGStrings_pressed( int id)
+void Form1::on_qbut_clicked()
 {
-//   Pitch =  Name2Pitch(strings[CBInstrument->currentItem()][id]);
+ int id;
+  for(id=0 ; id <PInstr[ui.CBInstrument->currentItem()].nbStrings ; id++)
+	  if (qbuts[id]->isChecked()) break;
    Pitch =  Name2Pitch(PInstr[ui.CBInstrument->currentItem()].names[id]);
-//   printf("sel=%d:%s.\n",id,PInstr[CBInstrument->currentItem()].names[id]);
+   //printf("sel=%d:%s.\n",id,PInstr[ui.CBInstrument->currentItem()].names[id]);
    adjWindow(Pitch);
-//    printf("bouton %d,instr %d, nom %s, pitch %d\n",id,CBInstrument->currentItem(), strings[CBInstrument->currentItem()][id], Pitch);
 }
 
 
 void Form1::on_tabWidget2_currentChanged( QWidget * )
 {
-  if (ui.tabWidget2->currentPageIndex() == 0)
+  if (ui.tabWidget2->currentIndex() == 0)
   {
     Pitch = ui.SPOctave->value()*12 + ui.CBNote->currentItem()+12;
   }
-  else if (ui.tabWidget2->currentPageIndex() == 1)
+  else if (ui.tabWidget2->currentIndex() == 1)
   {
-    ui.BGStrings->setButton(0);
-    //Pitch =  Name2Pitch(strings[CBInstrument->currentItem()][0]);
+   qbuts[0]->setChecked(true);
    Pitch =  Name2Pitch(PInstr[ui.CBInstrument->currentItem()].names[0]);
   }
   adjWindow(Pitch);
 }
 
+
+void Form1::on_fileSavePrefs_activated()
+{
+ FILE *ficInit=fopen("accordeur.ini","w");
+  fprintf(ficInit,"ActiveTab=%d\n",ui.tabWidget2->currentIndex());
+  fprintf(ficInit,"ChromaticSelect=%d\n",ui.CBAuto->checkState());
+  fprintf(ficInit,"ChromaticPitch=%d\n",ui.CBNote->currentItem());
+  fprintf(ficInit,"ChromaticOctave=%d\n",ui.SPOctave->value());
+  if(ui.CBAuto_3->isChecked())
+    fprintf(ficInit,"OtherSelect=1\n");
+  if(ui.CBAuto_2->isChecked())
+    fprintf(ficInit,"OtherSelect=2\n");
+  else
+    fprintf(ficInit,"OtherSelect=0\n");
+  fprintf(ficInit,"OtherInstrument=%d\n",ui.CBInstrument->currentItem());
+  int id;
+  for(id=0 ; id <PInstr[ui.CBInstrument->currentItem()].nbStrings ; id++)
+	  if (qbuts[id]->isChecked()) break;
+  fprintf(ficInit,"OtherString=%d\n",id);
+  fprintf(ficInit,"Temperament=%d\n",ui.CBTemperament->currentItem());
+  fprintf(ficInit,"A4Correction=%f\n",cor_A4);
+  fclose(ficInit);
+}
 
 void Form1::on_fileExitAction_activated()
 {
@@ -847,6 +963,7 @@ void Form1::on_CBInstrument_activated( int numInstr)
 // new instrument :
  QRadioButton *qbut;
  int i;
+  killTimer(Timer);
   for(i=0 ; i<20 ; i++)
   {
     if(qbuts[i])
@@ -860,12 +977,17 @@ void Form1::on_CBInstrument_activated( int numInstr)
 	  qbut=new QRadioButton(PInstr[numInstr].names[i],ui.BGStrings);
 	  qbut->setGeometry(10,((ui.BGStrings->height()-10)/(PInstr[numInstr].nbStrings+1))*(i+1),171,20);
 	  
-	  ui.BGStrings->insert(qbut,i);
+	  //ui.BGStrings->insert(qbut,i);
+	  connect(qbut,SIGNAL( clicked()),this,SLOT(on_qbut_clicked()));
 	  qbut->show();
 	  qbuts[i]=qbut;
   }
-
-  
+  qbuts[0]->setChecked(true);
+  on_qbut_clicked();
+  if(WindowSize >8192)
+      Timer=startTimer(400);
+  else
+      Timer=startTimer(200);
 }
 
 
