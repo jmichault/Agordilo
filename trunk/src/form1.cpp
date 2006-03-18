@@ -113,6 +113,7 @@ long Timer=0;
 void Form1::init()
 {
  int i;
+  ui.CBNote->setCurrentItem(9);
   for(i=0 ; i<20 ; i++)
     qbuts[i]=0;
   c= new Q3Canvas(1050,560);
@@ -368,7 +369,8 @@ void Form1::init()
     fclose(ficIni);
   }
   ui.tabWidget2->setCurrentIndex(ui.tabWidget2->currentIndex());
-  Timer=startTimer(200);
+  WindowSize=0;
+  adjWindow(Pitch);
 }
 
 void Form1::destroy()
@@ -862,8 +864,7 @@ void Form1::on_tabWidget2_currentChanged( QWidget * )
   }
   else if (ui.tabWidget2->currentIndex() == 1)
   {
-   qbuts[0]->setChecked(true);
-   Pitch =  Name2Pitch(PInstr[ui.CBInstrument->currentItem()].names[0]);
+    on_qbut_clicked();
   }
   adjWindow(Pitch);
 }
