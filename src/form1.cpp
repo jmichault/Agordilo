@@ -76,7 +76,7 @@ recordStream rstream;
 playStream pstream;
 int Pitch=69;
 static const int MIN_DB = -96;
-static const int BACKGROUND_DB = -54; // This seemed to work okay
+static const int BACKGROUND_DB = -54; 
 static const int INF_DB = (MIN_DB - 1);
 extern float * autocorr,autocorrLen;
 extern unsigned long WindowSize;
@@ -409,7 +409,7 @@ void Form1::timerEvent( QTimerEvent * )
                  pitchname);
 
   // calcul du spectre "amorti" :
-#define PARTDERNIER 0.25
+#define PARTDERNIER 0.20
   for (i=0; i < WindowSize ; i++)
   {
     autocorr2[i] = (autocorr[i]-bruit[i])*PARTDERNIER
@@ -421,20 +421,29 @@ void Form1::timerEvent( QTimerEvent * )
   }
   // Print results
  bool gotPitch = false;
-
+/*
  float db = INF_DB;
   if (gotSound) {
       db = level2db(avg_abs);
       gotPitch = gotSound && (db > BACKGROUND_DB);
   }
+  */
+   float db = INF_DB; 
+   static float maxdb = INF_DB; 
+   if (gotSound) { 
+	   db = level2db(avg_abs); 
+	   if(db>maxdb) maxdb=db; 
+	   gotPitch = gotSound && (db > maxdb-15); 
+   } 
   //  fréquence idéale :
   ui.TLFreqId->setText(QString("%1").arg(PitchToFreq(Pitch),6,'f',2));
-  ui.TLNote->setText (pitchname);
+  //printf("gotPitch=%d, avg_abs=%lf, db=%lf,maxdb=%lf\n",gotPitch,avg_abs,db,maxdb);
   if (gotPitch) 
-    {
+  {
+    ui.TLNote->setText (pitchname);
       // There is non-silence, so detect pitch
       // recherche dans le spectre amorti du meilleur pic :
-      double bestpeak_x = min1+1+bestPeak2(&autocorr2[min1+1], 850, rstream.m_sample_rate);
+      double bestpeak_x = bestPeak2(autocorr2, autocorrLen, rstream.m_sample_rate);
       if (ui.tabWidget2->currentIndex() != 3) // not helpful with harpsichord
 	{
 	  int candidat_x=lround(bestpeak_x);
@@ -484,8 +493,7 @@ void Form1::timerEvent( QTimerEvent * )
       float fr;
       static int lastString=-1;
       static int lastString2=-2;
-      /*TODO
-      for( i=0 ; i< ui.BGStrings->count() ; i++)
+      for( i=0 ; i < PInstr[ui.CBInstrument->currentItem()].nbStrings ; i++)
 	{
 	  pitch =  Name2Pitch(PInstr[ui.CBInstrument->currentItem()].names[i]);
 	  fr = PitchToFreq(pitch);
@@ -498,7 +506,6 @@ void Form1::timerEvent( QTimerEvent * )
 	      bestString=i;
 	    }
 	}
-	*/
       if((bestrap <3) && (bestString==lastString) && (bestString==lastString2))
 	{
 	  //ui.BGStrings->setButton(bestString);
