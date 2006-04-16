@@ -78,7 +78,8 @@ int Pitch=69;
 static const int MIN_DB = -96;
 static const int BACKGROUND_DB = -54; 
 static const int INF_DB = (MIN_DB - 1);
-extern float * autocorr,autocorrLen;
+extern float * autocorr;
+extern int autocorrLen;
 extern unsigned long WindowSize;
 float *Pitches;
 float *Temp;
@@ -282,8 +283,6 @@ void Form1::init()
   if(ficIni)
   {
    char line[MAX_LINE_LENGTH+1];
-   int nameLength;
-   int nbTemp=0;
    int opt;
     while(fgets(line,MAX_LINE_LENGTH,ficIni))
     {
@@ -362,7 +361,7 @@ void Form1::init()
       }
       else if (!strcmp(p0,"A4Correction"))
       {
-	sscanf(p1,"%f",&cor_A4);
+	sscanf(p1,"%lf",&cor_A4);
 	printf("A4Correction = %f\n",cor_A4);
       }
     }
@@ -493,6 +492,9 @@ void Form1::timerEvent( QTimerEvent * )
       float fr;
       static int lastString=-1;
       static int lastString2=-2;
+      for(i=0 ; i <PInstr[ui.CBInstrument->currentItem()].nbStrings-1 ; i++)
+	  if (qbuts[i]->isChecked()) break;
+      bestString=i;
       for( i=0 ; i < PInstr[ui.CBInstrument->currentItem()].nbStrings ; i++)
 	{
 	  pitch =  Name2Pitch(PInstr[ui.CBInstrument->currentItem()].names[i]);
