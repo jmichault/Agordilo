@@ -1,0 +1,1 @@
+?package(accordeur): command="accordeur" needs="X11" icon="accordeur.png" section="Multimedia/Sound" title="Accordeur" longtitle="Tune your instruments"
