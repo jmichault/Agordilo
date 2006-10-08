@@ -4,6 +4,7 @@ win32:LIBS        += ./lib/portaudio/pa_win_wmme/libportaudio.dll.a
 INCLUDEPATH	+= lib/portaudio/pa_common
 QT +=  qt3support 
 HEADERS       = form1.h fabout.h fhelp.h
+VERSION=-1.0.0
 SOURCES	+= FFT.cpp \
 	Spectrum.cpp \
 	audiostreams.cpp \
@@ -13,6 +14,12 @@ RESOURCES     = accordeur.qrc
 FORMS=form1.ui fabout.ui fhelp.ui
 UI_DIR = ui
 MOC_DIR = moc
+DISTFILES=images/*.png
+DISTFILES+=instruments.txt
+DISTFILES+=doc/[!CVS]*
+DISTFILES+=*.h
+DISTFILES+=Accordeur.desktop
+DISTFILES+= `cat lib.lst`
 OBJECTS_DIR = obj
 TRANSLATIONS = accordeur_fr.ts accordeur_ge.ts
 unix:libportaudio.target = lib/portaudio/pa_unix_oss/libportaudio.a
