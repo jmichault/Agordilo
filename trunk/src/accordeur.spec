@@ -12,7 +12,6 @@
 %define		osversion 	2007.0
 
 # This is your cpu i486, i586, i686, ppc, sparc, alpha, etc.
-#%define		buildarch 	x86_64
 %define		buildarch 	i586
 
 # This the RPM group on your system that this will installed into.
@@ -60,31 +59,40 @@ mkdir -p %{buildroot}/usr/bin
 #cp -p accordeur %{buildroot}/usr/bin
 install -s -m 755 accordeur %{buildroot}/usr/bin
 #mkdir -p %{buildroot}/usr/share/applnk-mdk/Multimedia/Sound/
-#install -m 644 Accordeur.desktop %{buildroot}/usr/share/applnk-mdk/Multimedia/Sound/
+#install -m 644 accordeur.desktop %{buildroot}/usr/share/applnk-mdk/Multimedia/Sound/
 mkdir -p %{buildroot}/usr/share/accordeur
 install -m 644 accordeur_*.qm instruments.txt %{buildroot}/usr/share/accordeur
 mkdir -p %{buildroot}/usr/share/doc/accordeur
 cp -Rp doc/* %{buildroot}/usr/share/doc/accordeur
 install -d %{buildroot}%{_menudir}
 install -m 644 accordeur.menu %{buildroot}%{_menudir}/accordeur
+install -d %{buildroot}%{_iconsdir}
+install -m 644 accordeur.png %{buildroot}%{_iconsdir}
+install -d %{buildroot}%{_iconsdir}/large
+install -m 644 accordeur.large.png %{buildroot}%{_iconsdir}/large
+install -d %{buildroot}%{_iconsdir}/mini
+install -m 644 accordeur.mini.png %{buildroot}%{_iconsdir}/mini
+install -d %{buildroot}/usr/share/applications
+install -m 644 accordeur.desktop %{buildroot}/usr/share/applications
 
 %post
-/sbin/ldconfig
-%update_menus
+%{update_menus}
 
 %postun
-/sbin/ldconfig
-%clean_menus
+%{clean_menus}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %{prefix}/bin/*
 %{prefix}/share/accordeur/*
 %{prefix}/share/doc/accordeur/*
+%{prefix}/share/applications/*
 %{_menudir}/*
+%{_iconsdir}/*png
+%{_iconsdir}/*/*png
 
 %changelog
 
