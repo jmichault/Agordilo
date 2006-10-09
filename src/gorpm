@@ -1,0 +1,16 @@
+mkdir ~/rpm
+mkdir ~/rpm/SPECS
+mkdir ~/rpm/SOURCES
+mkdir ~/rpm/BUILD
+mkdir ~/rpm/RPMS
+mkdir ~/rpm/RPMS/i386
+mkdir ~/rpm/SRPMS
+mv ~/.rpmmacros ~/.rpmmacros.old
+echo "%_topdir $HOME/rpm" >~/.rpmmacros
+qmake accordeur.pro
+make
+make dist
+cp -p accordeur.spec ~/rpm/SPECS
+cp -p accordeur-1.0.0.tar.gz ~/rpm/SOURCES
+rpm -ba --clean ~/rpm/SPECS/accordeur.spec
+mv ~/.rpmmacros.old ~/.rpmmacros
