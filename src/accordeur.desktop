@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Accordeur
+Comment=Tuner for music instruments
+Exec=/usr/bin/accordeur
+Terminal=false
+Type=Application
+Name[fr_FR]=Accordeur
+Name[fr]=Accordeur
+Comment[fr_FR]=Outil pour accorder des instruments de musique
+Comment[fr]=Outil pour accorder des instruments de musique
+Categories=X-Mandriva-Multimedia-sound;Audio
+Icon=accordeur.png
