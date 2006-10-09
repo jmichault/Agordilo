@@ -6,14 +6,13 @@
 
 # This should be set to your os.
 # Possible values are  Mandrake, Red Hat, Turbolinux, Caldera, SuSE, Debian, etc.
-# In bibletime.spec.in this is automatically filled in by configure
-%define		ostype 		Mandrake
+#%define		ostype 		Mandrake
 
 # This should be set to the version of your OS (6.0, 6.1, 6.2, 7.0, 7.1, 7.2, 8.0, etc.)
-%define		osversion 	2007.0
+#%define		osversion 	2007.0
 
 # This is your cpu i486, i586, i686, ppc, sparc, alpha, etc.
-%define		buildarch 	x86_64
+#%define		buildarch 	x86_64
 
 # This the RPM group on your system that this will installed into.
 # Graphical desktop/KDE, X11/apps, etc.
@@ -30,7 +29,7 @@ Packager:       Jean Michault
 Group:          %{rpmgroup}
 BuildArch:      %{buildarch}
 Source0:        %{name}-%{version}.tar.gz
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 Prefix: 	/usr
 #Requires:	libqt4-devel >= 4.1
 Distribution:	%{ostype} %{osversion}
@@ -47,7 +46,6 @@ This rpm was compiled on a %{ostype} %{osversion} system for %{buildarch} class 
 
 
 %prep
-rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_DIR/%{name}-%{version}
 
 %setup -q
