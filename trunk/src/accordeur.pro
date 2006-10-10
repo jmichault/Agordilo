@@ -4,7 +4,7 @@ win32:LIBS        += ./lib/portaudio/pa_win_wmme/libportaudio.dll.a
 INCLUDEPATH	+= lib/portaudio/pa_common
 QT +=  qt3support 
 HEADERS       = form1.h fabout.h fhelp.h
-VERSION=-1.0.0
+VERSION=-1.0.1
 SOURCES	+= FFT.cpp \
 	Spectrum.cpp \
 	audiostreams.cpp \

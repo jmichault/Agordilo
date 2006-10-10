@@ -24,6 +24,10 @@
         <source>Form2</source>
         <translation></translation>
     </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Form1</name>
@@ -53,7 +57,7 @@
     </message>
     <message>
         <source>Piano</source>
-        <translation>Klavier</translation>
+        <translation type="obsolete">Klavier</translation>
     </message>
     <message>
         <source>Octave :</source>
@@ -199,50 +203,55 @@
         <source>Push this to evaluate background&apos;s spectrum !</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Chromatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Note to tune :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Select</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Select notes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Select (nearest semitone only)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manual note change only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Harpsichord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:MS Shell Dlg; font-size:144pt; font-weight:600; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:MS Shell Dlg; font-size:144pt; font-weight:600; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;A&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>S&amp;ave Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Instruments</name>
-    <message> <source>Guitare 6 strings standard</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Balalaika Prima</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Balalaika Secunda</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Balalaika Alto</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Balalaika Bass</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Balalaika ContraBass</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Banjo 4-String Tenor</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Banjo 4-String Irish Tenor</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Banjo 4-String Plectrum</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Banjo 4-String Guitar</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Banjo 4-String Open G</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Banjo G</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Banjo C</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Banjo D</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Banjo Double C</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Bass Guitar 4 strings Standard</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Bass Guitar 5-String Standard</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Bass Guitar 6-String Standard</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Bass Guitar 7-String Standard</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Bass Guitar 8-String Standard</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Bouzouki Greek</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Bouzouki Irish</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Charango</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Mandolin</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Violin</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Viola</source> <translation type="unfinished"></translation> </message>
-    <message> <source>Cello</source> <translation type="unfinished"></translation> </message>
 </context>
 <context>
     <name>Temperaments</name>
-    <message>
-        <source>pythagore A4=440</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-	<source>Bach 1722 with A4=440</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-	<source>equal temperament with perfect fifths (Serge Cordier) with A4=440</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 </TS>
