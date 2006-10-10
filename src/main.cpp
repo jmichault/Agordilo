@@ -33,16 +33,17 @@ int main( int argc, char ** argv )
 {
  QApplication a( argc, argv );
  int ret;
+ QString locale = QLocale::system().name();
    pApp=&a;
         // translation file for Qt
         QTranslator qt( 0 );
-        qt.load( QString( "qt_" ) + QTextCodec::locale(), "." );
+        qt.load( QString( "qt_" ) + locale, "." );
         a.installTranslator( &qt );
 
         // translation file for application strings
         QTranslator myapp( 0 );
-        if (!myapp.load( QString( "accordeur_" ) + QTextCodec::locale(), "/usr/share/accordeur" ))
-        myapp.load( QString( "accordeur_" ) + QTextCodec::locale(), "." );
+        if (!myapp.load( QString( "accordeur_" ) + locale, "/usr/share/accordeur" ))
+        myapp.load( QString( "accordeur_" ) + locale, "." );
         a.installTranslator( &myapp );
  Form1 w;
   wMain = &w;

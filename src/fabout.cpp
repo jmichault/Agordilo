@@ -1,4 +1,5 @@
 #include <QtGui>
+#include <QLabel>
 #include "fabout.h"
 
 

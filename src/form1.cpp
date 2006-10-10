@@ -4,6 +4,7 @@
 #include <math.h>
 
 #include <QtGui>
+#include <QLabel>
 #include <QTextBrowser>
 #include <q3canvas.h>
 
@@ -15,7 +16,7 @@
 #include "form1.h"
 #include "fhelp.h"
 
-#define VERSION "1.0.0"
+#define VERSION "1.0.1"
 
 Form1::Form1()
 	    : QMainWindow()
@@ -911,6 +912,7 @@ void Form1::on_fileExitAction_activated()
 void Form1::on_helpAboutAction_activated()
 {
 FAbout f2;    
+  f2.ui.setupUi(&f2);
 QString  text0=f2.ui.textLabel1->text();
   text0.replace("x.y.z",VERSION);
   f2.ui.textLabel1->setText(text0);

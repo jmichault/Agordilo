@@ -16,7 +16,7 @@
 &lt;p align=&quot;center&quot;&gt;License : GPL&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;http://accordeur.sourceforge.net&lt;/p&gt;
 </source>
-        <translation type="obsolete">&lt;p align=&quot;center&quot;&gt;- Accordeur -&lt;/p&gt;
+        <translation>&lt;p align=&quot;center&quot;&gt;- Accordeur -&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;pour accorder les instruments de musique&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;Version 0.4.0&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;License : GPL&lt;/p&gt;
@@ -29,7 +29,7 @@
 &lt;p align=&quot;center&quot;&gt;License : GPL&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;http://accordeur.sourceforge.net&lt;/p&gt;
 </source>
-        <translation type="obsolete">&lt;p align=&quot;center&quot;&gt;- Accordeur -&lt;/p&gt;
+        <translation>&lt;p align=&quot;center&quot;&gt;- Accordeur -&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;pour accorder les instruments de musique&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;Version 0.5.0&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;License : GPL&lt;/p&gt;
@@ -54,16 +54,16 @@
         <source>Form2</source>
         <translation></translation>
     </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
 </context>
 <context>
     <name>Form1</name>
     <message>
         <source>Accordeur</source>
         <translation>Accordeur</translation>
-    </message>
-    <message>
-        <source>Calibrate background sound</source>
-        <translation type="obsolete">Calibrer le bruit de fond</translation>
     </message>
     <message>
         <source>A</source>
@@ -126,10 +126,6 @@
         <translation></translation>
     </message>
     <message>
-        <source>Pitch :</source>
-        <translation type="obsolete">Note :</translation>
-    </message>
-    <message>
         <source>Octave :</source>
         <translation>Octave :</translation>
     </message>
@@ -138,16 +134,8 @@
         <translation>Note trouvée :</translation>
     </message>
     <message>
-        <source>near perfect :</source>
-        <translation type="obsolete">près du parfait :</translation>
-    </message>
-    <message>
         <source>Perfect :</source>
         <translation>But :</translation>
-    </message>
-    <message>
-        <source>Piano</source>
-        <translation></translation>
     </message>
     <message>
         <source>Others</source>
@@ -241,24 +229,56 @@
         <source>Push this to evaluate background&apos;s spectrum !</source>
         <translation>Cliquez pour évaluer le spectre du bruit de fond !</translation>
     </message>
+    <message>
+        <source>Chromatic</source>
+        <translation>Claviers</translation>
+    </message>
+    <message>
+        <source>Note to tune :</source>
+        <translation>Note à accorder :</translation>
+    </message>
+    <message>
+        <source>Auto Select</source>
+        <translation>Sélection automatique</translation>
+    </message>
+    <message>
+        <source>Auto Select notes</source>
+        <translation>Sélection automatique de la note</translation>
+    </message>
+    <message>
+        <source>Auto Select (nearest semitone only)</source>
+        <translation>Sélection automatique (au 1/2 ton le plus proche)</translation>
+    </message>
+    <message>
+        <source>Manual note change only</source>
+        <translation>Changement manuel de note</translation>
+    </message>
+    <message>
+        <source>Harpsichord</source>
+        <translation>Clavecin</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:MS Shell Dlg; font-size:144pt; font-weight:600; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;&lt;body style=&quot; white-space: pre-wrap; font-family:MS Shell Dlg; font-size:144pt; font-weight:600; font-style:normal; text-decoration:none;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;A&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>S&amp;ave Preferences</source>
+        <translation>&amp;Enregistrer les préférences</translation>
+    </message>
+    <message>
+        <source>Save Preferences</source>
+        <translation>Enregistrer les préférences</translation>
+    </message>
 </context>
 <context>
     <name>Instruments</name>
     <message>
         <source>Guitare 6 strings standard</source>
         <translation>Guitare 6 cordes standard</translation>
-    </message>
-    <message>
-        <source>Balalaika Prima</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Balalaika Secunda</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Balalaika Alto</source>
-        <translation></translation>
     </message>
     <message>
         <source>Balalaika Bass</source>
@@ -293,18 +313,6 @@
         <translation>Banjo G</translation>
     </message>
     <message>
-        <source>Banjo C</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Banjo D</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Banjo Double C</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Bass Guitar 4 strings Standard</source>
         <translation>Guitare Basse 4 cordes Standard</translation>
     </message>
@@ -333,10 +341,6 @@
         <translation>Bouzouki irlandais</translation>
     </message>
     <message>
-        <source>Charango</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Mandolin</source>
         <translation>Mandoline</translation>
     </message>
@@ -355,10 +359,6 @@
 </context>
 <context>
     <name>Temperaments</name>
-    <message>
-        <source>pythagore A4=440</source>
-        <translation></translation>
-    </message>
     <message>
         <source>Bach 1722 with A4=440</source>
         <translation>Bach 1722 avec A4=440</translation>

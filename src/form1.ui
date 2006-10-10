@@ -9,7 +9,7 @@
     <x>0</x>
     <y>0</y>
     <width>978</width>
-    <height>699</height>
+    <height>695</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -148,22 +148,6 @@
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QLabel" name="textLabel2" >
-       <property name="geometry" >
-        <rect>
-         <x>359</x>
-         <y>41</y>
-         <width>120</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text" >
-        <string>near desired pitch :</string>
-       </property>
-       <property name="alignment" >
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
       <widget class="QLabel" name="TLCent" >
        <property name="geometry" >
         <rect>
@@ -251,6 +235,22 @@
         <string>Calibrate A4</string>
        </property>
       </widget>
+      <widget class="QLabel" name="textLabel2" >
+       <property name="geometry" >
+        <rect>
+         <x>338</x>
+         <y>41</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>near desired pitch :</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
      </widget>
     </item>
     <item row="2" column="0" >
@@ -275,6 +275,9 @@
          <width>940</width>
          <height>180</height>
         </rect>
+       </property>
+       <property name="currentIndex" >
+        <number>0</number>
        </property>
        <widget class="QWidget" name="tab" >
         <attribute name="title" >
@@ -312,19 +315,6 @@
           <string>Octave :</string>
          </property>
         </widget>
-        <widget class="QLabel" name="textLabel6_2" >
-         <property name="geometry" >
-          <rect>
-           <x>50</x>
-           <y>20</y>
-           <width>71</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="text" >
-          <string>Note to tune :</string>
-         </property>
-        </widget>
         <widget class="QGroupBox" name="groupBox" >
          <property name="geometry" >
           <rect>
@@ -337,12 +327,25 @@
          <property name="title" >
           <string>Auto Select</string>
          </property>
+         <widget class="QRadioButton" name="CBAuto_Manual" >
+          <property name="geometry" >
+           <rect>
+            <x>20</x>
+            <y>29</y>
+            <width>391</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text" >
+           <string>Manual note change only</string>
+          </property>
+         </widget>
          <widget class="QRadioButton" name="CBAuto_2" >
           <property name="geometry" >
            <rect>
             <x>20</x>
             <y>60</y>
-            <width>270</width>
+            <width>391</width>
             <height>21</height>
            </rect>
           </property>
@@ -358,7 +361,7 @@
            <rect>
             <x>20</x>
             <y>90</y>
-            <width>280</width>
+            <width>391</width>
             <height>21</height>
            </rect>
           </property>
@@ -367,19 +370,6 @@
           </property>
           <property name="checked" >
            <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="CBAuto_Manual" >
-          <property name="geometry" >
-           <rect>
-            <x>20</x>
-            <y>29</y>
-            <width>181</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text" >
-           <string>Manual note change only</string>
           </property>
          </widget>
         </widget>
@@ -410,6 +400,9 @@
            <width>101</width>
            <height>30</height>
           </rect>
+         </property>
+         <property name="currentIndex" >
+          <number>9</number>
          </property>
          <item>
           <property name="text" >
@@ -471,8 +464,18 @@
            <string>B</string>
           </property>
          </item>
-         <property name="currentIndex" >
-          <number>9</number>
+        </widget>
+        <widget class="QLabel" name="textLabel6_2" >
+         <property name="geometry" >
+          <rect>
+           <x>50</x>
+           <y>20</y>
+           <width>111</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text" >
+          <string>Note to tune :</string>
          </property>
         </widget>
        </widget>
@@ -495,22 +498,6 @@
           </property>
          </item>
         </widget>
-        <widget class="QCheckBox" name="CBAuto" >
-         <property name="geometry" >
-          <rect>
-           <x>370</x>
-           <y>70</y>
-           <width>320</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="text" >
-          <string>Auto Select String</string>
-         </property>
-         <property name="checked" >
-          <bool>true</bool>
-         </property>
-        </widget>
         <widget class="QGroupBox" name="BGStrings" >
          <property name="geometry" >
           <rect>
@@ -522,6 +509,22 @@
          </property>
          <property name="title" >
           <string>Strings</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="CBAuto" >
+         <property name="geometry" >
+          <rect>
+           <x>370</x>
+           <y>70</y>
+           <width>491</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text" >
+          <string>Auto Select String</string>
+         </property>
+         <property name="checked" >
+          <bool>true</bool>
          </property>
         </widget>
        </widget>
@@ -581,7 +584,7 @@
           <string/>
          </property>
          <property name="text" >
-          <string>&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;/head>&lt;body style=&quot; white-space: pre-wrap; font-family:MS Shell Dlg; font-size:144pt; font-weight:600; font-style:normal; text-decoration:none;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-weight:400;&quot;>4&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-size:144pt; font-weight:600; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:400;">4&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
          </property>
         </widget>
         <widget class="QLabel" name="Note" >
@@ -611,7 +614,7 @@
           <enum>Qt::LeftToRight</enum>
          </property>
          <property name="text" >
-          <string>&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;/head>&lt;body style=&quot; white-space: pre-wrap; font-family:MS Shell Dlg; font-size:144pt; font-weight:600; font-style:normal; text-decoration:none;&quot;>&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-weight:400;&quot;>A&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;/head>&lt;body style=" white-space: pre-wrap; font-family:MS Shell Dlg; font-size:144pt; font-weight:600; font-style:normal; text-decoration:none;">&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:400;">A&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
          </property>
          <property name="alignment" >
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -629,7 +632,7 @@
      <x>0</x>
      <y>0</y>
      <width>978</width>
-     <height>27</height>
+     <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="helpMenu" >
@@ -637,8 +640,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>115</width>
-      <height>105</height>
+      <width>117</width>
+      <height>114</height>
      </rect>
     </property>
     <property name="title" >
@@ -654,8 +657,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>115</width>
-      <height>78</height>
+      <width>131</width>
+      <height>94</height>
      </rect>
     </property>
     <property name="title" >
