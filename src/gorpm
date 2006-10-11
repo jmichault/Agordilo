@@ -1,3 +1,5 @@
+VERSION=`grep VERSION accordeur.pro|sed "s/VERSION=-//"`
+
 mkdir ~/rpm
 mkdir ~/rpm/SPECS
 mkdir ~/rpm/SOURCES
@@ -11,6 +13,6 @@ qmake accordeur.pro
 make
 make dist
 cp -p accordeur.spec ~/rpm/SPECS
-cp -p accordeur-1.0.0.tar.gz ~/rpm/SOURCES
+cp -p accordeur-${VERSION}.tar.gz ~/rpm/SOURCES
 rpm -ba --clean ~/rpm/SPECS/accordeur.spec
 mv ~/.rpmmacros.old ~/.rpmmacros
