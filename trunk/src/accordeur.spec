@@ -2,7 +2,7 @@
 %define         version 	1.0.1
 
 # this needs to be changed depending on build number
-%define		release 	1
+%define		release 	2
 
 # This should be set to your os.
 # Possible values are  Mandrake, Red Hat, Turbolinux, Caldera, SuSE, Debian, etc.
