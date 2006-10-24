@@ -44,7 +44,7 @@ void Form1::on_helpContentsAction_activated()
   }
   else
   {
-   char loc[10];
+   char loc[20];
     strcpy(loc, QTextCodec::locale());
    char * finloc=strchr(loc,'_');
     if (finloc) finloc[0]=0;
@@ -910,7 +910,6 @@ void Form1::on_fileExitAction_activated()
 void Form1::on_helpAboutAction_activated()
 {
 FAbout f2;    
-  f2.ui.setupUi(&f2);
 QString  text0=f2.ui.textLabel1->text();
   text0.replace("x.y.z",VERSION);
   f2.ui.textLabel1->setText(text0);
@@ -933,7 +932,7 @@ void Form1::on_helpIndexAction_activated()
   }
   else
   {
-   char loc[10];
+   char loc[20];
     strcpy(loc, QTextCodec::locale());
    char * finloc=strchr(loc,'_');
     if (finloc) finloc[0]=0;
