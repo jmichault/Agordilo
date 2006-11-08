@@ -36,29 +36,37 @@ void Form1::on_helpContentsAction_activated()
  QStringList paths;
  char cfic[500];
  struct stat buf;
-  sprintf(cfic,"/usr/share/doc/accordeur/help_%s.html",QTextCodec::locale());
+ QString locale = QLocale::system().name();
+ char loc[20];
+  strcpy(loc, locale.toLocal8Bit().data());
+  sprintf(cfic,"/usr/share/doc/accordeur/help_%s.html",loc);
   if ( ! stat(cfic, &buf))
   {
-     sprintf(cfic,"help_%s.html",QTextCodec::locale());
+     sprintf(cfic,"help_%s.html",locale.toLocal8Bit().data());
       nomfic=cfic;
   }
   else
   {
-   char loc[20];
-    strcpy(loc, QTextCodec::locale());
    char * finloc=strchr(loc,'_');
     if (finloc) finloc[0]=0;
-    sprintf(cfic,"doc/help_%s.html",loc);
+    sprintf(cfic,"/usr/share/doc/accordeur/help_%s.html",loc);
     if ( ! stat(cfic, &buf))
     {
       sprintf(cfic,"help_%s.html",loc);
       nomfic=cfic;
-      path="doc";
     }
     else
     {
-      nomfic="help.html";
-      path="doc";
+      sprintf(cfic,"doc/help_%s.html",loc);
+      if ( ! stat(cfic, &buf))
+      {
+        sprintf(cfic,"help_%s.html",loc);
+        nomfic=cfic;
+      }
+      else
+      {
+        nomfic="help.html";
+      }
     }
   }
   fh=new FHelp;
@@ -436,6 +444,11 @@ void Form1::timerEvent( QTimerEvent * )
   //  fréquence idéale :
   ui.TLFreqId->setText(QString("%1").arg(PitchToFreq(Pitch),6,'f',2));
   //printf("gotPitch=%d, avg_abs=%lf, db=%lf,maxdb=%lf\n",gotPitch,avg_abs,db,maxdb);
+    // nettoyage du canevas :
+  for (Q3CanvasItemList::Iterator it=l.begin(); it!=l.end(); ++it) 
+    {
+	delete *it;
+    }
   if (gotPitch) 
   {
     ui.TLNote->setText (pitchname);
@@ -688,11 +701,6 @@ void Form1::timerEvent( QTimerEvent * )
     */
   }
     
-    // nettoyage du canevas :
-  for (Q3CanvasItemList::Iterator it=l.begin(); it!=l.end(); ++it) 
-    {
-	delete *it;
-    }
   if(ui.tabWidget2->currentIndex() != 3) {
   // trait rouge de la note :
   line  = new Q3CanvasLine(c);
@@ -910,9 +918,9 @@ void Form1::on_fileExitAction_activated()
 void Form1::on_helpAboutAction_activated()
 {
 FAbout f2;    
-QString  text0=f2.ui.textLabel1->text();
+QString  text0=f2.textLabel1->text();
   text0.replace("x.y.z",VERSION);
-  f2.ui.textLabel1->setText(text0);
+  f2.textLabel1->setText(text0);
   f2.exec();
 }
 
@@ -924,29 +932,39 @@ void Form1::on_helpIndexAction_activated()
  QStringList paths;
  char cfic[500];
  struct stat buf;
-  sprintf(cfic,"/usr/share/doc/accordeur/index_%s.html",QTextCodec::locale());
+ QString locale = QLocale::system().name();
+ char loc[20];
+  strcpy(loc, locale.toLocal8Bit().data());
+  sprintf(cfic,"/usr/share/doc/accordeur/index_%s.html",loc);
   if ( ! stat(cfic, &buf))
   {
-     sprintf(cfic,"index_%s.html",QTextCodec::locale());
+     sprintf(cfic,"index_%s.html",loc);
       nomfic=cfic;
   }
   else
   {
-   char loc[20];
-    strcpy(loc, QTextCodec::locale());
    char * finloc=strchr(loc,'_');
     if (finloc) finloc[0]=0;
-    sprintf(cfic,"doc/index_%s.html",loc);
+    sprintf(cfic,"/usr/share/doc/accordeur/index_%s.html",loc);
     if ( ! stat(cfic, &buf))
     {
       sprintf(cfic,"index_%s.html",loc);
       nomfic=cfic;
-      path="doc";
     }
     else
     {
-      nomfic="index.html";
-      path="doc";
+      sprintf(cfic,"doc/index_%s.html",loc);
+      if ( ! stat(cfic, &buf))
+      {
+        sprintf(cfic,"index_%s.html",loc);
+        nomfic=cfic;
+        path="doc";
+      }
+      else
+      {
+        nomfic="index.html";
+        path="doc";
+      }
     }
   }
   fh=new FHelp;

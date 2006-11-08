@@ -1,13 +1,12 @@
 #include <QDialog>
 #include "ui_fabout.h"
 
-class FAbout : public QDialog
+class FAbout : public QDialog, public Ui::FAbout
 {
 Q_OBJECT
 
 public:
  FAbout();
- Ui::FAbout ui;
 private slots:
 void on_pushButton4_clicked();
 

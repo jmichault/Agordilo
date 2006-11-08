@@ -17,6 +17,7 @@ UI_DIR = ui
 MOC_DIR = moc
 DISTFILES=images/*.png
 DISTFILES+=instruments.txt
+DISTFILES+=temperaments.txt
 DISTFILES+=doc/[!CVS]*
 DISTFILES+=*.h
 DISTFILES+=accordeur.menu
@@ -30,7 +31,7 @@ win32:libportaudio.target = .\lib\portaudio\pa_win_wmme\libportaudio.dll.a
 unix:libportaudio.commands = cd lib/portaudio;make
 win32:libportaudio.commands = mingw32-make -C lib/portaudio -f Makefile.mingw32
 libportaudio.depends =  ./lib/portaudio/pa_common/pa_lib.c ./lib/portaudio/pa_unix_oss/pa_unix_oss.c
-DEFINES += VERSION=\"$$RELEASE\"
+DEFINES += VERSION=\\\"$$RELEASE\\\"
 
 QMAKE_EXTRA_TARGETS += libportaudio
 unix:PRE_TARGETDEPS += lib/portaudio/pa_unix_oss/libportaudio.a

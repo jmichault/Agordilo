@@ -1,4 +1,4 @@
-VERSION=`grep VERSION accordeur.pro|sed "s/VERSION=-//"`
+VERSION=`grep "^RELEASE" accordeur.pro|sed "s/RELEASE=//"`
 
 mkdir ~/rpm
 mkdir ~/rpm/SPECS

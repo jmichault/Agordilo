@@ -5,7 +5,7 @@
 FAbout::FAbout()
 	    : QDialog()
 {
-	    ui.setupUi(this);
+   setupUi(this);
 }
 
 void FAbout::on_pushButton4_clicked()
