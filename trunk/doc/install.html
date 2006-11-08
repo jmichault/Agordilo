@@ -59,8 +59,7 @@
  style="font-weight: bold; font-style: italic;"><span
  style="font-weight: bold; font-style: italic;"><br>
       <a
- href="file:///mnt/ordi1/home2/jean/projets/cvss/accordeur/accordeur/doc/install.html">
-Install</a></span></span></span></td>
+ href="file:///mnt/ordi1/home2/jean/projets/cvss/accordeur/accordeur/doc/install.html">Install</a></span></span></span></td>
       <td style="vertical-align: top;"><span
  style="font-weight: bold; font-style: italic;"><span
  style="font-weight: bold; font-style: italic;">How to install :</span><br>
@@ -69,15 +68,12 @@ and windows binaries are available on <a
  href="http://sourceforge.net/project/showfiles.php?group_id=103382">sourceforge</a>.<br>
 &nbsp; Linux :<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
- style="color: rgb(255, 0, 0);">tar zxf&nbsp; accordeur*.tgz<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cd accordeur<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ./install<br>
-      </span> </span><span
- style="font-weight: bold; font-style: italic;"><br>
+ style="color: rgb(255, 0, 0);">rpm -i accordeur-x.x.x-x.i586.rpm<br>
+      </span></span><span style="font-weight: bold; font-style: italic;"><br>
       <span style="font-weight: bold; font-style: italic;">How to
 compile :</span><br>
 &nbsp;&nbsp; &nbsp;</span><span style="font-style: italic;"> You need
-gcc and qt3-designer.<br>
+gcc and qt4-designer.<br>
       <ul>
         <li>extract sources :</li>
       </ul>
@@ -85,19 +81,12 @@ gcc and qt3-designer.<br>
  style="color: rgb(255, 0, 0);">tar zxf accordeur-x.x.x-src.tar.gz</span><br
  style="color: rgb(255, 0, 0);">
       <ul>
-        <li>compile portaudio library :<br>
-        </li>
-      </ul>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span
- style="color: rgb(255, 0, 0);">cd accordeur/lib/portaudio<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; make<br>
-      </span><span style="color: rgb(255, 0, 0);"></span>
-      <ul>
         <li>compile accordeur :<br>
         </li>
       </ul>
 &nbsp;&nbsp;<span style="color: rgb(255, 0, 0);">&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cd ../..<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cd accordeur<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; qmake<br>
 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; make</span></span></td>
     </tr>
   </tbody>

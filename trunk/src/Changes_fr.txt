@@ -1,3 +1,8 @@
+version 1.0.2 :
+ - correction de bugs dans l'appel de l'aide en ligne
+ - ajout du fichier des temperaments au .rpm
+version 1.0.1 :
+ - ajout du .rpm
 version 1.0.0 :
  - sauvegarde des préférences
  - quelques bugs fixés.

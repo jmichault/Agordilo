@@ -61,40 +61,41 @@ disponibles sur <a
 &nbsp; Linux :<br>
 &nbsp;&nbsp;&nbsp; extraire l'ex&eacute;cutable o&ugrave; bon vous
 semble : <br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <span style="color: rgb(255, 0, 0);">tar
-zxf&nbsp; accordeur*.tgz<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cd accordeur<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ./install<br>
+      <span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span style="color: rgb(255, 0, 0);">rpm -i
+accordeur-x.x.x-x.i586.rpm<br>
+      </span></span><span style="color: rgb(255, 0, 0);"><br>
 &nbsp; </span> Windows :<br>
 &nbsp;&nbsp;&nbsp;&nbsp; pas d'installeur pour l'instant.<br>
-&nbsp;&nbsp;&nbsp;&nbsp; r&eacute;cup&eacute;rer le .zip ou le .7z, et
+&nbsp;&nbsp;&nbsp;&nbsp; r&eacute;cup&eacute;rer le .7z, et
 extraire le r&eacute;pertoire accordeur o&ugrave; bon vous semble, puis
 double-cliquer sur accordeur.exe.<br>
       <br>
       <span style="font-weight: bold; font-style: italic;">Compilation :</span><br>
 &nbsp;&nbsp; &nbsp; Vous avez besoin du compilateur gcc et de
-qt3-designer.<br>
+qt4-designer.<br>
       <ul>
         <li>extraire les sources :</li>
       </ul>
 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; <span
  style="color: rgb(255, 0, 0);">tar zxf accordeur-x.x.x-src.tar.gz</span><br
  style="color: rgb(255, 0, 0);">
+      <span style="color: rgb(255, 0, 0);"></span><span
+ style="color: rgb(255, 0, 0);"></span>
       <ul>
-        <li>compiler la librairie portaudio :<br>
-        </li>
-      </ul>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span
- style="color: rgb(255, 0, 0);">cd accordeur/lib/portaudio<br>
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; make<br>
-      </span><span style="color: rgb(255, 0, 0);"></span>
-      <ul>
-        <li>compiler accordeur :<br>
+        <li>compiler accordeur sous linux :<br>
         </li>
       </ul>
 &nbsp;&nbsp;<span style="color: rgb(255, 0, 0);">&nbsp;
-&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cd ../..<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cd accordeur<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; qmake<br>
 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; make</span></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
     </tr>
   </tbody>
 </table>

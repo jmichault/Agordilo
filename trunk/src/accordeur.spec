@@ -1,12 +1,12 @@
 %define         name 		accordeur
-%define         version 	1.0.1
+%define         version 	1.0.2
 
 # this needs to be changed depending on build number
-%define		release 	2
+%define		release 	1
 
 # This should be set to your os.
 # Possible values are  Mandrake, Red Hat, Turbolinux, Caldera, SuSE, Debian, etc.
-%define		ostype 		Mandrake
+%define		ostype 		Mandriva
 
 # This should be set to the version of your OS (6.0, 6.1, 6.2, 7.0, 7.1, 7.2, 8.0, etc.)
 %define		osversion 	2007.0
@@ -61,7 +61,7 @@ install -s -m 755 accordeur %{buildroot}/usr/bin
 #mkdir -p %{buildroot}/usr/share/applnk-mdk/Multimedia/Sound/
 #install -m 644 accordeur.desktop %{buildroot}/usr/share/applnk-mdk/Multimedia/Sound/
 mkdir -p %{buildroot}/usr/share/accordeur
-install -m 644 accordeur_*.qm instruments.txt %{buildroot}/usr/share/accordeur
+install -m 644 accordeur_*.qm *.txt %{buildroot}/usr/share/accordeur
 mkdir -p %{buildroot}/usr/share/doc/accordeur
 cp -Rp doc/* %{buildroot}/usr/share/doc/accordeur
 install -d %{buildroot}%{_menudir}
