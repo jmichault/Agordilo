@@ -1,7 +1,7 @@
-unix:LIBS	+= lib/portaudio/pa_unix_oss/libportaudio.a
+unix:LIBS	+= lib/portaudio/lib/libportaudio.a
 win32:LIBS        += ./lib/portaudio/pa_win_wmme/libportaudio.dll.a
 
-INCLUDEPATH	+= lib/portaudio/pa_common
+INCLUDEPATH	+= lib/portaudio/include
 QT +=  qt3support 
 HEADERS       = form1.h fabout.h fhelp.h
 RELEASE=1.0.2
@@ -26,11 +26,11 @@ DISTFILES+=accordeur*.png
 DISTFILES+= `cat lib.lst`
 OBJECTS_DIR = obj
 TRANSLATIONS = accordeur_fr.ts accordeur_ge.ts
-unix:libportaudio.target = lib/portaudio/pa_unix_oss/libportaudio.a
+unix:libportaudio.target = lib/portaudio/lib/libportaudio.a
 win32:libportaudio.target = .\lib\portaudio\pa_win_wmme\libportaudio.dll.a
 unix:libportaudio.commands = cd lib/portaudio;make
 win32:libportaudio.commands = mingw32-make -C lib/portaudio -f Makefile.mingw32
-libportaudio.depends =  ./lib/portaudio/pa_common/pa_lib.c ./lib/portaudio/pa_unix_oss/pa_unix_oss.c
+libportaudio.depends =  ./lib/portaudio/src/common/pa_stream.c
 DEFINES += VERSION=\\\"$$RELEASE\\\"
 
 QMAKE_EXTRA_TARGETS += libportaudio
