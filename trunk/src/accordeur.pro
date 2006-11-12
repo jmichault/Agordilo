@@ -1,4 +1,4 @@
-unix:LIBS	+= lib/portaudio/lib/libportaudio.a
+unix:LIBS	+= lib/portaudio/lib/libportaudio.a -ljack -lasound
 win32:LIBS        += ./lib/portaudio/pa_win_wmme/libportaudio.dll.a
 
 INCLUDEPATH	+= lib/portaudio/include
@@ -34,4 +34,4 @@ libportaudio.depends =  ./lib/portaudio/src/common/pa_stream.c
 DEFINES += VERSION=\\\"$$RELEASE\\\"
 
 QMAKE_EXTRA_TARGETS += libportaudio
-unix:PRE_TARGETDEPS += lib/portaudio/pa_unix_oss/libportaudio.a
+unix:PRE_TARGETDEPS += lib/portaudio/lib/libportaudio.a
