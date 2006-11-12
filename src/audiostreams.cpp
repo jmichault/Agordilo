@@ -23,6 +23,7 @@
 
 #include "audiostreams.h"
 #include <math.h>      // For asin(), sin()
+#include <string.h>      // For bzero
 #include "portaudio.h"
 #include <stdlib.h>    // For free()
 #include <stdio.h>     // For FILE, etc.
@@ -38,41 +39,14 @@ unsigned long WindowSize = 16384 >>  OCTAVE;
 //
 //////////////////////////////////////////////////
 double PortAudioInit::deviceSuggestedSampleRate() const {
-  const PaDeviceInfo *pdi = Pa_GetDeviceInfo(Pa_GetDefaultInputDeviceID());
-  double numRates = pdi->numSampleRates;
+  const PaDeviceInfo *pdi = Pa_GetDeviceInfo(Pa_GetDefaultInputDevice());
+  return (pdi->defaultSampleRate>44000.0?44000.0:pdi->defaultSampleRate);
 
-  // Let's not suggest higher than 44100-- there's no need, just more work
-  // Anyway, my "Microsoft Sound Mapper - Input" said it could do 96000
-  // but it freaked out when I tried it-- wrong pitches, etc. etc.
-  const double highestSuggested = 44100;
-
-  double suggested = 0;
-  if (-1 == numRates) {
-    // PortAudio tells us there are two rates in there
-    double max = 0;
-    for (int i=0; i<2; i++) {
-      double rate = pdi->sampleRates[i];
-      if (max < rate) { max = rate; }
-    }
-    suggested = max;
-    if (max > highestSuggested) { suggested = highestSuggested; }
-  }
-  else {
-    // Here are some rates, pick one
-    for (int i=0; i<numRates; i++) {
-      double rate = pdi->sampleRates[i];
-
-      if ((suggested < rate)
-          && (rate <= highestSuggested)) { suggested = rate; }
-    }
-  }
-
-  return suggested;
 }
 
 const char *
 PortAudioInit::deviceName() const {
-  const PaDeviceInfo *pdi = Pa_GetDeviceInfo(Pa_GetDefaultInputDeviceID());
+  const PaDeviceInfo *pdi = Pa_GetDeviceInfo(Pa_GetDefaultInputDevice());
   return pdi->name;
 }
 
@@ -89,9 +63,11 @@ PortAudioInit::deviceName() const {
  * This routine takes sound from inputBuffer (the recorded sound)
  * and jams it into a "data" buffer passed in by userData.
  */
-static int recordCallback(void *inputBuffer, void *outputBuffer,
+static int recordCallback(const void *inputBuffer, void *outputBuffer,
                           unsigned long framesPerBuffer,
-                          PaTimestamp outTime, void *userData )
+                          const PaStreamCallbackTimeInfo* timeInfo,
+                           PaStreamCallbackFlags statusFlags,
+			   void *userData )
 {
   paRecData *data = (paRecData*)userData;
   SAMPLE *rptr = (SAMPLE*)inputBuffer;
@@ -102,7 +78,8 @@ static int recordCallback(void *inputBuffer, void *outputBuffer,
   unsigned long framesLeft = data->maxFrameIndex - data->frameIndex;
 
   (void) outputBuffer; /* Prevent unused variable warnings. */
-  (void) outTime;
+  (void) timeInfo; /* Prevent unused variable warnings. */
+  (void) statusFlags; /* Prevent unused variable warnings. */
 	
   if( framesLeft < framesPerBuffer ) {
     framesToCalc = framesLeft;
@@ -168,23 +145,38 @@ bool recordStream::open(const PortAudioInit &init) {
   }
 
   /* Open record stream. -------------------------------------------- */
-  PaError err = 
+  /*
+ PaStreamParameters outputParameters;
+ PaStreamParameters inputParameters;
+  bzero( &inputParameters, sizeof( inputParameters ) );
+  inputParameters.channelCount = 1;
+  inputParameters.device = Pa_GetDefaultInputDevice();
+  inputParameters.hostApiSpecificStreamInfo = NULL;
+  inputParameters.sampleFormat = paFloat32;
+  inputParameters.suggestedLatency = Pa_GetDeviceInfo(Pa_GetDefaultInputDevice())->defaultLowInputLatency ;
+  inputParameters.hostApiSpecificStreamInfo = NULL;
+  bzero( &outputParameters, sizeof( outputParameters ) );
+
+ PaError err = 
     Pa_OpenStream(
                   &record_stream,
-                  Pa_GetDefaultInputDeviceID(),
-                  data.samplesPerFrame,
-                  PA_SAMPLE_TYPE,
-                  NULL,
-                  paNoDevice,
-                  0,
-                  PA_SAMPLE_TYPE,
-                  NULL,
+		  &inputParameters,
+                  &outputParameters,
                   m_sample_rate,
-                  1024,            /* frames per buffer */
-                  0,               /* number of buffers, if zero then use default minimum */
-                  paClipOff,  /* we won't output out of range samples so don't bother clipping them */
+                  1024,            // frames per buffer 
+                  paClipOff,  // we won't output out of range samples so don't bother clipping them 
                   recordCallback,
                   &data );
+  */
+  PaError err = Pa_OpenDefaultStream(
+                              &record_stream,
+			      1,
+                              0,
+			      paFloat32,
+                              m_sample_rate,
+                              1024,            /* frames per buffer */
+                              recordCallback,
+                              &data );
   if( err != paNoError ) goto error;
 
   err = Pa_StartStream( record_stream );
@@ -309,9 +301,10 @@ bool recordStream::audioSoFar(float& window_ms,
 ** It may be called at interrupt level on some machines so don't do anything
 ** that could mess up the system like calling malloc() or free().
 */
-static int playCallback(void *inputBuffer, void *outputBuffer,
+static int playCallback(const void *inputBuffer, void *outputBuffer,
                         unsigned long framesPerBuffer,
-                        PaTimestamp outTime, void *userData )
+			const PaStreamCallbackTimeInfo *timeInfo, PaStreamCallbackFlags statusFlags,
+                        void *userData )
 {
   paPlayData *data = (paPlayData*)userData;
   float& currentFreq = data->currentFreq;
@@ -350,7 +343,8 @@ static int playCallback(void *inputBuffer, void *outputBuffer,
 
   /* Prevent unused variable warnings. */
   (void) inputBuffer;
-  (void) outTime;
+  (void) timeInfo;
+  (void) statusFlags;
 
   float fadeAdjustment = data->maxAmplitude;
   for(unsigned int i=0; i<framesPerBuffer; i++ ) {
@@ -441,22 +435,37 @@ bool playStream::open(const PortAudioInit &init) {
     return false;
   }
   data.sample_rate = m_sample_rate = init.deviceSuggestedSampleRate();
+ PaStreamParameters outputParameters;
+ PaStreamParameters inputParameters;
+  bzero( &inputParameters, sizeof( inputParameters ) );
+  bzero( &outputParameters, sizeof( outputParameters ) );
+  outputParameters.channelCount = 1;
+  outputParameters.device = Pa_GetDefaultOutputDevice();
+  outputParameters.hostApiSpecificStreamInfo = NULL;
+  outputParameters.sampleFormat = paFloat32;
+  outputParameters.suggestedLatency = Pa_GetDeviceInfo(Pa_GetDefaultOutputDevice())->defaultLowOutputLatency ;
+  outputParameters.hostApiSpecificStreamInfo = NULL; //See you specific host's API docs for info on using this field
 
+
+/*
   PaError err = Pa_OpenStream(
                               &play_stream,
-                              paNoDevice,
-                              0,               /* NO input */
-                              PA_SAMPLE_TYPE,	
-                              NULL,
-                              Pa_GetDefaultOutputDeviceID(),
-                              data.samplesPerFrame,
-                              PA_SAMPLE_TYPE, 
-                              NULL,
+			      &inputParameters,
+                              &outputParameters,
+                              m_sample_rate,
+                              1024,            // frames per buffer 
+                              paNoFlag,        // let it do clipping 
+                              //                      paClipOff,       // we won't output out of range samples so don't bother clipping them 
+                              playCallback,
+                              &data );
+  */
+  PaError err = Pa_OpenDefaultStream(
+                              &play_stream,
+			      0,
+                              2,
+			      paFloat32,
                               m_sample_rate,
                               1024,            /* frames per buffer */
-                              0,               /* number of buffers, if zero then use default minimum */
-                              paNoFlag,        /* let it do clipping */
-                              //                      paClipOff,       /* we won't output out of range samples so don't bother clipping them */
                               playCallback,
                               &data );
   if( err != paNoError ) goto error;
