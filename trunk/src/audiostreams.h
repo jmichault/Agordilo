@@ -90,7 +90,7 @@ public:
   double m_sample_rate;
 private:
   paRecData data;
-  PortAudioStream *record_stream;
+  PaStream *record_stream;
   const char *m_err_str;
 };
 
@@ -118,7 +118,7 @@ public:
   void SetVolume(const float& amplitude);
 private:
   paPlayData data;
-  PortAudioStream *play_stream;
+  PaStream *play_stream;
   double m_sample_rate;
   const char * m_err_str;
 };
