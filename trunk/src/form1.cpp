@@ -80,7 +80,7 @@ extern QApplication *pApp;
 Q3Canvas *c;
 Q3CanvasView *cv;
 recordStream rstream;
-playStream pstream;
+//playStream pstream;
 int Pitch=69;
 static const int MIN_DB = -96;
 static const int BACKGROUND_DB = -54; 
@@ -134,11 +134,13 @@ void Form1::init()
             rstream.getErrStr());
     exit(1);
   }
+    /*
   if (!pstream.open(init)) {
     fprintf(stderr, "Error opening playing stream: %s\n",
             pstream.getErrStr());
     exit(2);
   }
+  */
   autocorr = new float[16384];
   autocorr2 = new float[16384];
   bruit = new float[16384];
@@ -382,7 +384,7 @@ void Form1::init()
 void Form1::destroy()
 {
   rstream.close();
-  pstream.close();
+//  pstream.close();
 }
 
 static float level2db(SAMPLE level) {
