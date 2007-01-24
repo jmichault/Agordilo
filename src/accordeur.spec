@@ -1,5 +1,5 @@
 %define         name 		accordeur
-%define         version 	1.0.2
+%define         version 	1.0.3
 
 # this needs to be changed depending on build number
 %define		release 	1
