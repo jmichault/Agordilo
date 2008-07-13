@@ -16,7 +16,7 @@ bindir = ${exec_prefix}/bin
 libdir = ${exec_prefix}/lib
 includedir = ${prefix}/include
 CC = gcc
-CFLAGS = -g -O2 -DPA_LITTLE_ENDIAN   -pthread -I$(top_srcdir)/include -I$(top_srcdir)/src/common -I$(top_srcdir)/src/os/unix -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DSIZEOF_SHORT=2 -DSIZEOF_INT=4 -DSIZEOF_LONG=4 -DHAVE_CLOCK_GETTIME=1 -DHAVE_NANOSLEEP=1 -DPA_USE_ALSA=1 -DPA_USE_JACK=1 -DPA_USE_OSS=1 
+CFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src/common -I$(top_srcdir)/src/os/unix -g -O2 -DPA_LITTLE_ENDIAN   -pthread -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DHAVE_SYS_SOUNDCARD_H=1 -DHAVE_LINUX_SOUNDCARD_H=1 -DSIZEOF_SHORT=2 -DSIZEOF_INT=4 -DSIZEOF_LONG=4 -DHAVE_CLOCK_GETTIME=1 -DHAVE_NANOSLEEP=1 -DPA_USE_ALSA=1 -DPA_USE_JACK=1 -DPA_USE_OSS=1 
 LIBS =  -lm -lpthread
 AR = /usr/bin/ar
 RANLIB = ranlib
@@ -25,7 +25,7 @@ INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 SHARED_FLAGS = -shared -fPIC
 LDFLAGS = 
-DLL_LIBS =  -lrt -lasound -ljack   -lm -lpthread
+DLL_LIBS =  -lrt -lasound -ljack -lpthread -lrt   -lm -lpthread
 CXXFLAGS = -g -O2
 NASM = 
 NASMOPT = 
@@ -35,12 +35,12 @@ LT_CURRENT=2
 LT_REVISION=0
 LT_AGE=0
 
-OTHER_OBJS =  src/hostapi/alsa/pa_linux_alsa.o src/hostapi/jack/pa_jack.o src/hostapi/oss/pa_unix_oss.o src/os/unix/pa_unix_hostapis.o src/os/unix/pa_unix_util.o
+OTHER_OBJS =  src/hostapi/alsa/pa_linux_alsa.o src/hostapi/jack/pa_jack.o src/common/pa_ringbuffer.o src/hostapi/oss/pa_unix_oss.o src/os/unix/pa_unix_hostapis.o src/os/unix/pa_unix_util.o
 
 PALIB = libportaudio.a
 PAINC = include/portaudio.h
 
-PA_LDFLAGS = $(LDFLAGS) $(SHARED_FLAGS) -rpath $(libdir) -no-undefined -export-symbols-regex "Pa_.*" -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
+PA_LDFLAGS = $(LDFLAGS) $(SHARED_FLAGS) -rpath $(libdir) -no-undefined -export-symbols-regex "(Pa|PaMacCore)_.*" -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
 #MAKEFILE = Makefile
 
 COMMON_OBJS = \
@@ -48,6 +48,7 @@ COMMON_OBJS = \
 	src/common/pa_converters.o \
 	src/common/pa_cpuload.o \
 	src/common/pa_dither.o \
+	src/common/pa_debugprint.o \
 	src/common/pa_front.o \
 	src/common/pa_process.o \
 	src/common/pa_skeleton.o \
@@ -80,10 +81,12 @@ TESTS = \
 	bin/patest_saw \
 	bin/patest_sine8 \
 	bin/patest_sine \
+	bin/patest_sine_channelmaps \
 	bin/patest_sine_formats \
 	bin/patest_sine_time \
 	bin/patest_start_stop \
 	bin/patest_stop \
+	bin/patest_stop_playout \
 	bin/patest_toomanysines \
 	bin/patest_underflow \
 	bin/patest_wire \
@@ -117,13 +120,15 @@ LTOBJS:= $(OBJS:.o=.lo)
 SUBDIRS =
 #SUBDIRS += bindings/cpp
 
-all: lib/$(PALIB) all-recursive
+all: lib/$(PALIB) all-recursive tests
 
 tests: bin-stamp $(TESTS)
 
 
 lib/$(PALIB): lib-stamp $(OBJS) $(MAKEFILE) $(PAINC)
 	ar rcu lib/$(PALIB) $(OBJS)
+#lib/$(PALIB): lib-stamp $(LTOBJS) $(MAKEFILE) $(PAINC)
+#	$(LIBTOOL) --mode=link $(CC) $(PA_LDFLAGS) -o lib/$(PALIB) $(LTOBJS) $(DLL_LIBS)
 
 $(ALL_TESTS): bin/%: lib/$(PALIB) $(MAKEFILE) $(PAINC) test/%.c
 	$(LIBTOOL) --mode=link $(CC) -o $@ $(CFLAGS) $(top_srcdir)/test/$*.c lib/$(PALIB) $(LIBS)
@@ -179,9 +184,21 @@ bin-stamp:
 
 lib-stamp:
 	-mkdir lib
-	-mkdir -p src/os/win src/os/unix src/os/mac_osx src/common \
-src/hostapi/oss src/hostapi/alsa src/hostapi/jack src/hostapi/asihpi \
-src/hostapi/wmme src/hostapi/wdmks src/hostapi/dsound src/hostapi/wasapi
+	-mkdir -p \
+		src/common \
+		src/hostapi/alsa \
+		src/hostapi/asihpi \
+		src/hostapi/asio \
+		src/hostapi/coreaudio \
+		src/hostapi/dsound \
+		src/hostapi/jack \
+		src/hostapi/oss \
+		src/hostapi/wasapi \
+		src/hostapi/wdmks \
+		src/hostapi/wmme \
+		src/os/mac_osx \
+		src/os/unix \
+		src/os/win
 	touch $@
 
 Makefile: Makefile.in config.status

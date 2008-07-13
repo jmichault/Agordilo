@@ -72,7 +72,7 @@
 #include "pa_allocation.h"
 #include "pa_cpuload.h"
 #include "pa_process.h"
-#include "ringbuffer.h"
+#include "pa_ringbuffer.h"
 
 #include "pa_mac_core_blocking.h"
 
@@ -133,12 +133,13 @@ typedef struct PaMacCoreStream
     size_t outputFramesPerBuffer;
     PaMacBlio blio;
     /* We use this ring buffer when input and out devs are different. */
-    RingBuffer inputRingBuffer;
+    PaUtilRingBuffer inputRingBuffer;
     /* We may need to do SR conversion on input. */
     AudioConverterRef inputSRConverter;
     /* We need to preallocate an inputBuffer for reading data. */
     AudioBufferList inputAudioBufferList;
     AudioTimeStamp startTime;
+    /* FIXME: instead of volatile, these should be properly memory barriered */
     volatile PaStreamCallbackFlags xrunFlags;
     volatile bool isTimeSet;
     volatile enum {
@@ -146,7 +147,8 @@ typedef struct PaMacCoreStream
                                 and the user has called StopStream(). */
        CALLBACK_STOPPED = 1, /* callback has requested stop,
                                 but user has not yet called StopStream(). */
-       STOPPING         = 2, /* The stream is in the process of closing.
+       STOPPING         = 2, /* The stream is in the process of closing
+                                because the user has called StopStream.
                                 This state is just used internally;
                                 externally it is indistinguishable from
                                 ACTIVE.*/
