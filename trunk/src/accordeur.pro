@@ -28,7 +28,7 @@ OBJECTS_DIR = obj
 TRANSLATIONS = accordeur_fr.ts accordeur_ge.ts
 unix:libportaudio.target = lib/portaudio/lib/libportaudio.a
 win32:libportaudio.target = .\lib\portaudio\pa_win_wmme\libportaudio.dll.a
-unix:libportaudio.commands = cd lib/portaudio;make
+unix:libportaudio.commands = cd lib/portaudio;make lib/libportauio.a
 win32:libportaudio.commands = mingw32-make -C lib/portaudio -f Makefile.mingw32
 libportaudio.depends =  ./lib/portaudio/src/common/pa_stream.c
 DEFINES += VERSION=\\\"$$RELEASE\\\"

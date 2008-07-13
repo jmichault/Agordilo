@@ -123,9 +123,13 @@ recordStream::~recordStream() {
 bool recordStream::open(const PortAudioInit &init) {
   if (init.error() != paNoError) {
     m_err_str = Pa_GetErrorText(init.error());
+    fprintf(stderr," erreur init %s\n",m_err_str);
     return false;
   }
   m_sample_rate = init.deviceSuggestedSampleRate();
+  fprintf(stderr,"sample rate = %lf\n",m_sample_rate);
+  //if(m_sample_rate==0)
+	  m_sample_rate = 44100.0;
 
   // Allow buffer space for at least this many seconds
   // If all of this fills up, the record stream will close
@@ -138,6 +142,7 @@ bool recordStream::open(const PortAudioInit &init) {
   if( data.recordedSamples == NULL ) {
     //    printf("Could not allocate record array.\n");
     m_err_str = "Couldn't allocate recording buffer";
+    fprintf(stderr," erreur open %s\n",m_err_str);
     return false;
   }
   for(int i=0; i<numSamples; i++ ) {
@@ -186,6 +191,7 @@ bool recordStream::open(const PortAudioInit &init) {
 
  error:
   m_err_str = Pa_GetErrorText(err);
+    fprintf(stderr," erreur open : %s\n",m_err_str);
   return false;
 }
 
